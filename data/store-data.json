@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T14:08:04.579Z",
+  "updatedAt": "2026-11-27T14:15:47.230Z",
   "products": [
     {
       "id": "p-1",
@@ -39,7 +39,7 @@
     }
   ],
   "music": {
-    "currentIndex": 0,
+    "currentIndex": 3,
     "tracks": [
       {
         "id": "tr-1",
@@ -71,20 +71,6 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/audio/1795788456201-warmness-on-the-soul-backing-track.mp3"
-      },
-      {
-        "id": "tr-1795788469852",
-        "title": "warmness on the soul (backing track)",
-        "artist": "Ewinth Revenge",
-        "cover": "",
-        "audioUrl": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/audio/1795788463314-warmness-on-the-soul-backing-track.mp3"
-      },
-      {
-        "id": "tr-1795788484578",
-        "title": "warmness on the soul (backing track)",
-        "artist": "Ewinth Revenge",
-        "cover": "",
-        "audioUrl": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/audio/1795788477263-warmness-on-the-soul-backing-track.mp3"
       }
     ]
   },
