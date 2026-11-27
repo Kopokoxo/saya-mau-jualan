@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-27T15:46:32.650Z",
+  "updatedAt": "2026-11-27T15:48:31.481Z",
   "products": [
+    {
+      "id": "prod-1795794511480",
+      "name": "Jasa Setup & Optimasi Sistem All Gadget",
+      "category": "jasa layanan",
+      "price": 150000,
+      "stock": 109,
+      "image": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/jasa-layanan/1795794507209-1-jasa-setup-optimasi-sistem-all-gadget.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/jasa-layanan/1795794507209-1-jasa-setup-optimasi-sistem-all-gadget.jpg"
+      ],
+      "description": "Jasa Setup & Optimasi Sistem All Gadget by Ewinth Revenge\nBikin performa HP, tablet, atau laptop kembali ngebut seperti baru! Layanan pembersihan menyeluruh mulai dari hapus bloatware bawaan yang memberatkan, basmi adware (iklan mengganggu), pembersihan system cache mendalam, hingga pengaturan bootloader & sistem agar perangkat lebih ringan, hemat baterai, dan bebas lag.\n\nRincian Layanan Utama (Untuk Katalog / Detail Jasa)\n\n• Hapus Bloatware (Debloating)\nMenonaktifkan dan menghapus aplikasi bawaan pabrik yang tidak terpakai namun terus berjalan di latar belakang, sehingga kapasitas RAM dan penyimpanan internal menjadi jauh lebih lega.\n• Pembersihan Adware & Malware Ringan\nMendeteksi serta membasmi program penyusup penyebab iklan pop-up tiba-tiba, aplikasi tersembunyi, dan pelacakan latar belakang yang menguras kuota serta memperlambat kinerja perangkat.\n• Deep Cache & Junk Cleaning\nMembersihkan tumpukan file sampah sistem, cache aplikasi yang menumpuk, dan residu update lama tanpa menghapus data penting pengguna (foto, dokumen, dan akun tetap aman).\n• Setup & Konfigurasi Bootloader / Sistem\nPengaturan akses tingkat sistem (unlock/relock bootloader sesuai kebutuhan), optimalisasi proses booting, serta penyesuaian manajemen daya dan performa CPU/GPU agar respons perangkat lebih stabil dan tidak cepat panas.\n\nKeunggulan Layanan (Value Proposition)\n\n• Kompatibel untuk All Gadget: Mendukung berbagai perangkat berbasis Android, Windows, maupun ekosistem pendukung lainnya.\n• Aman & Terukur: Proses dilakukan secara teliti tanpa mengganggu fungsi utama sistem atau menghapus data pribadi pengguna."
+    },
     {
       "id": "prod-1795792043249",
       "name": "ir/impulse response",
