@@ -2390,6 +2390,15 @@
           { label: "Threads", url: "https://threads.net" },
           { label: "Email", url: "mailto:ceritasemalam001@gmail.com" },
           { label: "Telegram", url: "https://t.me" },
+          { label: "Kaskus", url: "https://www.kaskus.co.id" },
+          { label: "Reddit", url: "https://www.reddit.com" },
+          { label: "Twitch", url: "https://www.twitch.tv" },
+          { label: "Tumblr", url: "https://www.tumblr.com" },
+          { label: "Pinterest", url: "https://www.pinterest.com" },
+          { label: "OnlyFans", url: "https://onlyfans.com" },
+          { label: "GitHub", url: "https://github.com" },
+          { label: "Pornhub", url: "https://www.pornhub.com" },
+          { label: "XNXX", url: "https://www.xnxx.com" },
         ],
       };
 
@@ -3543,10 +3552,69 @@
         const socGrid = document.getElementById("contact-socials-grid");
         if (socGrid) {
           const socials = state.contact.socials || [];
+          const getSocialIcon = (label) => {
+            const key = String(label || "").toLowerCase();
+            if (key.includes("instagram")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`;
+            }
+            if (key === "x" || key.includes("twitter")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16"></path><path d="M20 4L4 20"></path></svg>`;
+            }
+            if (key.includes("discord")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`;
+            }
+            if (key.includes("tiktok")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>`;
+            }
+            if (key.includes("facebook")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>`;
+            }
+            if (key.includes("youtube")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>`;
+            }
+            if (key.includes("threads")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 11.5a3.5 3.5 0 1 0-3.5 3.5h3.5v-1.5"></path></svg>`;
+            }
+            if (key.includes("email") || key.includes("mail")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+            }
+            if (key.includes("telegram")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
+            }
+            if (key.includes("kaskus")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"></circle><path d="M9 7.5v9"></path><path d="M15 8.5l-5.5 3.5L15 15.5"></path></svg>`;
+            }
+            if (key.includes("reddit")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="6.5"></circle><circle cx="9.8" cy="13.5" r="1" fill="currentColor"></circle><circle cx="14.2" cy="13.5" r="1" fill="currentColor"></circle><path d="M9.8 16.5c1.3.9 3.1.9 4.4 0"></path><path d="M12 7.5l1.2-4 3.3.8"></path><circle cx="17.8" cy="4.5" r="1.4"></circle></svg>`;
+            }
+            if (key.includes("twitch")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v11l-4 4h-4l-3 3v-3H6V3z"></path><line x1="11" y1="8" x2="11" y2="12"></line><line x1="15" y1="8" x2="15" y2="12"></line></svg>`;
+            }
+            if (key.includes("tumblr")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4v4h4v3h-4v5.5c0 1.1.6 1.5 1.8 1.5H17v3h-2.8C11.4 21 10 19.3 10 16.8V11H8V8.5C9.8 8 10.6 6.4 10.8 4H13z"></path></svg>`;
+            }
+            if (key.includes("pinterest")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"></circle><path d="M10.5 21l1.6-6.2c.4.8 1.3 1.3 2.3 1.3 2.4 0 4.1-2 4.1-4.8 0-2.6-2.1-4.5-5-4.5-3.4 0-5.4 2.2-5.4 4.8 0 1.2.4 2.2 1.3 2.6.2.1.3 0 .4-.2l.4-1.5c0-.2 0-.3-.2-.5-.3-.4-.5-.9-.5-1.6 0-1.9 1.4-3.4 3.7-3.4 2 0 3.3 1.2 3.3 3 0 2.2-1 3.7-2.4 3.7-.8 0-1.3-.6-1.1-1.4.2-.9.6-1.9.6-2.5 0-.6-.3-1.1-.9-1.1-.8 0-1.4.8-1.4 1.9 0 .7.2 1.2.2 1.2L9.5 17"></path></svg>`;
+            }
+            if (key.includes("onlyfans")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="12" r="5"></circle><circle cx="9.5" cy="12" r="1.6" fill="currentColor"></circle><path d="M15.5 9.5h5"></path><path d="M15.5 12.5h4"></path><path d="M15.5 9.5v6"></path></svg>`;
+            }
+            if (key.includes("github")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
+            }
+            if (key.includes("pornhub")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="3"></rect><circle cx="7.5" cy="12" r="1.4" fill="currentColor"></circle><path d="M12 9.5v5"></path><path d="M12 9.5h2.2a1.4 1.4 0 0 1 0 2.8H12"></path><path d="M17.5 10.5v2.2a1.3 1.3 0 0 0 2.6 0v-2.2"></path></svg>`;
+            }
+            if (key.includes("xnxx")) {
+              return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="3"></rect><path d="M6.5 9.8l3.2 4.4"></path><path d="M9.7 9.8l-3.2 4.4"></path><path d="M13 14.2V9.8l3.2 4.4V9.8"></path></svg>`;
+            }
+            return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+          };
           socGrid.innerHTML = socials
             .map(
               (s) => `
                 <a href="${escapeHtml(s.url || "#")}" target="_blank" rel="noopener noreferrer" class="social-link-card">
+                  <span style="display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent-bright)">${getSocialIcon(s.label)}</span>
                   <span class="social-link-label">${escapeHtml(s.label || "Link")}</span>
                 </a>
               `
