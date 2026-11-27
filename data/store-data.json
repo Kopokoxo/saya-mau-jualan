@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-27T14:20:09.550Z",
+  "updatedAt": "2026-11-27T14:23:11.634Z",
   "products": [
     {
-      "id": "p-1",
-      "name": "wallpaper anime-power",
-      "category": "barang baru",
-      "price": 10000,
-      "stock": 100000,
-      "image": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/barang-baru/1795774576451-powers.jpg",
-      "description": "wallpaper keren POWER (the chainsawman) kualitas hd untuk PC,Laptop,Tab"
+      "id": "prod-1795789391633",
+      "name": "CUSTOM ROM ALL ANDROID",
+      "category": "jasa layanan",
+      "price": 250000,
+      "stock": 1000,
+      "image": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/jasa-layanan/1795789389136-custom-rom-all-android.webp",
+      "description": "CAPEK DENGAN TAMPILAN DAN SYSTEM ANDROID LAMA ,CUSTOM ROM SOLUSINYA"
     },
     {
       "id": "p-2",
