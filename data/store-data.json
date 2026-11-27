@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T12:16:28.327Z",
+  "updatedAt": "2026-11-27T12:49:45.469Z",
   "products": [
     {
       "id": "p-1",
@@ -44,14 +44,14 @@
       "name": "JNE REG",
       "cost": 27000,
       "eta": "2-3 Hari",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "jnt",
       "name": "J&T Express",
       "cost": 27000,
       "eta": "2-3 Hari",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "sicepat",
@@ -72,7 +72,7 @@
       "name": "Pos Indonesia",
       "cost": 27000,
       "eta": "3-5 Hari",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "tiki",
