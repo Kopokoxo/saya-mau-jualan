@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-27T15:05:04.366Z",
+  "updatedAt": "2026-11-27T15:07:23.250Z",
   "products": [
+    {
+      "id": "prod-1795792043249",
+      "name": "ir/impulse response",
+      "category": "barang baru",
+      "price": 10000,
+      "stock": 27,
+      "image": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/barang-baru/1795792040231-1-ir-impulse-response.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/barang-baru/1795792040231-1-ir-impulse-response.jpg"
+      ],
+      "description": "yang butuhimpulse response bergagai cabinet Marshall ,messa,engl,peavy,fender,orange,randal,dan lainnya untuk kebutuhan multi efek yang suport ir"
+    },
     {
       "id": "prod-1795789391633",
       "name": "CUSTOM ROM ALL ANDROID",
