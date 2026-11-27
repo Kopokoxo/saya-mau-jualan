@@ -1844,6 +1844,28 @@
 
       <div id="admin-sec-pembayaran" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
+          <strong>Pilihan &amp; Tambah Metode Pembayaran (Sinkron ke Checkout)</strong>
+          <p style="margin:0;font-size:12px;color:var(--text-muted)">Pilih metode pembayaran aktif, edit keterangannya, atau tambahkan metode pembayaran baru agar langsung muncul di halaman Checkout.</p>
+          <div class="form-grid-2">
+            <select id="admin-payment-select" class="field-select" aria-label="Pilih Metode Pembayaran"></select>
+            <input id="admin-payment-detail-input" type="text" class="field-input" placeholder="Keterangan metode pembayaran terpilih (mis. No. Rek / Instruksi)" />
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+            <label style="font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer">
+              <input id="admin-payment-enabled-chk" type="checkbox" checked />
+              <span>Aktifkan metode pembayaran terpilih di Checkout</span>
+            </label>
+            <button id="admin-apply-payment-opt-btn" type="button" class="btn-secondary" style="padding:6px 11px;font-size:12px">Terapkan Pilihan Metode</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <input id="admin-new-pay-label" type="text" class="field-input" style="flex:1 1 170px" placeholder="Nama metode baru (mis. SeaBank / Kredivo)" />
+            <input id="admin-new-pay-detail" type="text" class="field-input" style="flex:1 1 200px" placeholder="Detail / instruksi pembayaran baru" />
+            <button id="admin-add-payment-btn" type="button" class="btn-secondary">+ Tambah Metode</button>
+          </div>
+          <div id="admin-payments-list" style="display:flex;flex-direction:column;gap:6px"></div>
+        </div>
+
+        <div class="info-box-card" style="gap:8px">
           <strong>Kontak &amp; QRIS</strong>
           <div class="form-grid-2">
             <input id="admin-wa-input" type="text" class="field-input" placeholder="Nomor WhatsApp (mis. 083862722618)" />
@@ -2812,12 +2834,55 @@
           document.getElementById("admin-promo-img-url").value = state.promo.image || "";
         }
         if (state.adminTab === "pembayaran") {
+          renderAdminPaymentsEditor();
           document.getElementById("admin-wa-input").value = state.contact.wa || "";
           document.getElementById("admin-email-input").value = state.contact.email || "";
           document.getElementById("admin-address-input").value = state.contact.address || "";
           document.getElementById("admin-qris-url-input").value = state.contact.qrisImage || "";
         }
         if (state.adminTab === "backup") refreshAdminJsonBox();
+      }
+
+      function renderAdminPaymentsEditor() {
+        const sel = document.getElementById("admin-payment-select");
+        const detInp = document.getElementById("admin-payment-detail-input");
+        const enChk = document.getElementById("admin-payment-enabled-chk");
+        const listEl = document.getElementById("admin-payments-list");
+        if (!Array.isArray(state.payments) || !state.payments.length) {
+          state.payments = DEFAULT_PAYMENTS.map((p) => ({ ...p }));
+        }
+        const current = state.payments.find((p) => p.id === state.selectedPaymentId) || state.payments[0];
+        if (current) state.selectedPaymentId = current.id;
+
+        if (sel) {
+          sel.innerHTML = state.payments
+            .map(
+              (p) =>
+                `<option value="${escapeHtml(p.id)}" ${p.id === state.selectedPaymentId ? "selected" : ""}>${escapeHtml(p.label)} (${p.enabled !== false ? "Aktif" : "Nonaktif"})</option>`
+            )
+            .join("");
+        }
+        if (detInp && current) detInp.value = current.detail || "";
+        if (enChk && current) enChk.checked = current.enabled !== false;
+
+        if (listEl) {
+          listEl.innerHTML = state.payments
+            .map(
+              (p) => `
+                <div class="info-box-card" style="flex-direction:row;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px">
+                  <div style="min-width:0">
+                    <strong style="font-size:12.5px">${escapeHtml(p.label)}</strong>
+                    <div style="font-size:11.5px;color:var(--text-muted)">${escapeHtml(p.detail || "-")} &bull; <strong>${p.enabled !== false ? "Aktif di Checkout" : "Nonaktif"}</strong></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+                    <button type="button" class="btn-secondary" style="padding:4px 8px;font-size:11px" data-toggle-pay="${escapeHtml(p.id)}">${p.enabled !== false ? "Nonaktifkan" : "Aktifkan"}</button>
+                    ${p.custom ? `<button type="button" class="btn-danger-soft" style="padding:4px 8px;font-size:11px" data-del-pay="${escapeHtml(p.id)}">Hapus</button>` : ""}
+                  </div>
+                </div>
+              `
+            )
+            .join("");
+        }
       }
 
       function renderAdminShippingList() {
@@ -3388,6 +3453,85 @@
           renderAdminShippingList();
           if (state.tab === "keranjang") renderCheckoutView();
           showToast("Kurir manual dihapus.");
+        });
+
+        document.getElementById("admin-payment-select")?.addEventListener("change", (e) => {
+          state.selectedPaymentId = e.target.value;
+          const found = state.payments.find((p) => p.id === state.selectedPaymentId);
+          const detInp = document.getElementById("admin-payment-detail-input");
+          const enChk = document.getElementById("admin-payment-enabled-chk");
+          if (found && detInp) detInp.value = found.detail || "";
+          if (found && enChk) enChk.checked = found.enabled !== false;
+          if (state.tab === "keranjang") renderCheckoutView();
+        });
+
+        document.getElementById("admin-apply-payment-opt-btn")?.addEventListener("click", async () => {
+          const selId = document.getElementById("admin-payment-select")?.value || state.selectedPaymentId;
+          const detVal = String(document.getElementById("admin-payment-detail-input")?.value || "").trim();
+          const isEn = Boolean(document.getElementById("admin-payment-enabled-chk")?.checked);
+          const target = state.payments.find((p) => p.id === selId);
+          if (!target) return;
+          target.detail = detVal;
+          target.enabled = isEn;
+          if (isEn) state.selectedPaymentId = target.id;
+          safeSetItem(STORAGE_KEYS.payments, JSON.stringify(state.payments));
+          renderAdminPaymentsEditor();
+          if (state.tab === "keranjang") renderCheckoutView();
+          if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+          showToast(`Metode "${target.label}" disinkronkan ke Checkout.`);
+        });
+
+        document.getElementById("admin-add-payment-btn")?.addEventListener("click", async () => {
+          const lblInp = document.getElementById("admin-new-pay-label");
+          const detInp = document.getElementById("admin-new-pay-detail");
+          const label = String(lblInp?.value || "").trim();
+          const detail = String(detInp?.value || "").trim() || "Pembayaran sesuai kesepakatan / konfirmasi pesanan.";
+          if (!label) return showToast("Isi nama metode pembayaran terlebih dahulu.");
+          const newPay = {
+            id: "pay-" + slugify(label, "metode") + "-" + Date.now().toString().slice(-4),
+            label,
+            detail,
+            enabled: true,
+            custom: true,
+          };
+          state.payments.push(newPay);
+          state.selectedPaymentId = newPay.id;
+          safeSetItem(STORAGE_KEYS.payments, JSON.stringify(state.payments));
+          if (lblInp) lblInp.value = "";
+          if (detInp) detInp.value = "";
+          renderAdminPaymentsEditor();
+          if (state.tab === "keranjang") renderCheckoutView();
+          if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+          showToast(`Metode pembayaran "${label}" ditambahkan ke Checkout.`);
+        });
+
+        document.getElementById("admin-payments-list")?.addEventListener("click", async (e) => {
+          const togBtn = e.target.closest("[data-toggle-pay]");
+          if (togBtn) {
+            const pid = togBtn.getAttribute("data-toggle-pay");
+            const item = state.payments.find((p) => p.id === pid);
+            if (!item) return;
+            item.enabled = item.enabled === false ? true : false;
+            if (item.enabled !== false) state.selectedPaymentId = item.id;
+            safeSetItem(STORAGE_KEYS.payments, JSON.stringify(state.payments));
+            renderAdminPaymentsEditor();
+            if (state.tab === "keranjang") renderCheckoutView();
+            if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+            showToast(`Status "${item.label}" diperbarui.`);
+            return;
+          }
+          const delBtn = e.target.closest("[data-del-pay]");
+          if (delBtn) {
+            const pid = delBtn.getAttribute("data-del-pay");
+            state.payments = state.payments.filter((p) => p.id !== pid);
+            const firstActive = state.payments.find((p) => p.enabled !== false) || state.payments[0];
+            if (firstActive) state.selectedPaymentId = firstActive.id;
+            safeSetItem(STORAGE_KEYS.payments, JSON.stringify(state.payments));
+            renderAdminPaymentsEditor();
+            if (state.tab === "keranjang") renderCheckoutView();
+            if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+            showToast("Metode pembayaran kustom dihapus.");
+          }
         });
 
         document.getElementById("admin-save-contact-btn")?.addEventListener("click", async () => {
