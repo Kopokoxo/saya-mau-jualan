@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T14:17:19.666Z",
+  "updatedAt": "2026-11-27T14:20:09.550Z",
   "products": [
     {
       "id": "p-1",
@@ -181,15 +181,6 @@
       "account": "Bayar tunai kepada kurir saat paket tiba",
       "note": "Berlaku untuk area layanan yang didukung.",
       "custom": false
-    },
-    {
-      "id": "pay-1795780303011",
-      "label": "DANA",
-      "group": "E-WALLET",
-      "account": "082328714848",
-      "note": "TERIMA KASIH",
-      "enabled": true,
-      "custom": true
     }
   ],
   "contact": {
