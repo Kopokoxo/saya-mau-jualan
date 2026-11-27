@@ -1556,6 +1556,16 @@
         <h3 style="margin:0 0 10px;font-size:15px;font-weight:800;color:var(--text-ink)">Media Sosial</h3>
         <div id="contact-socials-grid" class="social-grid"></div>
       </div>
+      <div class="panel-card">
+        <h3 style="margin:0 0 8px;font-size:15px;font-weight:800;color:var(--text-ink)">QRIS Pembayaran</h3>
+        <div class="qris-scan-card">
+          <strong style="font-size:13px">Scan QRIS SAYA MAU JUALAN</strong>
+          <div class="qris-frame-box scan-ready">
+            <img id="contact-qris-img" src="" alt="QRIS Pembayaran SAYA MAU JUALAN" />
+          </div>
+          <span style="font-size:11.5px;color:var(--text-muted)">Mendukung semua aplikasi Mobile Banking &amp; E-Wallet.</span>
+        </div>
+      </div>
       <div class="bmac-bottom-card">
         <div>
           <strong style="font-size:14px;color:var(--text-ink)">Dukung SAYA MAU JUALAN &amp; Ewinth Revenge</strong>
@@ -2689,6 +2699,10 @@
         if (mpBtn) mpBtn.href = state.contact.mapsUrl || DEFAULT_CONTACT.mapsUrl;
         if (popWa) popWa.href = waUrl;
         if (popEm) popEm.href = mailUrl;
+        const contactQrisImg = document.getElementById("contact-qris-img");
+        if (contactQrisImg) {
+          contactQrisImg.src = state.contact.qrisImage || svgPlaceholder("QRIS SAYA MAU JUALAN", "#0f172a");
+        }
 
         const grid = document.getElementById("contact-socials-grid");
         if (grid) {
