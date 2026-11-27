@@ -1537,13 +1537,19 @@
     <section id="view-kontak" class="view-section hidden">
       <div class="panel-card" style="display:flex;flex-direction:column;gap:10px">
         <h2 style="margin:0;font-size:18px;font-weight:800;color:var(--text-ink)">Kontak &amp; Lokasi</h2>
-        <div id="contact-wa-display" style="font-size:13px"></div>
-        <div id="contact-email-display" style="font-size:13px"></div>
-        <div id="contact-address-display" style="font-size:13px;color:var(--text-muted)"></div>
+        <div id="contact-wa-display" style="font-size:15px;font-weight:800;letter-spacing:0.015em;color:var(--accent-bright);background:var(--bg-subtle);border:1px solid var(--border-strong);border-radius:11px;padding:9px 12px"></div>
+        <div id="contact-email-display" style="font-size:14.5px;font-weight:800;letter-spacing:0.01em;color:var(--text-ink);background:var(--bg-subtle);border:1px solid var(--border-soft);border-radius:11px;padding:9px 12px;overflow-wrap:anywhere"></div>
+        <div id="contact-address-display" style="font-size:14.5px;font-weight:800;letter-spacing:0.01em;color:var(--text-ink);background:var(--bg-subtle);border:1px solid var(--border-soft);border-radius:11px;padding:9px 12px"></div>
+        <div style="width:100%;height:230px;border-radius:14px;overflow:hidden;border:1px solid var(--border-strong);background:var(--bg-elevated)">
+          <iframe id="contact-osm-iframe" title="Peta OpenStreetMap Blora Jawa Tengah" src="https://www.openstreetmap.org/export/embed.html?bbox=111.34%2C-7.03%2C111.49%2C-6.91&layer=mapnik&marker=-6.9692%2C111.4184" style="width:100%;height:100%;border:0;display:block" loading="lazy"></iframe>
+        </div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
           <a id="contact-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="contact-channel-btn primary-wa">Chat WhatsApp</a>
           <a id="contact-email-btn" href="#" class="contact-channel-btn">Kirim Email</a>
-          <a id="contact-maps-btn" href="#" target="_blank" rel="noopener noreferrer" class="contact-channel-btn">Buka Google Maps</a>
+          <a id="contact-maps-btn" href="#" target="_blank" rel="noopener noreferrer" class="contact-channel-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Buka Peta</span>
+          </a>
         </div>
       </div>
       <div class="panel-card">
@@ -1555,7 +1561,10 @@
           <strong style="font-size:14px;color:var(--text-ink)">Dukung SAYA MAU JUALAN &amp; Ewinth Revenge</strong>
           <div style="font-size:12px;color:var(--text-muted)">Apresiasi karya dan pengembangan toko mandiri.</div>
         </div>
-        <a id="bmac-support-link" href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="bmac-cta-btn">Buy Me a Coffee</a>
+        <a id="bmac-support-link" href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="bmac-cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          <span>Buy Me a Coffee</span>
+        </a>
       </div>
     </section>
 
@@ -1772,109 +1781,114 @@
 
       <div id="admin-sec-produk" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
-          <strong>Tambah / Upload Produk Baru &amp; Auto-Sync</strong>
-          <input id="gh-prod-title" type="text" class="field-input" placeholder="Nama produk" />
+          <strong>Tambah Produk Baru</strong>
           <div class="form-grid-2">
+            <input id="gh-prod-title" type="text" class="field-input" placeholder="Nama Produk *" />
             <select id="gh-prod-cat" class="field-select">
               <option value="barang baru">barang baru</option>
               <option value="barang second">barang second</option>
               <option value="barang preorder">barang preorder</option>
               <option value="jasa layanan">jasa layanan</option>
             </select>
-            <input id="gh-prod-price" type="number" min="0" step="100" class="field-input" placeholder="Harga (Rp)" value="50000" />
           </div>
           <div class="form-grid-2">
-            <input id="gh-prod-stock" type="number" min="0" step="1" class="field-input" placeholder="Stok" value="10" />
-            <input id="gh-prod-file" type="file" accept="image/*" class="field-input" />
+            <input id="gh-prod-price" type="number" min="0" step="500" class="field-input" placeholder="Harga (Rp)" />
+            <input id="gh-prod-stock" type="number" min="0" step="1" class="field-input" placeholder="Stok" />
           </div>
           <textarea id="gh-prod-desc" rows="2" class="field-textarea" placeholder="Deskripsi singkat produk"></textarea>
-          <button id="gh-upload-prod-btn" type="button" class="btn-primary">Simpan &amp; Upload Foto ke GitHub</button>
+          <input id="gh-prod-file" type="file" accept="image/*" class="field-input" />
+          <button id="gh-upload-prod-btn" type="button" class="btn-primary">Simpan Produk &amp; Sync</button>
           <div id="gh-prod-result" class="upload-result-box hidden"></div>
         </div>
-        <div id="admin-products-list" style="display:flex;flex-direction:column;gap:8px"></div>
+        <div class="info-box-card" style="gap:8px">
+          <strong>Daftar Produk Aktif</strong>
+          <div id="admin-products-list" style="display:flex;flex-direction:column;gap:6px"></div>
+        </div>
       </div>
 
       <div id="admin-sec-musik" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
-          <strong>Upload Lagu MP3 &amp; Cover Album Ewinth Revenge</strong>
-          <input id="gh-audio-title" type="text" class="field-input" placeholder="Judul lagu MP3" />
-          <div class="form-grid-2">
-            <div>
-              <label style="display:block;font-size:11.5px;font-weight:700;margin-bottom:4px;color:var(--text-muted)">File MP3 / Audio</label>
-              <input id="gh-audio-file" type="file" accept="audio/*,.mp3" class="field-input" />
-            </div>
-            <div>
-              <label style="display:block;font-size:11.5px;font-weight:700;margin-bottom:4px;color:var(--text-muted)">File Cover Album (Opsional)</label>
-              <input id="gh-audio-cover-file" type="file" accept="image/*" class="field-input" />
-            </div>
-          </div>
-          <button id="gh-upload-audio-btn" type="button" class="btn-primary">Upload MP3 &amp; Cover Album + Sync</button>
+          <strong>Upload Lagu MP3 &amp; Cover Album — Ewinth Revenge</strong>
+          <input id="gh-audio-title" type="text" class="field-input" placeholder="Judul Lagu *" />
+          <label style="font-size:12px;font-weight:700;color:var(--text-muted)">File Audio MP3 *</label>
+          <input id="gh-audio-file" type="file" accept="audio/*" class="field-input" />
+          <label style="font-size:12px;font-weight:700;color:var(--text-muted)">File Cover Album (Opsional)</label>
+          <input id="gh-audio-cover-file" type="file" accept="image/*" class="field-input" />
+          <button id="gh-upload-audio-btn" type="button" class="btn-primary">Upload Lagu &amp; Cover</button>
           <div id="gh-audio-result" class="upload-result-box hidden"></div>
         </div>
-        <div id="admin-music-list" style="display:flex;flex-direction:column;gap:8px"></div>
+        <div class="info-box-card" style="gap:8px">
+          <strong>Daftar Lagu Ewinth Revenge</strong>
+          <div id="admin-music-list" style="display:flex;flex-direction:column;gap:6px"></div>
+        </div>
       </div>
 
       <div id="admin-sec-promo" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
-          <strong>Pengaturan Promo, Foto Promo &amp; Keterangan Promo</strong>
-          <input id="admin-promo-title" type="text" class="field-input" placeholder="Judul Promo (mis. Promo Spesial Ewinth Revenge)" />
-          <textarea id="admin-promo-desc" rows="3" class="field-textarea" placeholder="Keterangan promo lengkap..."></textarea>
-          <input id="admin-promo-img-url" type="text" class="field-input" placeholder="URL Gambar Promo (atau pilih file foto promo di bawah)" />
+          <strong>Pengaturan Banner &amp; Halaman Promo</strong>
+          <input id="admin-promo-title" type="text" class="field-input" placeholder="Judul Promo" />
+          <textarea id="admin-promo-desc" rows="3" class="field-textarea" placeholder="Keterangan & detail promo"></textarea>
+          <input id="admin-promo-img-url" type="text" class="field-input" placeholder="URL Foto Promo (opsional)" />
           <input id="admin-promo-file" type="file" accept="image/*" class="field-input" />
-          <button id="admin-save-promo-btn" type="button" class="btn-primary">Simpan &amp; Sync Promo</button>
+          <button id="admin-save-promo-btn" type="button" class="btn-primary">Simpan Promo &amp; Sync</button>
           <div id="admin-promo-result" class="upload-result-box hidden"></div>
         </div>
       </div>
 
       <div id="admin-sec-pengiriman" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
-          <strong>Pengaturan Jasa Pengiriman &amp; Nilai Harga Manual</strong>
-          <p style="margin:0;font-size:12px;color:var(--text-muted)">Atur tarif manual tiap kurir, aktif/nonaktifkan, atau tambah jasa pengiriman baru beserta harganya.</p>
-          <div id="admin-shipping-list" style="display:flex;flex-direction:column;gap:8px"></div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
-            <input id="admin-new-ship-name" type="text" class="field-input" style="flex:1 1 180px" placeholder="Nama jasa pengiriman manual (mis. LION PARCEL)" />
-            <input id="admin-new-ship-cost" type="number" min="0" step="100" class="field-input" style="width:150px" placeholder="Harga / Ongkir (Rp)" />
+          <strong>Atur Ongkos Kirim &amp; Jasa Pengiriman</strong>
+          <div id="admin-shipping-list" style="display:flex;flex-direction:column;gap:6px"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <input id="admin-new-ship-name" type="text" class="field-input" style="flex:1 1 160px" placeholder="Nama Kurir Baru" />
+            <input id="admin-new-ship-cost" type="number" min="0" step="500" class="field-input" style="width:140px" placeholder="Tarif (Rp)" />
             <button id="admin-add-ship-btn" type="button" class="btn-secondary">+ Tambah Kurir</button>
           </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-            <button id="admin-save-shipping-btn" type="button" class="btn-primary">Simpan Pengaturan Kurir &amp; Sync</button>
-          </div>
+          <button id="admin-save-shipping-btn" type="button" class="btn-primary">Simpan Pengiriman &amp; Sync</button>
         </div>
       </div>
 
       <div id="admin-sec-pembayaran" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
         <div class="info-box-card" style="gap:8px">
-          <strong>Pilihan &amp; Tambah Metode Pembayaran (Sinkron ke Checkout)</strong>
-          <p style="margin:0;font-size:12px;color:var(--text-muted)">Pilih metode pembayaran aktif, edit keterangannya, atau tambahkan metode pembayaran baru agar langsung muncul di halaman Checkout.</p>
-          <div class="form-grid-2">
-            <select id="admin-payment-select" class="field-select" aria-label="Pilih Metode Pembayaran"></select>
-            <input id="admin-payment-detail-input" type="text" class="field-input" placeholder="Keterangan metode pembayaran terpilih (mis. No. Rek / Instruksi)" />
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
-            <label style="font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer">
-              <input id="admin-payment-enabled-chk" type="checkbox" checked />
-              <span>Aktifkan metode pembayaran terpilih di Checkout</span>
-            </label>
-            <button id="admin-apply-payment-opt-btn" type="button" class="btn-secondary" style="padding:6px 11px;font-size:12px">Terapkan Pilihan Metode</button>
-          </div>
+          <strong>Pilihan &amp; Tambah Metode Pembayaran (Tersinkron ke Checkout)</strong>
+          <select id="admin-payment-select" class="field-select"></select>
+          <input id="admin-payment-detail-input" type="text" class="field-input" placeholder="Instruksi / Nomor Rekening / Detail Pembayaran" />
+          <label style="font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer">
+            <input id="admin-payment-enabled-chk" type="checkbox" checked />
+            <span>Aktifkan metode pembayaran ini di Checkout</span>
+          </label>
+          <button id="admin-apply-payment-opt-btn" type="button" class="btn-secondary">Simpan Perubahan Metode Terpilih</button>
+          <div id="admin-payments-list" style="display:flex;flex-direction:column;gap:6px"></div>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
-            <input id="admin-new-pay-label" type="text" class="field-input" style="flex:1 1 170px" placeholder="Nama metode baru (mis. SeaBank / Kredivo)" />
-            <input id="admin-new-pay-detail" type="text" class="field-input" style="flex:1 1 200px" placeholder="Detail / instruksi pembayaran baru" />
+            <input id="admin-new-pay-label" type="text" class="field-input" style="flex:1 1 160px" placeholder="Nama Metode Baru (mis. SeaBank / DANA)" />
+            <input id="admin-new-pay-detail" type="text" class="field-input" style="flex:1 1 200px" placeholder="Detail / Nomor Tujuan" />
             <button id="admin-add-payment-btn" type="button" class="btn-secondary">+ Tambah Metode</button>
           </div>
-          <div id="admin-payments-list" style="display:flex;flex-direction:column;gap:6px"></div>
         </div>
 
         <div class="info-box-card" style="gap:8px">
-          <strong>Kontak &amp; QRIS</strong>
+          <strong>Kontak, Peta Lokasi &amp; QRIS</strong>
           <div class="form-grid-2">
             <input id="admin-wa-input" type="text" class="field-input" placeholder="Nomor WhatsApp (mis. 083862722618)" />
             <input id="admin-email-input" type="email" class="field-input" placeholder="Email resmi toko" />
           </div>
-          <input id="admin-address-input" type="text" class="field-input" placeholder="Alamat / Lokasi toko" />
+          <input id="admin-address-input" type="text" class="field-input" placeholder="Alamat / Lokasi toko (mis. Blora, Jawa Tengah, Indonesia)" />
+          <input id="admin-maps-url-input" type="text" class="field-input" placeholder="URL Peta Lokasi (opsional)" />
           <input id="admin-qris-url-input" type="text" class="field-input" placeholder="URL Gambar QRIS (atau upload gambar QRIS di bawah)" />
           <input id="admin-qris-file" type="file" accept="image/*" class="field-input" />
           <button id="admin-save-contact-btn" type="button" class="btn-primary">Simpan Kontak &amp; QRIS</button>
+        </div>
+
+        <div class="info-box-card" style="gap:8px">
+          <strong>Pengaturan Link Media Sosial &amp; Tambah Sosmed Lain</strong>
+          <p style="margin:0;font-size:12px;color:var(--text-muted)">Edit URL tiap media sosial atau tambahkan platform sosmed baru lalu klik Simpan Link Sosmed.</p>
+          <div id="admin-socials-list" style="display:flex;flex-direction:column;gap:6px"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <input id="admin-new-social-label" type="text" class="field-input" style="flex:1 1 150px" placeholder="Nama Sosmed Baru (mis. Spotify / LinkedIn)" />
+            <input id="admin-new-social-url" type="text" class="field-input" style="flex:1 1 210px" placeholder="URL Sosmed (https://...)" />
+            <button id="admin-add-social-btn" type="button" class="btn-secondary">+ Tambah Sosmed</button>
+          </div>
+          <button id="admin-save-socials-btn" type="button" class="btn-primary">Simpan Link Sosmed &amp; Sync</button>
         </div>
       </div>
 
@@ -2006,15 +2020,22 @@
       };
 
       const DEFAULT_CONTACT = {
-        wa: "083862722618",
+        wa: "082328714848",
         email: "ceritasemalam001@gmail.com",
-        address: "Surakarta, Jawa Tengah, Indonesia",
-        mapsUrl: "https://maps.google.com/?q=Surakarta+Jawa+Tengah",
+        address: "Blora, Jawa Tengah, Indonesia",
+        mapsUrl: "https://www.openstreetmap.org/?mlat=-6.9692&mlon=111.4184#map=13/-6.9692/111.4184",
+        osmEmbedUrl: "https://www.openstreetmap.org/export/embed.html?bbox=111.34%2C-7.03%2C111.49%2C-6.91&layer=mapnik&marker=-6.9692%2C111.4184",
         qrisImage: "",
         socials: [
           { label: "Instagram", url: "https://instagram.com" },
-          { label: "YouTube", url: "https://youtube.com" },
+          { label: "X", url: "https://x.com" },
+          { label: "Discord", url: "https://discord.com" },
           { label: "TikTok", url: "https://tiktok.com" },
+          { label: "Facebook", url: "https://facebook.com" },
+          { label: "YouTube", url: "https://youtube.com" },
+          { label: "Threads", url: "https://threads.net" },
+          { label: "Email", url: "mailto:ceritasemalam001@gmail.com" },
+          { label: "Telegram", url: "https://t.me" },
         ],
       };
 
@@ -2055,7 +2076,7 @@
       }
       function normalizeWaPhone(raw) {
         let d = String(raw || "").replace(/[^0-9]/g, "");
-        if (!d) return "6283862722618";
+        if (!d) return "6282328714848";
         if (d.startsWith("0")) d = "62" + d.slice(1);
         return d;
       }
@@ -2614,6 +2635,38 @@
         renderMusicView();
       }
 
+      function getSocialIconSvg(label) {
+        const key = String(label || "").toLowerCase().trim();
+        if (key.includes("instagram")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`;
+        }
+        if (key === "x" || key.includes("twitter")) {
+          return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
+        }
+        if (key.includes("discord")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>`;
+        }
+        if (key.includes("tiktok")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>`;
+        }
+        if (key.includes("facebook")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>`;
+        }
+        if (key.includes("youtube")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`;
+        }
+        if (key.includes("thread")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>`;
+        }
+        if (key.includes("email") || key.includes("mail")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`;
+        }
+        if (key.includes("telegram")) {
+          return `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>`;
+        }
+        return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+      }
+
       function renderContactView() {
         const waNum = normalizeWaPhone(state.contact.wa);
         const waUrl = `https://wa.me/${waNum}`;
@@ -2621,6 +2674,11 @@
         document.getElementById("contact-wa-display") && (document.getElementById("contact-wa-display").textContent = "WhatsApp: " + (state.contact.wa || DEFAULT_CONTACT.wa));
         document.getElementById("contact-email-display") && (document.getElementById("contact-email-display").textContent = "Email: " + (state.contact.email || DEFAULT_CONTACT.email));
         document.getElementById("contact-address-display") && (document.getElementById("contact-address-display").textContent = "Alamat: " + (state.contact.address || DEFAULT_CONTACT.address));
+        const osmFrame = document.getElementById("contact-osm-iframe");
+        if (osmFrame) {
+          const targetEmbed = state.contact.osmEmbedUrl || DEFAULT_CONTACT.osmEmbedUrl;
+          if (osmFrame.src !== targetEmbed) osmFrame.src = targetEmbed;
+        }
         const waBtn = document.getElementById("contact-wa-btn");
         const emBtn = document.getElementById("contact-email-btn");
         const mpBtn = document.getElementById("contact-maps-btn");
@@ -2634,8 +2692,16 @@
 
         const grid = document.getElementById("contact-socials-grid");
         if (grid) {
-          const socials = Array.isArray(state.contact.socials) ? state.contact.socials : DEFAULT_CONTACT.socials;
-          grid.innerHTML = socials.map((s) => `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer" class="social-link-card"><span class="social-link-label">${escapeHtml(s.label)}</span></a>`).join("");
+          const socials = Array.isArray(state.contact.socials) && state.contact.socials.length ? state.contact.socials : DEFAULT_CONTACT.socials;
+          grid.innerHTML = socials
+            .map((s) => {
+              const rawUrl = String(s.url || "").trim() || "#";
+              const isMail = rawUrl.toLowerCase().startsWith("mailto:");
+              const attrs = isMail ? "" : ` target="_blank" rel="noopener noreferrer"`;
+              const iconSvg = getSocialIconSvg(s.label);
+              return `<a href="${escapeHtml(rawUrl)}"${attrs} class="social-link-card">${iconSvg}<span class="social-link-label">${escapeHtml(s.label)}</span></a>`;
+            })
+            .join("");
         }
       }
 
@@ -2670,6 +2736,20 @@
           r.onerror = () => reject(new Error("Gagal membaca file gambar."));
           r.readAsDataURL(file);
         });
+      }
+
+      function hasGitHubConfig() {
+        const owner = String(document.getElementById("gh-owner-input")?.value || state.github.owner || "").trim();
+        const repo = String(document.getElementById("gh-repo-input")?.value || state.github.repo || "").trim();
+        const token = String(document.getElementById("gh-token-input")?.value || state.github.token || "").trim();
+        return Boolean(owner && repo && token);
+      }
+
+      async function uploadAssetOrFallback(file, repoPath, message) {
+        if (hasGitHubConfig()) {
+          return await commitToGitHub({ file, repoPath, message, overwrite: true });
+        }
+        return await fileToDataUrl(file);
       }
 
       async function getFileSha(owner, repo, branch, path, token) {
@@ -2829,18 +2909,47 @@
         if (state.adminTab === "produk") renderAdminProductsList();
         if (state.adminTab === "musik") renderAdminMusicList();
         if (state.adminTab === "promo") {
-          document.getElementById("admin-promo-title").value = state.promo.title || DEFAULT_PROMO.title;
-          document.getElementById("admin-promo-desc").value = state.promo.description || DEFAULT_PROMO.description;
-          document.getElementById("admin-promo-img-url").value = state.promo.image || "";
+          const pTitle = document.getElementById("admin-promo-title");
+          const pDesc = document.getElementById("admin-promo-desc");
+          const pImg = document.getElementById("admin-promo-img-url");
+          if (pTitle) pTitle.value = state.promo.title || DEFAULT_PROMO.title;
+          if (pDesc) pDesc.value = state.promo.description || DEFAULT_PROMO.description;
+          if (pImg) pImg.value = state.promo.image || "";
         }
         if (state.adminTab === "pembayaran") {
           renderAdminPaymentsEditor();
-          document.getElementById("admin-wa-input").value = state.contact.wa || "";
-          document.getElementById("admin-email-input").value = state.contact.email || "";
-          document.getElementById("admin-address-input").value = state.contact.address || "";
-          document.getElementById("admin-qris-url-input").value = state.contact.qrisImage || "";
+          renderAdminSocialsList();
+          const waInp = document.getElementById("admin-wa-input");
+          const emInp = document.getElementById("admin-email-input");
+          const adInp = document.getElementById("admin-address-input");
+          const mpInp = document.getElementById("admin-maps-url-input");
+          const qrInp = document.getElementById("admin-qris-url-input");
+          if (waInp) waInp.value = state.contact.wa || "";
+          if (emInp) emInp.value = state.contact.email || "";
+          if (adInp) adInp.value = state.contact.address || "";
+          if (mpInp) mpInp.value = state.contact.mapsUrl || DEFAULT_CONTACT.mapsUrl;
+          if (qrInp) qrInp.value = state.contact.qrisImage || "";
         }
         if (state.adminTab === "backup") refreshAdminJsonBox();
+      }
+
+      function renderAdminSocialsList() {
+        const listEl = document.getElementById("admin-socials-list");
+        if (!listEl) return;
+        if (!Array.isArray(state.contact.socials) || !state.contact.socials.length) {
+          state.contact.socials = DEFAULT_CONTACT.socials.map((x) => ({ ...x }));
+        }
+        listEl.innerHTML = state.contact.socials
+          .map(
+            (s, idx) => `
+              <div class="info-box-card" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px">
+                <input type="text" class="field-input" style="width:130px;padding:6px 8px;font-weight:700" data-soc-label="${idx}" value="${escapeHtml(s.label)}" placeholder="Nama Sosmed" />
+                <input type="text" class="field-input" style="flex:1 1 190px;padding:6px 8px" data-soc-url="${idx}" value="${escapeHtml(s.url)}" placeholder="https://... atau mailto:..." />
+                <button type="button" class="btn-danger-soft" style="padding:5px 9px;font-size:11px" data-del-soc="${idx}">Hapus</button>
+              </div>
+            `
+          )
+          .join("");
       }
 
       function renderAdminPaymentsEditor() {
@@ -3539,6 +3648,8 @@
             state.contact.wa = String(document.getElementById("admin-wa-input")?.value || DEFAULT_CONTACT.wa).trim();
             state.contact.email = String(document.getElementById("admin-email-input")?.value || DEFAULT_CONTACT.email).trim();
             state.contact.address = String(document.getElementById("admin-address-input")?.value || DEFAULT_CONTACT.address).trim();
+            const mapsVal = String(document.getElementById("admin-maps-url-input")?.value || "").trim();
+            if (mapsVal) state.contact.mapsUrl = mapsVal;
             let qrisUrl = String(document.getElementById("admin-qris-url-input")?.value || "").trim();
             const qrisFile = document.getElementById("admin-qris-file")?.files?.[0];
             if (qrisFile) {
@@ -3555,10 +3666,53 @@
             renderContactView();
             if (state.tab === "keranjang") renderCheckoutView();
             if (state.github.token) await publishStoreJsonToGitHub();
-            showToast("Kontak & QRIS tersimpan.");
+            showToast("Kontak, Lokasi & QRIS tersimpan.");
           } catch (err) {
             setGhStatus(err.message, true);
           }
+        });
+
+        document.getElementById("admin-add-social-btn")?.addEventListener("click", () => {
+          const lblInp = document.getElementById("admin-new-social-label");
+          const urlInp = document.getElementById("admin-new-social-url");
+          const label = String(lblInp?.value || "").trim();
+          const url = String(urlInp?.value || "").trim();
+          if (!label || !url) return showToast("Isi nama sosmed dan URL terlebih dahulu.");
+          if (!Array.isArray(state.contact.socials)) state.contact.socials = [];
+          state.contact.socials.push({ label, url });
+          safeSetItem(STORAGE_KEYS.contact, JSON.stringify(state.contact));
+          if (lblInp) lblInp.value = "";
+          if (urlInp) urlInp.value = "";
+          renderAdminSocialsList();
+          renderContactView();
+          showToast(`Sosmed "${label}" ditambahkan.`);
+        });
+
+        document.getElementById("admin-save-socials-btn")?.addEventListener("click", async () => {
+          const updated = [];
+          (state.contact.socials || []).forEach((_, idx) => {
+            const lbl = String(document.querySelector(`[data-soc-label="${idx}"]`)?.value || "").trim();
+            const url = String(document.querySelector(`[data-soc-url="${idx}"]`)?.value || "").trim();
+            if (lbl && url) updated.push({ label: lbl, url });
+          });
+          state.contact.socials = updated;
+          safeSetItem(STORAGE_KEYS.contact, JSON.stringify(state.contact));
+          renderAdminSocialsList();
+          renderContactView();
+          if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+          showToast("Link media sosial tersimpan & disinkronkan.");
+        });
+
+        document.getElementById("admin-socials-list")?.addEventListener("click", async (e) => {
+          const delBtn = e.target.closest("[data-del-soc]");
+          if (!delBtn) return;
+          const idx = Number(delBtn.getAttribute("data-del-soc"));
+          state.contact.socials.splice(idx, 1);
+          safeSetItem(STORAGE_KEYS.contact, JSON.stringify(state.contact));
+          renderAdminSocialsList();
+          renderContactView();
+          if (state.github.token) await publishStoreJsonToGitHub().catch(() => {});
+          showToast("Link sosmed dihapus.");
         });
 
         document.getElementById("admin-export-json-btn")?.addEventListener("click", () => {
