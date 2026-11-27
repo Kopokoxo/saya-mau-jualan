@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T11:38:30.780Z",
+  "updatedAt": "2026-11-27T11:41:08.197Z",
   "products": [
     {
       "id": "p-1",
@@ -142,7 +142,7 @@
     "qrisMerchant": "SAYA MAU JUALAN • QRIS Resmi",
     "qrisCaption": "Scan barcode QRIS untuk pembayaran instan via e-wallet atau mobile banking.",
     "mapTitle": "Toko SAYA MAU JUALAN",
-    "mapAddress": "Jl. Slamet Riyadi No. 100, Surakarta, Jawa Tengah",
+    "mapAddress": "Jl. randublatung-cepu,Blora, Jawa Tengah,58382",
     "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=110.79%2C-7.58%2C110.85%2C-7.55&layer=mapnik"
   },
   "socials": [
