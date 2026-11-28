@@ -280,24 +280,24 @@
       transform: scale(0.97);
     }
 
-    .cart-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 19px;
-      height: 19px;
-      padding: 0 5px;
-      border-radius: 999px;
-      background-color: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 11px;
-      font-weight: 800;
-      line-height: 1;
-    }
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: clip;
+        background-color: var(--bg-canvas);
+        color: var(--text-body);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: var(--app-font-size, 14px);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.22s ease, color 0.22s ease;
+      }
 
-    @media (max-width: 479px) {
-      .action-label-text {
-        display: none;
+      html[data-font-scale="large"] {
+        --app-font-size: 16px;
       }
       .action-pill-btn {
         padding: 0 9px;
@@ -413,6 +413,100 @@
       background-color: var(--active-page-bg, var(--home-custom-bg, transparent));
       border-radius: 20px;
       transition: background-color 0.22s ease;
+    }
+
+    #floating-mini-player {
+      position: fixed;
+      bottom: 62px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(560px, calc(100vw - 20px));
+      z-index: 44;
+      background-color: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 8px 10px;
+      box-shadow: var(--shadow-float);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    html[data-theme="dark"] #floating-mini-player {
+      background-color: rgba(17, 17, 27, 0.88);
+    }
+
+    .mini-player-meta {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+      flex: 1 1 auto;
+      cursor: pointer;
+    }
+
+    .mini-player-cover {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--border-strong);
+      flex-shrink: 0;
+      background-color: var(--bg-elevated);
+    }
+
+    .mini-player-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-player-artist {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-player-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .mini-ctrl-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-elevated);
+      color: var(--text-ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.14s ease, background-color 0.14s ease;
+    }
+
+    .mini-ctrl-btn.primary {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-contrast);
+    }
+
+    .mini-ctrl-btn:hover {
+      transform: scale(1.05);
     }
 
     .view-section {
@@ -703,6 +797,32 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .product-quick-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 2;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+      pointer-events: none;
+    }
+
+    .product-quick-badge.low-stock {
+      background-color: #d97706;
+      color: #ffffff;
+    }
+
+    .product-quick-badge.sold-out {
+      background-color: #dc2626;
+      color: #ffffff;
     }
 
     .product-body {
@@ -1457,6 +1577,35 @@
       -webkit-backdrop-filter: blur(18px) saturate(155%);
     }
 
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .admin-stat-box {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-strong);
+      border-radius: 13px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .admin-stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .admin-stat-value {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--accent-bright);
+      line-height: 1.2;
+    }
+
     .admin-tab-strip {
       display: flex;
       flex-wrap: wrap;
@@ -1701,7 +1850,18 @@
       <div class="panel-card">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap">
           <h2 style="margin:0;font-size:18px;font-weight:800;color:var(--text-ink)">Katalog Produk</h2>
-          <span id="produk-filter-summary" style="font-size:12px;color:var(--text-muted)"></span>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--text-ink);background:var(--bg-subtle);padding:6px 10px;border-radius:10px;cursor:pointer">
+              <input id="catalog-ready-only-chk" type="checkbox" style="cursor:pointer" />
+              <span>Stok Ready</span>
+            </label>
+            <select id="catalog-sort-select" class="search-cat-select" aria-label="Urutkan Katalog Produk">
+              <option value="newest">Terbaru</option>
+              <option value="price-asc">Termurah</option>
+              <option value="price-desc">Termahal</option>
+            </select>
+            <span id="produk-filter-summary" style="font-size:12px;color:var(--text-muted)"></span>
+          </div>
         </div>
         <div id="catalog-category-chips" class="category-chip-bar"></div>
       </div>
@@ -1772,9 +1932,26 @@
             </div>
           </div>
           <div class="transport-row">
+            <button id="music-shuffle-btn" type="button" class="transport-icon-btn" title="Mode Acak (Shuffle)" aria-label="Mode Acak (Shuffle)" aria-pressed="false">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 3 21 3 21 8"></polyline>
+                <line x1="4" y1="20" x2="21" y2="3"></line>
+                <polyline points="21 16 21 21 16 21"></polyline>
+                <line x1="15" y1="15" x2="21" y2="21"></line>
+                <line x1="4" y1="4" x2="9" y2="9"></line>
+              </svg>
+            </button>
             <button id="music-prev-btn" type="button" class="transport-icon-btn" aria-label="Lagu Sebelumnya">&#9198;</button>
             <button id="music-play-btn" type="button" class="transport-icon-btn play-main" aria-label="Putar atau Jeda"><span id="music-play-icon-slot">&#9654;</span></button>
             <button id="music-next-btn" type="button" class="transport-icon-btn" aria-label="Lagu Berikutnya">&#9197;</button>
+            <button id="music-loop-btn" type="button" class="transport-icon-btn" title="Mode Berulang (Loop)" aria-label="Mode Berulang (Loop)" aria-pressed="false">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="17 1 21 5 17 9"></polyline>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                <polyline points="7 23 3 19 7 15"></polyline>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;width:100%;max-width:240px">
             <span style="font-size:11.5px;color:var(--text-muted)">Vol</span>
@@ -1841,6 +2018,17 @@
         <textarea id="buyer-address-input" rows="2" class="field-textarea" placeholder="Alamat pengiriman utama"></textarea>
         <button id="save-buyer-profile-btn" type="button" class="btn-primary">Simpan Profil Pembeli</button>
       </div>
+
+      <div class="panel-card" style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+          <div>
+            <span class="page-kicker">Status Pesanan</span>
+            <h3 style="margin:0;font-size:16px;font-weight:800;color:var(--text-ink)">Tracking Paket Saya</h3>
+          </div>
+          <span style="font-size:11.5px;color:var(--text-muted)">Diperbarui oleh Admin</span>
+        </div>
+        <div id="buyer-tracking-list" style="display:flex;flex-direction:column;gap:8px"></div>
+      </div>
     </section>
 
     <section id="view-promo" class="view-section hidden">
@@ -1879,16 +2067,10 @@
         </div>
 
         <div class="info-box-card" style="gap:8px">
-          <strong style="font-size:13px">Pilihan Warna Tema</strong>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:8px">
-            <button type="button" data-set-palette="ungu" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#9333ea;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Ungu</span></button>
-            <button type="button" data-set-palette="biru" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#2563eb;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Biru</span></button>
-            <button type="button" data-set-palette="pink" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#db2777;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Pink</span></button>
-            <button type="button" data-set-palette="orange" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#ea580c;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Orange</span></button>
-            <button type="button" data-set-palette="hijau" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#059669;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Hijau</span></button>
-            <button type="button" data-set-palette="merah" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#dc2626;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Merah</span></button>
-            <button type="button" data-set-palette="cyan" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#0891b2;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Cyan</span></button>
-            <button type="button" data-set-palette="emas" class="btn-secondary" style="justify-content:flex-start"><span style="width:14px;height:14px;border-radius:999px;background:#ca8a04;border:1.5px solid rgba(255,255,255,0.6);flex-shrink:0"></span><span>Emas</span></button>
+          <strong style="font-size:13px">Ukuran Teks / Kepadatan Tampilan</strong>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" data-set-font-scale="standard" class="btn-secondary" id="set-font-standard-btn">Standar</button>
+            <button type="button" data-set-font-scale="large" class="btn-secondary" id="set-font-large-btn">Besar</button>
           </div>
         </div>
 
@@ -1955,13 +2137,72 @@
           <strong style="font-size:13px">Warna Semua Halaman Menurut Tab (Ikuti Tema atau Warna Sendiri)</strong>
           <div id="tab-color-controls-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px"></div>
         </div>
+
+        <div class="info-box-card" style="gap:8px">
+          <strong style="font-size:13px">Equalizer &amp; Pengaturan Audio HP</strong>
+          <p style="margin:0;font-size:12px;color:var(--text-muted)">Atur EQ pemutar musik Ewinth Revenge dan buka pengaturan audio / equalizer bawaan HP Anda.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <select id="eq-preset-select" class="search-cat-select" aria-label="Preset Equalizer">
+              <option value="flat">Flat</option>
+              <option value="bass">Bass Boost</option>
+              <option value="vocal">Vocal Jernih</option>
+              <option value="rock">Rock / Revenge</option>
+            </select>
+            <button type="button" id="open-device-eq-btn" class="btn-secondary">Buka Equalizer / Suara HP</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:2px">
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
+              <span>Bass (60Hz): <strong id="eq-bass-val">0 dB</strong></span>
+              <input id="eq-bass-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Bass 60Hz" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
+              <span>Mid (1kHz): <strong id="eq-mid-val">0 dB</strong></span>
+              <input id="eq-mid-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Mid 1kHz" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
+              <span>Treble (6kHz): <strong id="eq-treble-val">0 dB</strong></span>
+              <input id="eq-treble-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Treble 6kHz" />
+            </label>
+          </div>
+          <div id="device-eq-guide" class="pwa-guide-note hidden"></div>
+        </div>
+
+        <div class="info-box-card" style="gap:8px">
+          <strong style="font-size:13px">Cache Lokal Browser</strong>
+          <p style="margin:0;font-size:12px;color:var(--text-muted)">Bersihkan data lokal toko yang tersimpan di browser lalu tarik data terbaru dari <code>data/store-data.json</code> / GitHub.</p>
+          <div>
+            <button type="button" id="clear-local-cache-btn" class="btn-secondary">Bersihkan Cache Lokal Browser</button>
+          </div>
+        </div>
+
+        <div class="info-box-card" style="gap:8px">
+          <strong style="font-size:13px">Reset Tampilan</strong>
+          <p style="margin:0;font-size:12px;color:var(--text-muted)">Kembalikan tema, efek, warna custom per bagian/tab, dan equalizer ke setelan bawaan dalam satu klik.</p>
+          <div>
+            <button type="button" id="reset-display-settings-btn" class="btn-danger-soft">Reset Semua Pengaturan Tampilan ke Default</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- =====================================================================
-       3. BOTTOM NAVIGATION BAR (8 TABS)
+       3. FLOATING MINI PLAYER & BOTTOM NAVIGATION BAR (8 TABS)
        ===================================================================== -->
+  <aside id="floating-mini-player" class="hidden" aria-label="Mini Pemutar Musik Ewinth Revenge">
+    <div id="mini-player-open-music" class="mini-player-meta" title="Buka tab Musik">
+      <img id="mini-player-cover" src="" alt="Cover Lagu" class="mini-player-cover" />
+      <div style="min-width:0">
+        <div id="mini-player-title" class="mini-player-title">-</div>
+        <div id="mini-player-artist" class="mini-player-artist">Ewinth Revenge</div>
+      </div>
+    </div>
+    <div class="mini-player-controls">
+      <button id="mini-player-toggle-btn" type="button" class="mini-ctrl-btn primary" aria-label="Putar atau Jeda Mini Player">⏸</button>
+      <button id="mini-player-next-btn" type="button" class="mini-ctrl-btn" aria-label="Lagu Berikutnya">&#9197;</button>
+    </div>
+  </aside>
+
   <nav id="bottom-nav" aria-label="Navigasi Utama">
     <div class="bottom-nav-inner">
       <button type="button" class="bottom-tab-btn active" data-tab="beranda">
@@ -2142,6 +2383,21 @@
         </div>
       </div>
 
+      <div id="admin-store-stats" class="admin-stats-grid" aria-label="Ringkasan Statistik Toko">
+        <div class="admin-stat-box">
+          <span class="admin-stat-label">Total Produk</span>
+          <span id="admin-stat-products" class="admin-stat-value">0</span>
+        </div>
+        <div class="admin-stat-box">
+          <span class="admin-stat-label">Total Lagu</span>
+          <span id="admin-stat-tracks" class="admin-stat-value">0</span>
+        </div>
+        <div class="admin-stat-box">
+          <span class="admin-stat-label">Total Pesanan Terjual</span>
+          <span id="admin-stat-sold" class="admin-stat-value">0</span>
+        </div>
+      </div>
+
       <div class="admin-tab-strip">
         <button type="button" class="admin-tab-btn active" data-admin-tab="github">GitHub &amp; Sync</button>
         <button type="button" class="admin-tab-btn" data-admin-tab="produk">Produk</button>
@@ -2149,6 +2405,7 @@
         <button type="button" class="admin-tab-btn" data-admin-tab="promo">Promo</button>
         <button type="button" class="admin-tab-btn" data-admin-tab="pengiriman">Pengiriman &amp; Harga</button>
         <button type="button" class="admin-tab-btn" data-admin-tab="pembayaran">Pembayaran &amp; Kontak</button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="tracking">Status &amp; Tracking</button>
         <button type="button" class="admin-tab-btn" data-admin-tab="pesanan">Terjual &amp; Pembeli</button>
         <button type="button" class="admin-tab-btn" data-admin-tab="backup">Backup / Reset</button>
       </div>
@@ -2286,6 +2543,19 @@
             <button id="admin-add-social-btn" type="button" class="btn-secondary">+ Tambah Sosmed</button>
           </div>
           <button id="admin-save-socials-btn" type="button" class="btn-primary">Simpan Link Sosmed &amp; Sync</button>
+        </div>
+      </div>
+
+      <div id="admin-sec-tracking" class="admin-section hidden" style="display:flex;flex-direction:column;gap:12px">
+        <div class="info-box-card" style="gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+            <div>
+              <strong style="font-size:13.5px">Halaman Kontrol Status Pesanan &amp; Tracking</strong>
+              <div style="font-size:11.5px;color:var(--text-muted)">Atur status Belum Bayar, Sudah Bayar, Tracking Pesanan, dan Pesanan Diterima untuk tampil di halaman Profil / Akun pembeli.</div>
+            </div>
+            <button id="admin-add-tracking-order-btn" type="button" class="btn-secondary" style="padding:6px 11px;font-size:12px">+ Buat Pesanan / Tracking</button>
+          </div>
+          <div id="admin-tracking-orders-list" style="display:flex;flex-direction:column;gap:8px"></div>
         </div>
       </div>
 
@@ -2536,6 +2806,10 @@
         theme: safeGetItem(STORAGE_KEYS.theme) === "dark" ? "dark" : "light",
         searchQuery: "",
         searchCategory: "all",
+        catalogSort: "newest",
+        catalogReadyOnly: false,
+        musicLoop: safeGetItem("smj_music_loop_v1") === "true",
+        musicShuffle: safeGetItem("smj_music_shuffle_v1") === "true",
         products: safeParseJson(safeGetItem(STORAGE_KEYS.products), DEFAULT_PRODUCTS),
         cart: safeParseJson(safeGetItem(STORAGE_KEYS.cart), []),
         sold: safeParseJson(safeGetItem(STORAGE_KEYS.sold), []),
@@ -2560,6 +2834,7 @@
         }),
         tabColors: safeParseJson(safeGetItem("smj_tab_colors_v1"), {}),
         angelLogoId: safeGetItem("smj_angel_logo_v1") || "halo-classic",
+        fontScale: safeGetItem("smj_font_scale_v1") === "large" ? "large" : "standard",
         github: {
           owner: String(savedGh.owner || EMBEDDED_GH_CFG.owner || detectedGh.owner || "").trim(),
           repo: String(savedGh.repo || EMBEDDED_GH_CFG.repo || detectedGh.repo || "").trim(),
@@ -2689,239 +2964,133 @@
         if (n) n.value = state.buyer.name || "";
         if (p) p.value = state.buyer.phone || "";
         if (a) a.value = state.buyer.address || "";
+        renderBuyerTrackingView();
       }
 
-      function applyTheme(mode) {
-        const nextMode = mode === "dark" ? "dark" : "light";
-        state.theme = nextMode;
-        try {
-          document.documentElement.setAttribute("data-theme", nextMode);
-        } catch (_) {}
-        safeSetItem(STORAGE_KEYS.theme, nextMode);
+      function normalizePackageStatus(rawStatus) {
+        const val = String(rawStatus || "").trim().toLowerCase();
+        if (val === "sudah bayar" || val === "paid") return "Sudah Bayar";
+        if (val === "tracking" || val === "tracking pesanan" || val === "dikirim" || val === "in_transit") return "Tracking Pesanan";
+        if (val === "pesanan diterima" || val === "paket diterima" || val === "diterima" || val === "delivered") return "Pesanan Diterima";
+        return "Belum Bayar";
+      }
 
-        const iconSlot = document.getElementById("header-theme-icon");
-        if (iconSlot) {
-          iconSlot.innerHTML =
-            nextMode === "dark"
-              ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
-              : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+      function renderBuyerTrackingView() {
+        const listEl = document.getElementById("buyer-tracking-list");
+        if (!listEl) return;
+
+        const orders = Array.isArray(state.sold) ? state.sold : [];
+        const buyerPhone = String(state.buyer?.phone || "").trim();
+        const buyerName = String(state.buyer?.name || "").trim().toLowerCase();
+
+        const filteredOrders =
+          buyerPhone || buyerName
+            ? orders.filter((o) => {
+                const matchPhone = buyerPhone && String(o.buyerPhone || "").trim() === buyerPhone;
+                const matchName = buyerName && String(o.buyerName || "").trim().toLowerCase() === buyerName;
+                return matchPhone || matchName;
+              })
+            : orders;
+
+        const displayOrders = filteredOrders.length ? filteredOrders : orders;
+        if (!displayOrders.length) {
+          listEl.innerHTML = `<p style="margin:0;font-size:12.5px;color:var(--text-muted)">Belum ada status pesanan yang tercatat.</p>`;
+          return;
         }
 
-        document.getElementById("panel-theme-light-btn")?.classList.toggle("active", nextMode === "light");
-        document.getElementById("panel-theme-dark-btn")?.classList.toggle("active", nextMode === "dark");
-        document.getElementById("set-theme-light-btn")?.classList.toggle("active", nextMode === "light");
-        document.getElementById("set-theme-dark-btn")?.classList.toggle("active", nextMode === "dark");
-      }
+        const stages = ["Belum Bayar", "Sudah Bayar", "Tracking Pesanan", "Pesanan Diterima"];
+        listEl.innerHTML = displayOrders
+          .map((o) => {
+            const curStatus = normalizePackageStatus(o.packageStatus);
+            const curStageIdx = stages.indexOf(curStatus);
+            const resi = String(o.trackingNumber || "").trim();
+            const note = String(o.trackingNote || "").trim();
 
-      function applyEffectMode(mode) {
-        const nextEffect = mode === "normal" ? "normal" : "blur";
-        state.effectMode = nextEffect;
-        try {
-          document.documentElement.setAttribute("data-effect", nextEffect);
-        } catch (_) {}
-        safeSetItem("smj_effect_mode_v1", nextEffect);
-        document.getElementById("set-effect-blur-btn")?.classList.toggle("active", nextEffect === "blur");
-        document.getElementById("set-effect-normal-btn")?.classList.toggle("active", nextEffect === "normal");
-      }
+            const stepsHtml = stages
+              .map((st, idx) => {
+                const active = idx <= curStageIdx;
+                return `<span style="padding:3px 8px;border-radius:999px;font-size:11px;font-weight:800;background:${active ? "var(--accent-soft)" : "var(--bg-elevated)"};color:${active ? "var(--accent-bright)" : "var(--text-muted)"};border:1px solid ${active ? "var(--border-strong)" : "var(--border-soft)"}">${escapeHtml(st)}</span>`;
+              })
+              .join("");
 
-      function applyThemePalette(palette) {
-        const allowed = ["ungu", "biru", "pink", "orange", "hijau", "merah", "cyan", "emas"];
-        const nextPal = allowed.includes(palette) ? palette : "biru";
-        state.themePalette = nextPal;
-        try {
-          document.documentElement.setAttribute("data-palette", nextPal);
-        } catch (_) {}
-        safeSetItem("smj_theme_palette_v1", nextPal);
-        document.querySelectorAll("[data-set-palette]").forEach((btn) => {
-          btn.classList.toggle("active", btn.getAttribute("data-set-palette") === nextPal);
-        });
-        applyChromeColor();
-      }
-
-      function applyChromeColor() {
-        const mode = state.chromeColorMode === "custom" ? "custom" : "theme";
-        const customHex = /^#[0-9a-fA-F]{6}$/.test(state.chromeCustomColor) ? state.chromeCustomColor : "#2563eb";
-        state.chromeColorMode = mode;
-        state.chromeCustomColor = customHex;
-        safeSetItem("smj_chrome_color_mode_v1", mode);
-        safeSetItem("smj_chrome_custom_color_v1", customHex);
-
-        const isBlur = state.effectMode !== "normal";
-        let bgVal = "";
-        if (mode === "custom") {
-          const r = parseInt(customHex.slice(1, 3), 16);
-          const g = parseInt(customHex.slice(3, 5), 16);
-          const b = parseInt(customHex.slice(5, 7), 16);
-          bgVal = isBlur ? `rgba(${r}, ${g}, ${b}, 0.78)` : `rgb(${r}, ${g}, ${b})`;
-        } else {
-          bgVal = isBlur ? "color-mix(in srgb, var(--accent) 26%, var(--bg-surface) 74%)" : "color-mix(in srgb, var(--accent) 18%, var(--bg-surface) 82%)";
-        }
-
-        try {
-          document.documentElement.style.setProperty("--chrome-bg", bgVal);
-        } catch (_) {}
-
-        document.getElementById("set-chrome-theme-btn")?.classList.toggle("active", mode === "theme");
-        document.getElementById("set-chrome-custom-btn")?.classList.toggle("active", mode === "custom");
-        const colorInp = document.getElementById("chrome-custom-color-input");
-        const hexLbl = document.getElementById("chrome-custom-color-hex");
-        if (colorInp instanceof HTMLInputElement) colorInp.value = customHex;
-        if (hexLbl) hexLbl.textContent = customHex.toUpperCase();
-
-        applyPartsAndTabColors();
-      }
-
-      function hexToTintBg(hex, isBlur, alphaBlur, alphaSolid) {
-        const safeHex = /^#[0-9a-fA-F]{6}$/.test(hex) ? hex : "#2563eb";
-        const r = parseInt(safeHex.slice(1, 3), 16);
-        const g = parseInt(safeHex.slice(3, 5), 16);
-        const b = parseInt(safeHex.slice(5, 7), 16);
-        return isBlur ? `rgba(${r}, ${g}, ${b}, ${alphaBlur})` : `rgba(${r}, ${g}, ${b}, ${alphaSolid})`;
-      }
-
-      function applyPartsAndTabColors() {
-        const isBlur = state.effectMode !== "normal";
-        const parts = state.partColors || {};
-        safeSetItem("smj_part_colors_v1", JSON.stringify(parts));
-        safeSetItem("smj_tab_colors_v1", JSON.stringify(state.tabColors || {}));
-
-        const resolveCfg = (cfg, alphaBlur, alphaSolid) => {
-          if (!cfg || cfg.mode !== "custom") return "";
-          return hexToTintBg(cfg.color || "#2563eb", isBlur, alphaBlur, alphaSolid);
-        };
-
-        const rootStyle = document.documentElement.style;
-        const homeBg = resolveCfg(parts.home, 0.14, 0.22);
-        const headerBg = resolveCfg(parts.header, 0.78, 0.98);
-        const panelBg = resolveCfg(parts.panel, 0.8, 0.98);
-        const navBg = resolveCfg(parts.nav, 0.78, 0.98);
-        const adminBg = resolveCfg(parts.admin, 0.78, 0.98);
-
-        if (homeBg) rootStyle.setProperty("--home-custom-bg", homeBg);
-        else rootStyle.removeProperty("--home-custom-bg");
-
-        if (headerBg) rootStyle.setProperty("--header-custom-bg", headerBg);
-        else rootStyle.removeProperty("--header-custom-bg");
-
-        if (panelBg) rootStyle.setProperty("--panel-custom-bg", panelBg);
-        else rootStyle.removeProperty("--panel-custom-bg");
-
-        if (navBg) rootStyle.setProperty("--nav-custom-bg", navBg);
-        else rootStyle.removeProperty("--nav-custom-bg");
-
-        if (adminBg) rootStyle.setProperty("--admin-custom-bg", adminBg);
-        else rootStyle.removeProperty("--admin-custom-bg");
-
-        const activeTabCfg = state.tabColors?.[state.tab];
-        const activeTabBg = resolveCfg(activeTabCfg, 0.14, 0.22);
-        if (activeTabBg) rootStyle.setProperty("--active-page-bg", activeTabBg);
-        else rootStyle.removeProperty("--active-page-bg");
-
-        ["home", "header", "panel", "nav", "admin"].forEach((key) => {
-          const cfg = parts[key] || { mode: "theme", color: "#2563eb" };
-          const modeBtn = document.querySelector(`[data-part-mode="${key}"]`);
-          const colInp = document.querySelector(`[data-part-color="${key}"]`);
-          if (modeBtn) {
-            const isCustom = cfg.mode === "custom";
-            modeBtn.textContent = isCustom ? "Sendiri" : "Tema";
-            modeBtn.classList.toggle("active", isCustom);
-          }
-          if (colInp instanceof HTMLInputElement) {
-            colInp.value = /^#[0-9a-fA-F]{6}$/.test(cfg.color) ? cfg.color : "#2563eb";
-          }
-        });
-
-        const tabGrid = document.getElementById("tab-color-controls-grid");
-        if (tabGrid) {
-          const tabsMeta = [
-            { id: "beranda", label: "Beranda" },
-            { id: "produk", label: "Produk" },
-            { id: "keranjang", label: "Keranjang" },
-            { id: "musik", label: "Musik" },
-            { id: "kontak", label: "Kontak" },
-            { id: "akun", label: "Akun" },
-            { id: "promo", label: "Promo" },
-            { id: "pengaturan", label: "Pengaturan" },
-          ];
-          tabGrid.innerHTML = tabsMeta
-            .map((t) => {
-              const cfg = state.tabColors?.[t.id] || { mode: "theme", color: "#2563eb" };
-              const isCustom = cfg.mode === "custom";
-              const hex = /^#[0-9a-fA-F]{6}$/.test(cfg.color) ? cfg.color : "#2563eb";
-              return `
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft)">
-                  <span style="font-size:12px;font-weight:700">${escapeHtml(t.label)}</span>
-                  <div style="display:flex;align-items:center;gap:5px">
-                    <button type="button" data-tab-color-mode="${escapeHtml(t.id)}" class="btn-secondary ${isCustom ? "active" : ""}" style="padding:4px 8px;font-size:11px">${isCustom ? "Sendiri" : "Tema"}</button>
-                    <input type="color" data-tab-color-picker="${escapeHtml(t.id)}" value="${hex}" style="width:32px;height:28px;padding:1px;border-radius:7px;border:1px solid var(--border-strong);cursor:pointer" />
-                  </div>
+            return `
+              <div class="info-box-card" style="gap:8px;padding:11px 12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+                  <strong style="font-size:13px;color:var(--text-ink)">${escapeHtml(o.id || "ORDER")} • ${escapeHtml(o.buyerName || "Pembeli")}</strong>
+                  <span style="padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:800;background:var(--accent);color:var(--accent-contrast)">${escapeHtml(curStatus)}</span>
                 </div>
-              `;
-            })
-            .join("");
-        }
-      }
-
-      function syncBadges() {
-        const count = (state.cart || []).reduce((s, i) => s + (Number(i.qty) || 0), 0);
-        ["header-cart-badge", "bottom-cart-badge"].forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = String(count);
-        });
-      }
-
-      function setTab(tabName) {
-        const allowed = ["beranda", "produk", "keranjang", "terjual", "musik", "kontak", "akun", "promo", "pengaturan"];
-        const nextTab = allowed.includes(tabName) ? tabName : "beranda";
-        state.tab = nextTab;
-
-        allowed.forEach((t) => {
-          document.getElementById("view-" + t)?.classList.toggle("hidden", t !== nextTab);
-        });
-
-        document.querySelectorAll(".bottom-tab-btn").forEach((b) => {
-          b.classList.toggle("active", b.getAttribute("data-tab") === nextTab);
-        });
-        document.querySelectorAll("[data-panel-tab]").forEach((b) => {
-          b.classList.toggle("active", b.getAttribute("data-panel-tab") === nextTab);
-        });
-
-        if (nextTab === "keranjang") renderCheckoutView();
-        if (nextTab === "terjual") renderSoldView();
-        if (nextTab === "musik") renderMusicView();
-        if (nextTab === "kontak") renderContactView();
-        if (nextTab === "akun") renderBuyerView();
-        if (nextTab === "promo") renderPromoView();
-        if (nextTab === "pengaturan") {
-          applyTheme(state.theme);
-          applyEffectMode(state.effectMode);
-          applyThemePalette(state.themePalette);
-          applyChromeColor();
-          renderAngelSlots();
-        } else {
-          applyPartsAndTabColors();
-        }
-      }
-
-      function renderAdminSocialsList() {
-        const box = document.getElementById("admin-socials-list");
-        if (!box) return;
-        const socials = state.contact.socials || [];
-        box.innerHTML = socials
-          .map(
-            (s, i) => `
-              <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
-                <input type="text" class="field-input" style="flex:0 0 130px" data-soc-label="${i}" value="${escapeHtml(s.label || "")}" placeholder="Nama" />
-                <input type="text" class="field-input" style="flex:1 1 180px" data-soc-url="${i}" value="${escapeHtml(s.url || "")}" placeholder="https://..." />
-                <button type="button" class="btn-danger-soft" style="padding:7px 9px;font-size:11.5px" data-del-soc="${i}">Hapus</button>
+                <div style="display:flex;flex-wrap:wrap;gap:5px">${stepsHtml}</div>
+                <div style="font-size:12px;color:var(--text-body)">${escapeHtml(o.itemsText || "-")}</div>
+                <div style="font-size:12px;color:var(--text-muted)">
+                  Kurir: <strong style="color:var(--text-ink)">${escapeHtml(o.shippingName || "-")}</strong> •
+                  No. Resi: <strong style="color:var(--accent-bright)">${escapeHtml(resi || "Menunggu input admin")}</strong> •
+                  Total: <strong style="color:var(--text-ink)">${formatRupiah(o.total)}</strong>
+                </div>
+                ${note ? `<div style="font-size:12px;color:var(--text-body);background:var(--bg-canvas);padding:7px 9px;border-radius:9px;border:1px solid var(--border-soft)">Update Admin: ${escapeHtml(note)}</div>` : ""}
               </div>
-            `
-          )
+            `;
+          })
           .join("");
+      }
+
+      function renderAdminTrackingOrders() {
+        const box = document.getElementById("admin-tracking-orders-list");
+        if (!box) return;
+        const orders = Array.isArray(state.sold) ? state.sold : [];
+        if (!orders.length) {
+          box.innerHTML = `<span style="font-size:12px;color:var(--text-muted)">Belum ada data pesanan. Klik "+ Buat Pesanan / Tracking" untuk menambahkan.</span>`;
+          return;
+        }
+
+        const statuses = ["Belum Bayar", "Sudah Bayar", "Tracking Pesanan", "Pesanan Diterima"];
+        box.innerHTML = orders
+          .map((o, idx) => {
+            const curStatus = normalizePackageStatus(o.packageStatus);
+            const optsHtml = statuses
+              .map((st) => `<option value="${escapeHtml(st)}" ${st === curStatus ? "selected" : ""}>${escapeHtml(st)}</option>`)
+              .join("");
+
+            return `
+              <div class="info-box-card" style="gap:8px;padding:10px 12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+                  <strong style="font-size:12.5px">${escapeHtml(o.id || "ORDER")} — ${escapeHtml(o.buyerName || "Pembeli")} (${escapeHtml(o.buyerPhone || "-")})</strong>
+                  <strong style="font-size:12.5px;color:var(--accent-bright)">${formatRupiah(o.total)}</strong>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-muted)">${escapeHtml(o.itemsText || "-")} • Jasa Paket: <strong style="color:var(--text-ink)">${escapeHtml(o.shippingName || "-")}</strong></div>
+                <div class="form-grid-2">
+                  <select class="field-select" data-trk-status="${idx}" aria-label="Status Pesanan ${escapeHtml(o.id)}">${optsHtml}</select>
+                  <input type="text" class="field-input" data-trk-courier="${idx}" value="${escapeHtml(o.shippingName || "")}" placeholder="Input Manual Jasa Paket / Kurir (mis. COD / JNE / J&amp;T)" />
+                </div>
+                <div class="form-grid-2">
+                  <input type="text" class="field-input" data-trk-resi="${idx}" value="${escapeHtml(o.trackingNumber || "")}" placeholder="Input Manual No. Resi / Kode COD" />
+                  <input type="text" class="field-input" data-trk-note="${idx}" value="${escapeHtml(o.trackingNote || "")}" placeholder="Catatan status / posisi tracking pesanan" />
+                </div>
+                <div style="display:flex;justify-content:flex-end">
+                  <button type="button" class="btn-primary" style="padding:8px 12px;font-size:12px" data-save-trk="${idx}">Simpan &amp; Sync</button>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderAdminStoreStats() {
+        const prodCount = Array.isArray(state.products) ? state.products.length : 0;
+        const trackCount = Array.isArray(state.music?.tracks) ? state.music.tracks.length : 0;
+        const soldCount = Array.isArray(state.sold) ? state.sold.length : 0;
+
+        const prodEl = document.getElementById("admin-stat-products");
+        const trackEl = document.getElementById("admin-stat-tracks");
+        const soldEl = document.getElementById("admin-stat-sold");
+
+        if (prodEl) prodEl.textContent = String(prodCount);
+        if (trackEl) trackEl.textContent = String(trackCount);
+        if (soldEl) soldEl.textContent = String(soldCount);
       }
 
       function syncAdminInputs() {
         renderAngelSlots();
+        renderAdminStoreStats();
         const ghOwner = document.getElementById("gh-owner-input");
         const ghRepo = document.getElementById("gh-repo-input");
         const ghBranch = document.getElementById("gh-branch-input");
@@ -2955,6 +3124,7 @@
         renderAdminShippingList();
         renderAdminPaymentsEditor();
         renderAdminSocialsList();
+        renderAdminTrackingOrders();
         renderAdminBuyersAndSold();
       }
 
@@ -3045,25 +3215,59 @@
       function getFilteredProducts() {
         const q = String(state.searchQuery || "").trim().toLowerCase();
         const cat = String(state.searchCategory || "all").trim().toLowerCase();
-        return (state.products || []).filter((p) => {
+        const readyOnly = Boolean(state.catalogReadyOnly);
+        const filtered = (state.products || []).filter((p) => {
           const pCat = String(p.category || "").toLowerCase();
           const matchCat = cat === "all" || pCat === cat;
+          const stockNum = Number(p.stock);
+          const matchReady = !readyOnly || (isNaN(stockNum) || stockNum > 0);
           const matchQ =
             !q ||
             String(p.name || "").toLowerCase().includes(q) ||
             String(p.description || "").toLowerCase().includes(q) ||
             pCat.includes(q);
-          return matchCat && matchQ;
+          return matchCat && matchReady && matchQ;
         });
+
+        const sortMode = state.catalogSort || "newest";
+        if (sortMode === "price-asc") {
+          return filtered.slice().sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
+        }
+        if (sortMode === "price-desc") {
+          return filtered.slice().sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
+        }
+        return filtered;
       }
 
       function renderProductCardHtml(p) {
         const imgSrc = p.image || svgPlaceholder(p.name || "Produk", "#1e293b");
         const stockNum = Number(p.stock);
         const outOfStock = !isNaN(stockNum) && stockNum <= 0;
+        const lowStock = !isNaN(stockNum) && stockNum > 0 && stockNum <= 3;
+        const catLower = String(p.category || "").toLowerCase();
+
+        let badgeLabel = p.category || "Baru";
+        let badgeClass = "product-quick-badge";
+        if (outOfStock) {
+          badgeLabel = "Stok Habis";
+          badgeClass += " sold-out";
+        } else if (lowStock) {
+          badgeLabel = `Stok Menipis (${stockNum})`;
+          badgeClass += " low-stock";
+        } else if (catLower.includes("preorder")) {
+          badgeLabel = "Preorder";
+        } else if (catLower.includes("second")) {
+          badgeLabel = "Second";
+        } else if (catLower.includes("jasa")) {
+          badgeLabel = "Jasa";
+        } else if (catLower.includes("baru")) {
+          badgeLabel = "Baru";
+        }
+
         return `
           <article class="product-card">
             <div class="product-img-wrap" data-open-detail="${escapeHtml(p.id)}">
+              <span class="${badgeClass}">${escapeHtml(badgeLabel)}</span>
               <img
                 src="${escapeHtml(imgSrc)}"
                 alt="${escapeHtml(p.name)}"
@@ -3155,6 +3359,43 @@
           </div>
           <div style="font-size:12px;color:var(--text-muted)">Stok tersedia: ${isNaN(stockNum) ? "-" : stockNum}</div>
           <p style="margin:0;font-size:13px;color:var(--text-body);white-space:pre-line">${escapeHtml(prod.description || "Tidak ada deskripsi tambahan.")}</p>
+          <div style="display:flex;flex-direction:column;gap:7px;padding-top:4px;border-top:1px solid var(--border-soft)">
+            <span style="font-size:12px;font-weight:800;color:var(--text-ink)">Bagikan Produk</span>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="copy">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Salin Link</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="wa">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>WhatsApp</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="ig">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>Instagram</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="fb">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <span>Facebook</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="x">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16"></path><path d="M20 4L4 20"></path></svg>
+                <span>X</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="telegram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span>Telegram</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="tiktok">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <span>TikTok</span>
+              </button>
+              <button type="button" class="btn-secondary" style="justify-content:flex-start;padding:8px 10px;font-size:12px" data-share-prod="${escapeHtml(prod.id)}" data-share-channel="email">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>Email</span>
+              </button>
+            </div>
+          </div>
           <button type="button" class="btn-primary" data-add-cart="${escapeHtml(prod.id)}" ${outOfStock ? "disabled" : ""}>
             ${outOfStock ? "Stok Habis" : "Tambah ke Keranjang"}
           </button>
@@ -3445,6 +3686,7 @@
       }
 
       function renderAdminBuyersAndSold() {
+        renderAdminStoreStats();
         const soldList = document.getElementById("admin-sold-list");
         const buyersList = document.getElementById("admin-buyers-list");
         const tabBuyersList = document.getElementById("admin-tab-buyers-list");
@@ -3499,6 +3741,7 @@
       }
 
       function renderAdminProductsList() {
+        renderAdminStoreStats();
         const box = document.getElementById("admin-products-list");
         if (!box) return;
         const prods = Array.isArray(state.products) ? state.products : [];
@@ -3522,6 +3765,7 @@
       }
 
       function renderAdminMusicList() {
+        renderAdminStoreStats();
         const box = document.getElementById("admin-music-list");
         if (!box) return;
         const tracks = state.music?.tracks || [];
@@ -3599,30 +3843,152 @@
 
       let audioEl = null;
       let audioCtx = null;
+      let audioSourceNode = null;
+      let eqBassFilter = null;
+      let eqMidFilter = null;
+      let eqTrebleFilter = null;
       let synthTimer = null;
+      let isMusicPlaying = false;
+      const savedEq = safeParseJson(safeGetItem("smj_eq_cfg_v1"), { preset: "flat", bass: 0, mid: 0, treble: 0 });
+      state.eq = {
+        preset: String(savedEq?.preset || "flat"),
+        bass: Number(savedEq?.bass) || 0,
+        mid: Number(savedEq?.mid) || 0,
+        treble: Number(savedEq?.treble) || 0,
+      };
+
+      function ensureAudioGraph() {
+        const a = getAudio();
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return null;
+        if (!audioCtx) audioCtx = new Ctx();
+        if (!eqBassFilter) {
+          eqBassFilter = audioCtx.createBiquadFilter();
+          eqBassFilter.type = "lowshelf";
+          eqBassFilter.frequency.value = 60;
+        }
+        if (!eqMidFilter) {
+          eqMidFilter = audioCtx.createBiquadFilter();
+          eqMidFilter.type = "peaking";
+          eqMidFilter.frequency.value = 1000;
+          eqMidFilter.Q.value = 1;
+        }
+        if (!eqTrebleFilter) {
+          eqTrebleFilter = audioCtx.createBiquadFilter();
+          eqTrebleFilter.type = "highshelf";
+          eqTrebleFilter.frequency.value = 6000;
+        }
+        if (!audioSourceNode && a) {
+          try {
+            a.crossOrigin = "anonymous";
+            audioSourceNode = audioCtx.createMediaElementSource(a);
+            audioSourceNode.connect(eqBassFilter);
+            eqBassFilter.connect(eqMidFilter);
+            eqMidFilter.connect(eqTrebleFilter);
+            eqTrebleFilter.connect(audioCtx.destination);
+          } catch (_) {}
+        }
+        return audioCtx;
+      }
+
+      function applyEqualizerState() {
+        const bass = Number(state.eq?.bass) || 0;
+        const mid = Number(state.eq?.mid) || 0;
+        const treble = Number(state.eq?.treble) || 0;
+        const preset = String(state.eq?.preset || "flat");
+        safeSetItem("smj_eq_cfg_v1", JSON.stringify({ preset, bass, mid, treble }));
+
+        ensureAudioGraph();
+        if (eqBassFilter) eqBassFilter.gain.value = bass;
+        if (eqMidFilter) eqMidFilter.gain.value = mid;
+        if (eqTrebleFilter) eqTrebleFilter.gain.value = treble;
+
+        const pSel = document.getElementById("eq-preset-select");
+        const bSl = document.getElementById("eq-bass-slider");
+        const mSl = document.getElementById("eq-mid-slider");
+        const tSl = document.getElementById("eq-treble-slider");
+        const bVal = document.getElementById("eq-bass-val");
+        const mVal = document.getElementById("eq-mid-val");
+        const tVal = document.getElementById("eq-treble-val");
+
+        if (pSel instanceof HTMLSelectElement) pSel.value = preset;
+        if (bSl instanceof HTMLInputElement) bSl.value = String(bass);
+        if (mSl instanceof HTMLInputElement) mSl.value = String(mid);
+        if (tSl instanceof HTMLInputElement) tSl.value = String(treble);
+        if (bVal) bVal.textContent = `${bass > 0 ? "+" : ""}${bass} dB`;
+        if (mVal) mVal.textContent = `${mid > 0 ? "+" : ""}${mid} dB`;
+        if (tVal) tVal.textContent = `${treble > 0 ? "+" : ""}${treble} dB`;
+      }
+
+      function updateFloatingMiniPlayer() {
+        const miniEl = document.getElementById("floating-mini-player");
+        if (!miniEl) return;
+        const tracks = state.music?.tracks || [];
+        const idx = Math.max(0, Math.min(Number(state.music?.currentIndex) || 0, Math.max(0, tracks.length - 1)));
+        const tr = tracks[idx];
+        const activeNow = Boolean(isMusicPlaying || synthTimer || (audioEl && !audioEl.paused));
+
+        if (!tr || (!activeNow && state.tab === "musik")) {
+          miniEl.classList.add("hidden");
+          return;
+        }
+
+        const covEl = document.getElementById("mini-player-cover");
+        const titleEl = document.getElementById("mini-player-title");
+        const artistEl = document.getElementById("mini-player-artist");
+        const toggleBtn = document.getElementById("mini-player-toggle-btn");
+
+        if (covEl) {
+          covEl.src = tr.cover || svgPlaceholder(tr.title || "Ewinth Revenge", "#311042");
+        }
+        if (titleEl) titleEl.textContent = tr.title || "Lagu Ewinth Revenge";
+        if (artistEl) artistEl.textContent = tr.artist || "Ewinth Revenge";
+        if (toggleBtn) toggleBtn.textContent = activeNow ? "⏸" : "▶";
+        miniEl.classList.remove("hidden");
+      }
 
       function getAudio() {
         if (!audioEl) {
           audioEl = new Audio();
-          audioEl.volume = 0.8;
-          audioEl.addEventListener("ended", () => playTrack((Number(state.music.currentIndex) || 0) + 1));
+          audioEl.preload = "metadata";
+          audioEl.volume = Number(document.getElementById("music-volume-bar")?.value) || 0.8;
+          audioEl.addEventListener("ended", () => {
+            if (state.musicLoop) {
+              playTrack(Number(state.music?.currentIndex) || 0);
+            } else {
+              playNextTrack();
+            }
+          });
+          audioEl.addEventListener("play", () => {
+            isMusicPlaying = true;
+            const iconSlot = document.getElementById("music-play-icon-slot");
+            if (iconSlot) iconSlot.textContent = "⏸";
+            updateFloatingMiniPlayer();
+          });
+          audioEl.addEventListener("pause", () => {
+            if (!synthTimer) {
+              isMusicPlaying = false;
+              const iconSlot = document.getElementById("music-play-icon-slot");
+              if (iconSlot) iconSlot.textContent = "▶";
+            }
+            updateFloatingMiniPlayer();
+          });
           audioEl.addEventListener("timeupdate", () => {
             const seek = document.getElementById("music-seek-bar");
             const curEl = document.getElementById("music-time-current");
             const durEl = document.getElementById("music-time-duration");
             if (audioEl.duration && isFinite(audioEl.duration)) {
               if (seek) seek.value = String((audioEl.currentTime / audioEl.duration) * 100);
-              if (curEl) curEl.textContent = formatSec(audioEl.currentTime);
-              if (durEl) durEl.textContent = formatSec(audioEl.duration);
+              const fmt = (sec) => {
+                const s = Math.floor(sec || 0);
+                return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+              };
+              if (curEl) curEl.textContent = fmt(audioEl.currentTime);
+              if (durEl) durEl.textContent = fmt(audioEl.duration);
             }
           });
         }
         return audioEl;
-      }
-
-      function formatSec(sec) {
-        const s = Math.max(0, Math.floor(Number(sec) || 0));
-        return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
       }
 
       function stopSynth() {
@@ -3632,7 +3998,40 @@
         }
       }
 
-      function startSynth(notes) {
+      function getNextTrackIndex() {
+        const tracks = state.music?.tracks || [];
+        if (!tracks.length) return 0;
+        const curIdx = Number(state.music?.currentIndex) || 0;
+        if (state.musicShuffle && tracks.length > 1) {
+          let nextIdx = Math.floor(Math.random() * tracks.length);
+          if (nextIdx === curIdx) nextIdx = (curIdx + 1) % tracks.length;
+          return nextIdx;
+        }
+        return ((curIdx + 1) % tracks.length + tracks.length) % tracks.length;
+      }
+
+      function playNextTrack() {
+        playTrack(getNextTrackIndex());
+      }
+
+      function syncMusicPlaybackModesUi() {
+        const shuffleBtn = document.getElementById("music-shuffle-btn");
+        const loopBtn = document.getElementById("music-loop-btn");
+        if (shuffleBtn) {
+          shuffleBtn.setAttribute("aria-pressed", String(Boolean(state.musicShuffle)));
+          shuffleBtn.style.backgroundColor = state.musicShuffle ? "var(--accent)" : "";
+          shuffleBtn.style.color = state.musicShuffle ? "var(--accent-contrast)" : "";
+          shuffleBtn.style.borderColor = state.musicShuffle ? "var(--accent)" : "";
+        }
+        if (loopBtn) {
+          loopBtn.setAttribute("aria-pressed", String(Boolean(state.musicLoop)));
+          loopBtn.style.backgroundColor = state.musicLoop ? "var(--accent)" : "";
+          loopBtn.style.color = state.musicLoop ? "var(--accent-contrast)" : "";
+          loopBtn.style.borderColor = state.musicLoop ? "var(--accent)" : "";
+        }
+      }
+
+      function startSynth(notes, onCycleEnd) {
         stopSynth();
         const list = Array.isArray(notes) && notes.length ? notes : [220, 261.63, 329.63, 392];
         let step = 0;
@@ -3654,6 +4053,10 @@
             osc.stop(audioCtx.currentTime + 0.38);
           } catch (_) {}
           step += 1;
+          if (step >= list.length && typeof onCycleEnd === "function") {
+            step = 0;
+            onCycleEnd();
+          }
         };
         playTone();
         synthTimer = setInterval(playTone, 420);
@@ -3676,17 +4079,35 @@
           a.src = tr.audioUrl;
           a.play()
             .then(() => {
+              isMusicPlaying = true;
               if (iconSlot) iconSlot.textContent = "⏸";
+              updateFloatingMiniPlayer();
             })
             .catch(() => {
-              startSynth(tr.synthNotes);
+              isMusicPlaying = true;
+              startSynth(tr.synthNotes, () => {
+                if (state.musicLoop) {
+                  playTrack(safeIdx);
+                } else {
+                  playNextTrack();
+                }
+              });
               if (iconSlot) iconSlot.textContent = "⏸";
+              updateFloatingMiniPlayer();
             });
         } else {
           a.pause();
           a.removeAttribute("src");
-          startSynth(tr.synthNotes);
+          isMusicPlaying = true;
+          startSynth(tr.synthNotes, () => {
+            if (state.musicLoop) {
+              playTrack(safeIdx);
+            } else {
+              playNextTrack();
+            }
+          });
           if (iconSlot) iconSlot.textContent = "⏸";
+          updateFloatingMiniPlayer();
         }
       }
 
@@ -3731,6 +4152,7 @@
             )
             .join("");
         }
+        updateFloatingMiniPlayer();
       }
 
       function renderContactView() {
@@ -3897,8 +4319,11 @@
         renderCheckoutView();
         renderSoldView();
         renderMusicView();
+        syncMusicPlaybackModesUi();
         renderContactView();
         renderPromoView();
+        renderBuyerView();
+        renderAdminTrackingOrders();
         renderAdminBuyersAndSold();
       }
 
@@ -3992,15 +4417,14 @@
             const res = await fetch(url, { cache: "no-store" });
             if (!res.ok) continue;
             const data = await res.json();
-            if (data && typeof data === "object") {
-              applyRemoteStorePayload(data);
-              if (badge) badge.textContent = "Auto-Sync Aktif";
-              return true;
-            }
+            applyRemoteStorePayload(data);
+            if (badge) badge.textContent = "Auto-Sync Aktif";
+            return true;
           } catch (_) {}
         }
-
-        if (badge) badge.textContent = "Auto-Sync Siap";
+        if (badge) {
+          badge.textContent = owner && repo ? "Auto-Sync Aktif" : "Auto-Sync Siap";
+        }
         return false;
       }
 
@@ -4008,9 +4432,299 @@
         // Bottom tab navigation
         document.querySelectorAll(".bottom-tab-btn").forEach((btn) => {
           btn.addEventListener("click", () => {
-            const tab = btn.getAttribute("data-tab");
-            if (tab) setTab(tab);
+            setTab(btn.getAttribute("data-tab"));
           });
+        });
+
+        // Checkout shipping / payment changes & submit
+        document.getElementById("co-shipping-select")?.addEventListener("change", (e) => {
+          state.selectedShippingId = e.target.value;
+          updateCheckoutTotals();
+        });
+        document.getElementById("co-payment-select")?.addEventListener("change", (e) => {
+          state.selectedPaymentId = e.target.value;
+          updateCheckoutTotals();
+        });
+        document.getElementById("co-checkout-form")?.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const items = Array.isArray(state.cart) ? state.cart : [];
+          if (!items.length) {
+            showToast("Keranjang masih kosong.");
+            return;
+          }
+          const buyerName = String(document.getElementById("co-buyer-name")?.value || "").trim() || state.buyer.name || "Pembeli";
+          const buyerPhone = String(document.getElementById("co-buyer-phone")?.value || "").trim() || state.buyer.phone || "-";
+          const buyerAddr = String(document.getElementById("co-buyer-address")?.value || "").trim() || state.buyer.address || "-";
+          const ship = getSelectedShipping();
+          const pay = getSelectedPayment();
+          const subtotal = items.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.qty) || 0), 0);
+          const shipCost = ship ? Number(ship.cost) || 0 : 0;
+          const total = subtotal + shipCost;
+          const summaryText = buildOrderSummaryText();
+
+          const orderRecord = {
+            id: "ORD-" + Date.now().toString().slice(-6),
+            date: new Date().toLocaleString("id-ID"),
+            buyerName,
+            buyerPhone,
+            buyerAddress: buyerAddr,
+            shippingName: ship ? ship.name : "-",
+            paymentLabel: pay ? pay.label : "-",
+            packageStatus: "Belum Bayar",
+            trackingNumber: "",
+            trackingNote: "Pesanan dibuat, menunggu konfirmasi pembayaran.",
+            total,
+            itemsText: items.map((i) => `${i.name} (${Number(i.qty) || 0}x)`).join(", "),
+          };
+
+          state.sold.unshift(orderRecord);
+          safeSetItem(STORAGE_KEYS.sold, JSON.stringify(state.sold));
+          recordBuyerEntry({ name: buyerName, phone: buyerPhone, address: buyerAddr }, orderRecord);
+
+          items.forEach((cartItem) => {
+            const prod = (state.products || []).find((p) => p.id === cartItem.id);
+            if (prod && !isNaN(Number(prod.stock))) {
+              prod.stock = Math.max(0, Number(prod.stock) - (Number(cartItem.qty) || 0));
+            }
+          });
+
+          state.cart = [];
+          safeSetItem(STORAGE_KEYS.cart, JSON.stringify(state.cart));
+          syncBadges();
+          renderDrawersCart();
+          renderCheckoutView();
+          renderSoldView();
+          renderProducts();
+          renderAdminBuyersAndSold();
+          await autoSyncGithubAfterChange("pesanan terjual");
+
+          const waDigits = normalizeWaPhone(state.contact.wa || DEFAULT_CONTACT.wa);
+          window.open(`https://wa.me/${waDigits}?text=${encodeURIComponent(summaryText)}`, "_blank", "noopener,noreferrer");
+          showToast("Pesanan tercatat & dibuka ke WhatsApp.");
+        });
+
+        // Clear sold history
+        document.getElementById("clear-sold-btn")?.addEventListener("click", async () => {
+          state.sold = [];
+          safeSetItem(STORAGE_KEYS.sold, JSON.stringify(state.sold));
+          renderSoldView();
+          renderAdminBuyersAndSold();
+          await autoSyncGithubAfterChange("hapus riwayat terjual");
+          showToast("Riwayat terjual dihapus.");
+        });
+
+        // Save buyer profile
+        document.getElementById("save-buyer-profile-btn")?.addEventListener("click", () => {
+          state.buyer = {
+            name: String(document.getElementById("buyer-name-input")?.value || "").trim(),
+            phone: String(document.getElementById("buyer-phone-input")?.value || "").trim(),
+            address: String(document.getElementById("buyer-address-input")?.value || "").trim(),
+          };
+          safeSetItem(STORAGE_KEYS.buyer, JSON.stringify(state.buyer));
+          recordBuyerEntry(state.buyer, null);
+          renderBuyerTrackingView();
+          renderAdminBuyersAndSold();
+          showToast("Profil pembeli tersimpan.");
+        });
+
+        document.getElementById("admin-add-tracking-order-btn")?.addEventListener("click", async () => {
+          const newOrder = {
+            id: "TRK-" + Date.now().toString().slice(-5),
+            date: new Date().toLocaleString("id-ID"),
+            buyerName: state.buyer?.name || "Pembeli",
+            buyerPhone: state.buyer?.phone || "-",
+            buyerAddress: state.buyer?.address || "-",
+            shippingName: getSelectedShipping()?.name || "JNE REG",
+            paymentLabel: getSelectedPayment()?.label || "QRIS",
+            packageStatus: "Belum Bayar",
+            trackingNumber: "",
+            trackingNote: "Pesanan baru ditambahkan oleh admin.",
+            total: 0,
+            itemsText: "Paket Pesanan",
+          };
+          state.sold.unshift(newOrder);
+          renderSoldView();
+          renderBuyerTrackingView();
+          renderAdminTrackingOrders();
+          renderAdminBuyersAndSold();
+          await autoSyncGithubAfterChange("tambah tracking paket");
+          showToast("Data tracking baru ditambahkan.");
+        });
+
+        // Music player controls
+        document.getElementById("music-play-btn")?.addEventListener("click", () => {
+          const tracks = state.music?.tracks || [];
+          if (!tracks.length) return;
+          const idx = Math.max(0, Math.min(Number(state.music?.currentIndex) || 0, tracks.length - 1));
+          const tr = tracks[idx];
+          const a = getAudio();
+          const iconSlot = document.getElementById("music-play-icon-slot");
+
+          if (isMusicPlaying) {
+            isMusicPlaying = false;
+            stopSynth();
+            a.pause();
+            if (iconSlot) iconSlot.textContent = "▶";
+            updateFloatingMiniPlayer();
+          } else if (tr.audioUrl) {
+            if (a.src !== tr.audioUrl) a.src = tr.audioUrl;
+            a.play()
+              .then(() => {
+                isMusicPlaying = true;
+                if (iconSlot) iconSlot.textContent = "⏸";
+                updateFloatingMiniPlayer();
+              })
+              .catch(() => {
+                isMusicPlaying = true;
+                startSynth(tr.synthNotes, () => {
+                  if (state.musicLoop) {
+                    playTrack(idx);
+                  } else {
+                    playNextTrack();
+                  }
+                });
+                if (iconSlot) iconSlot.textContent = "⏸";
+                updateFloatingMiniPlayer();
+              });
+          } else {
+            isMusicPlaying = true;
+            startSynth(tr.synthNotes, () => {
+              if (state.musicLoop) {
+                playTrack(idx);
+              } else {
+                playNextTrack();
+              }
+            });
+            if (iconSlot) iconSlot.textContent = "⏸";
+            updateFloatingMiniPlayer();
+          }
+        });
+        document.getElementById("music-shuffle-btn")?.addEventListener("click", () => {
+          state.musicShuffle = !state.musicShuffle;
+          safeSetItem("smj_music_shuffle_v1", String(state.musicShuffle));
+          syncMusicPlaybackModesUi();
+          showToast(state.musicShuffle ? "Mode Acak (Shuffle) aktif." : "Mode Acak nonaktif.");
+        });
+        document.getElementById("music-loop-btn")?.addEventListener("click", () => {
+          state.musicLoop = !state.musicLoop;
+          safeSetItem("smj_music_loop_v1", String(state.musicLoop));
+          syncMusicPlaybackModesUi();
+          showToast(state.musicLoop ? "Mode Ulang (Loop) aktif." : "Mode Ulang nonaktif.");
+        });
+        document.getElementById("music-prev-btn")?.addEventListener("click", () => playTrack((Number(state.music.currentIndex) || 0) - 1));
+        document.getElementById("music-next-btn")?.addEventListener("click", () => playNextTrack());
+        document.getElementById("eq-preset-select")?.addEventListener("change", (e) => {
+          const sel = e.target;
+          if (!(sel instanceof HTMLSelectElement)) return;
+          const presets = {
+            flat: { bass: 0, mid: 0, treble: 0 },
+            bass: { bass: 8, mid: -1, treble: 2 },
+            vocal: { bass: -2, mid: 6, treble: 3 },
+            rock: { bass: 6, mid: 3, treble: 6 },
+          };
+          const chosen = presets[sel.value] || presets.flat;
+          state.eq = { preset: sel.value, ...chosen };
+          applyEqualizerState();
+        });
+        ["eq-bass-slider", "eq-mid-slider", "eq-treble-slider"].forEach((id) => {
+          document.getElementById(id)?.addEventListener("input", () => {
+            state.eq.preset = "flat";
+            state.eq.bass = Number(document.getElementById("eq-bass-slider")?.value) || 0;
+            state.eq.mid = Number(document.getElementById("eq-mid-slider")?.value) || 0;
+            state.eq.treble = Number(document.getElementById("eq-treble-slider")?.value) || 0;
+            applyEqualizerState();
+          });
+        });
+        document.getElementById("open-device-eq-btn")?.addEventListener("click", () => {
+          const guide = document.getElementById("device-eq-guide");
+          const ua = String(navigator.userAgent || "").toLowerCase();
+          if (/android/i.test(ua)) {
+            try {
+              window.location.href = "intent:#Intent;action=android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL;end";
+            } catch (_) {}
+          }
+          if (guide) {
+            guide.textContent = "Browser web tidak dapat memaksa buka menu Equalizer sistem HP secara langsung di semua perangkat. Di Android: buka Setelan HP > Suara & getaran > Kualitas suara & efek (Equalizer). Di iPhone: buka Pengaturan > Musik > EQ.";
+            guide.classList.remove("hidden");
+          }
+          showToast("Cek pengaturan Suara / Equalizer bawaan HP Anda.");
+        });
+        document.getElementById("mini-player-toggle-btn")?.addEventListener("click", () => {
+          document.getElementById("music-play-btn")?.click();
+        });
+        document.getElementById("mini-player-next-btn")?.addEventListener("click", () => {
+          playNextTrack();
+        });
+        document.getElementById("reset-display-settings-btn")?.addEventListener("click", () => {
+          state.effectMode = "blur";
+          state.fontScale = "standard";
+          state.themePalette = state.theme === "dark" ? "ungu" : "biru";
+          state.chromeColorMode = "theme";
+          state.chromeCustomColor = "#2563eb";
+          state.partColors = {
+            home: { mode: "theme", color: "#2563eb" },
+            header: { mode: "theme", color: "#2563eb" },
+            panel: { mode: "theme", color: "#2563eb" },
+            nav: { mode: "theme", color: "#2563eb" },
+            admin: { mode: "theme", color: "#2563eb" },
+          };
+          state.tabColors = {};
+          state.angelLogoId = "halo-classic";
+          state.eq = { preset: "flat", bass: 0, mid: 0, treble: 0 };
+
+          safeSetItem("smj_effect_mode_v1", state.effectMode);
+          safeSetItem("smj_font_scale_v1", state.fontScale);
+          safeSetItem("smj_theme_palette_v1", state.themePalette);
+          safeSetItem("smj_chrome_color_mode_v1", state.chromeColorMode);
+          safeSetItem("smj_chrome_custom_color_v1", state.chromeCustomColor);
+          safeSetItem("smj_part_colors_v1", JSON.stringify(state.partColors));
+          safeSetItem("smj_tab_colors_v1", JSON.stringify(state.tabColors));
+          safeSetItem("smj_angel_logo_v1", state.angelLogoId);
+          safeSetItem("smj_eq_cfg_v1", JSON.stringify(state.eq));
+
+          applyTheme(state.theme);
+          applyEffectMode(state.effectMode);
+          applyFontScale(state.fontScale);
+          applyThemePalette(state.themePalette);
+          applyChromeColor();
+          applyEqualizerState();
+          renderAngelSlots();
+          showToast("Semua pengaturan tampilan & equalizer dikembalikan ke default.");
+        });
+        document.getElementById("clear-local-cache-btn")?.addEventListener("click", async () => {
+          try {
+            Object.values(STORAGE_KEYS).forEach((key) => {
+              if (key === STORAGE_KEYS.ghCfg) return;
+              try { localStorage.removeItem(key); } catch (_) {}
+            });
+            try { sessionStorage.clear(); } catch (_) {}
+            state.products = DEFAULT_PRODUCTS.map((x) => ({ ...x }));
+            state.cart = [];
+            state.sold = [];
+            state.buyersLog = [];
+            state.music = { ...DEFAULT_MUSIC, tracks: DEFAULT_MUSIC.tracks.map((x) => ({ ...x })) };
+            state.promo = { ...DEFAULT_PROMO };
+            state.shipping = DEFAULT_SHIPPING.map((x) => ({ ...x }));
+            state.payments = DEFAULT_PAYMENTS.map((x) => ({ ...x }));
+            state.contact = { ...DEFAULT_CONTACT, socials: DEFAULT_CONTACT.socials.map((x) => ({ ...x })) };
+            state.buyer = { name: "", phone: "", address: "" };
+            applyFontScale("standard");
+            syncBadges();
+            renderProducts();
+            renderDrawersCart();
+            renderCheckoutView();
+            renderSoldView();
+            renderMusicView();
+            syncMusicPlaybackModesUi();
+            renderContactView();
+            renderBuyerView();
+            renderPromoView();
+            renderAdminBuyersAndSold();
+            const pulled = await loadRemoteStoreData();
+            showToast(pulled ? "Cache lokal dibersihkan & data terbaru dimuat." : "Cache lokal browser dibersihkan.");
+          } catch (_) {
+            showToast("Gagal membersihkan cache lokal browser.");
+          }
         });
 
         // Jump tab buttons inside views
@@ -4045,64 +4759,59 @@
             return;
           }
 
-          const decBtn = target.closest("[data-cart-dec]");
-          if (decBtn) {
-            changeCartQty(decBtn.getAttribute("data-cart-dec"), -1);
-            return;
-          }
+          const shareBtn = target.closest("[data-share-prod]");
+          if (shareBtn) {
+            const prodId = shareBtn.getAttribute("data-share-prod") || "";
+            const channel = shareBtn.getAttribute("data-share-channel") || "copy";
+            const prod = (state.products || []).find((p) => p.id === prodId);
+            if (!prod) return;
 
-          const incBtn = target.closest("[data-cart-inc]");
-          if (incBtn) {
-            changeCartQty(incBtn.getAttribute("data-cart-inc"), 1);
-            return;
-          }
+            let shareUrl = window.location.href;
+            try {
+              const u = new URL(window.location.href);
+              u.searchParams.set("product", prod.id);
+              shareUrl = u.toString();
+            } catch (_) {}
 
-          const playItem = target.closest("[data-play-idx]");
-          if (playItem) {
-            playTrack(Number(playItem.getAttribute("data-play-idx")) || 0);
-            return;
-          }
+            const shareText = `${prod.name} (${formatRupiah(prod.price)}) — SAYA MAU JUALAN`;
+            const copyFallback = () => {
+              let copied = false;
+              try {
+                const ta = document.createElement("textarea");
+                ta.value = `${shareText}\n${shareUrl}`;
+                ta.setAttribute("readonly", "");
+                ta.style.position = "fixed";
+                ta.style.opacity = "0";
+                document.body.appendChild(ta);
+                ta.select();
+                copied = document.execCommand("copy");
+                document.body.removeChild(ta);
+              } catch (_) {}
+              if (copied) {
+                showToast("Link produk disalin ke clipboard.");
+              } else {
+                showToast("Salin link manual dari address bar.");
+              }
+            };
 
-          const themeBtn = target.closest("[data-set-theme]");
-          if (themeBtn) {
-            applyTheme(themeBtn.getAttribute("data-set-theme"));
-            return;
-          }
-
-          const effectBtn = target.closest("[data-set-effect]");
-          if (effectBtn) {
-            applyEffectMode(effectBtn.getAttribute("data-set-effect"));
-            return;
-          }
-
-          const paletteBtn = target.closest("[data-set-palette]");
-          if (paletteBtn) {
-            applyThemePalette(paletteBtn.getAttribute("data-set-palette"));
-            return;
-          }
-
-          if (target.closest("#set-chrome-theme-btn")) {
-            state.chromeColorMode = "theme";
-            applyChromeColor();
-            showToast("Warna header, side panel & tab bawah mengikuti tema.");
-            return;
-          }
-
-          if (target.closest("#set-chrome-custom-btn")) {
-            state.chromeColorMode = "custom";
-            applyChromeColor();
-            showToast("Mode warna sendiri aktif.");
-            return;
-          }
-
-          const partModeBtn = target.closest("[data-part-mode]");
-          if (partModeBtn) {
-            const key = partModeBtn.getAttribute("data-part-mode");
-            if (key) {
-              const cur = state.partColors[key] || { mode: "theme", color: "#2563eb" };
-              cur.mode = cur.mode === "custom" ? "theme" : "custom";
-              state.partColors[key] = cur;
-              applyPartsAndTabColors();
+            if (channel === "copy") {
+              copyFallback();
+            } else if (channel === "wa") {
+              window.open(`https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`, "_blank", "noopener,noreferrer");
+            } else if (channel === "fb") {
+              window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, "_blank", "noopener,noreferrer");
+            } else if (channel === "x") {
+              window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, "_blank", "noopener,noreferrer");
+            } else if (channel === "telegram") {
+              window.open(`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, "_blank", "noopener,noreferrer");
+            } else if (channel === "email") {
+              window.location.href = `mailto:?subject=${encodeURIComponent(prod.name || "Produk SAYA MAU JUALAN")}&body=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`;
+            } else if (channel === "ig" || channel === "tiktok") {
+              copyFallback();
+              if (navigator.share) {
+                navigator.share({ title: prod.name || "Produk", text: shareText, url: shareUrl }).catch(() => {});
+              }
+              showToast(channel === "ig" ? "Link disalin untuk dibagikan di Instagram." : "Link disalin untuk dibagikan di TikTok.");
             }
             return;
           }
@@ -4207,30 +4916,34 @@
             }
             return;
           }
-        });
 
-        // Brand & header controls
-        document.getElementById("brand-home-btn")?.addEventListener("click", () => setTab("beranda"));
-        document.getElementById("header-theme-btn")?.addEventListener("click", () => {
-          applyTheme(state.theme === "dark" ? "light" : "dark");
-        });
-
-        const chatBtn = document.getElementById("header-chat-btn");
-        const chatPopover = document.getElementById("chat-popover");
-        chatBtn?.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (!chatPopover) return;
-          const hidden = chatPopover.classList.toggle("hidden");
-          chatBtn.setAttribute("aria-expanded", String(!hidden));
-        });
-        document.getElementById("close-chat-popover-btn")?.addEventListener("click", () => {
-          chatPopover?.classList.add("hidden");
-          chatBtn?.setAttribute("aria-expanded", "false");
-        });
-        document.addEventListener("click", (e) => {
-          if (chatPopover && !chatPopover.classList.contains("hidden") && !chatPopover.contains(e.target) && !chatBtn?.contains(e.target)) {
-            chatPopover.classList.add("hidden");
-            chatBtn?.setAttribute("aria-expanded", "false");
+          const saveTrkBtn = target.closest("[data-save-trk]");
+          if (saveTrkBtn) {
+            const idx = Number(saveTrkBtn.getAttribute("data-save-trk"));
+            if (!isNaN(idx) && state.sold[idx]) {
+              const stSel = document.querySelector(`[data-trk-status="${idx}"]`);
+              const courierInp = document.querySelector(`[data-trk-courier="${idx}"]`);
+              const resiInp = document.querySelector(`[data-trk-resi="${idx}"]`);
+              const noteInp = document.querySelector(`[data-trk-note="${idx}"]`);
+              if (stSel instanceof HTMLSelectElement) {
+                state.sold[idx].packageStatus = normalizePackageStatus(stSel.value);
+              }
+              if (courierInp instanceof HTMLInputElement) {
+                state.sold[idx].shippingName = courierInp.value.trim();
+              }
+              if (resiInp instanceof HTMLInputElement) {
+                state.sold[idx].trackingNumber = resiInp.value.trim();
+              }
+              if (noteInp instanceof HTMLInputElement) {
+                state.sold[idx].trackingNote = noteInp.value.trim();
+              }
+              renderSoldView();
+              renderBuyerTrackingView();
+              renderAdminTrackingOrders();
+              renderAdminBuyersAndSold();
+              autoSyncGithubAfterChange("update tracking paket");
+              showToast("Jasa paket, resi/COD & status disimpan.");
+            }
           }
         });
 
@@ -4261,6 +4974,14 @@
         });
         document.getElementById("panel-theme-light-btn")?.addEventListener("click", () => applyTheme("light"));
         document.getElementById("panel-theme-dark-btn")?.addEventListener("click", () => applyTheme("dark"));
+        document.getElementById("set-font-standard-btn")?.addEventListener("click", () => {
+          applyFontScale("standard");
+          showToast("Ukuran teks diatur ke Standar.");
+        });
+        document.getElementById("set-font-large-btn")?.addEventListener("click", () => {
+          applyFontScale("large");
+          showToast("Ukuran teks diatur ke Besar.");
+        });
         document.getElementById("panel-pwa-install-btn")?.addEventListener("click", () => {
           const guide = document.getElementById("panel-pwa-guide");
           if (guide) {
@@ -4359,117 +5080,35 @@
         document.getElementById("search-clear-btn")?.addEventListener("click", () => {
           state.searchCategory = "all";
           state.searchQuery = "";
+          state.catalogSort = "newest";
+          state.catalogReadyOnly = false;
           const sel = document.getElementById("search-category-select");
           const inp = document.getElementById("search-keyword-input");
+          const sortSel = document.getElementById("catalog-sort-select");
+          const readyChk = document.getElementById("catalog-ready-only-chk");
           if (sel) sel.value = "all";
           if (inp) inp.value = "";
+          if (sortSel instanceof HTMLSelectElement) sortSel.value = "newest";
+          if (readyChk instanceof HTMLInputElement) readyChk.checked = false;
           renderProducts();
         });
-
-        // Checkout form & selectors
-        document.getElementById("co-shipping-select")?.addEventListener("change", (e) => {
-          state.selectedShippingId = e.target.value;
-          updateCheckoutTotals();
-        });
-        document.getElementById("co-payment-select")?.addEventListener("change", (e) => {
-          state.selectedPaymentId = e.target.value;
-          updateCheckoutTotals();
-        });
-        document.getElementById("co-checkout-form")?.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const items = Array.isArray(state.cart) ? state.cart : [];
-          if (!items.length) {
-            showToast("Keranjang masih kosong.");
-            return;
-          }
-          const buyerName = String(document.getElementById("co-buyer-name")?.value || "").trim() || state.buyer.name || "Pembeli";
-          const buyerPhone = String(document.getElementById("co-buyer-phone")?.value || "").trim() || state.buyer.phone || "-";
-          const buyerAddress = String(document.getElementById("co-buyer-address")?.value || "").trim() || state.buyer.address || "-";
-          const ship = getSelectedShipping();
-          const pay = getSelectedPayment();
-          const subtotal = items.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.qty) || 0), 0);
-          const shipCost = ship ? Number(ship.cost) || 0 : 0;
-          const total = subtotal + shipCost;
-          const summaryText = buildOrderSummaryText();
-
-          const orderRecord = {
-            id: "INV-" + Date.now().toString().slice(-6),
-            date: new Date().toLocaleString("id-ID"),
-            buyerName,
-            buyerPhone,
-            buyerAddress,
-            shippingName: ship ? ship.name : "-",
-            paymentLabel: pay ? pay.label : "-",
-            total,
-            itemsText: items.map((i) => `${i.name} (${Number(i.qty) || 0}x)`).join(", "),
-          };
-
-          state.buyer = { name: buyerName, phone: buyerPhone, address: buyerAddress };
-          safeSetItem(STORAGE_KEYS.buyer, JSON.stringify(state.buyer));
-          recordBuyerEntry(state.buyer, orderRecord);
-
-          state.sold.unshift(orderRecord);
-          items.forEach((ci) => {
-            const p = state.products.find((pr) => pr.id === ci.id);
-            if (p && !isNaN(Number(p.stock))) {
-              p.stock = Math.max(0, Number(p.stock) - (Number(ci.qty) || 0));
-            }
-          });
-          state.cart = [];
-          safeSetItem(STORAGE_KEYS.cart, "[]");
-          saveLocalStore();
-          syncBadges();
-          renderProducts();
-          renderDrawersCart();
-          renderCheckoutView();
-          renderSoldView();
-          renderAdminBuyersAndSold();
-
-          if (state.github.owner && state.github.repo && state.github.token) {
-            try { await publishStoreJsonToGithub(true); } catch (_) {}
-          }
-
-          const waUrl = `https://wa.me/${normalizeWaPhone(state.contact.wa)}?text=${encodeURIComponent(summaryText)}`;
-          window.open(waUrl, "_blank", "noopener,noreferrer");
-        });
-
-        // Sold & buyer profile actions
-        document.getElementById("clear-sold-btn")?.addEventListener("click", () => {
-          state.sold = [];
-          saveLocalStore();
-          renderSoldView();
-          renderAdminBuyersAndSold();
-          showToast("Riwayat terjual dibersihkan.");
-        });
-        document.getElementById("save-buyer-profile-btn")?.addEventListener("click", () => {
-          const name = String(document.getElementById("buyer-name-input")?.value || "").trim();
-          const phone = String(document.getElementById("buyer-phone-input")?.value || "").trim();
-          const address = String(document.getElementById("buyer-address-input")?.value || "").trim();
-          state.buyer = { name, phone, address };
-          safeSetItem(STORAGE_KEYS.buyer, JSON.stringify(state.buyer));
-          recordBuyerEntry(state.buyer, null);
-          renderAdminBuyersAndSold();
-          showToast("Profil pembeli tersimpan.");
-        });
-
-        // Music transport
-        document.getElementById("music-play-btn")?.addEventListener("click", () => {
-          const a = getAudio();
-          const iconSlot = document.getElementById("music-play-icon-slot");
-          if (synthTimer) {
-            stopSynth();
-            if (iconSlot) iconSlot.textContent = "▶";
-            return;
-          }
-          if (a.src && !a.paused) {
-            a.pause();
-            if (iconSlot) iconSlot.textContent = "▶";
-          } else {
-            playTrack(Number(state.music.currentIndex) || 0);
+        document.getElementById("catalog-ready-only-chk")?.addEventListener("change", (e) => {
+          const chk = e.target;
+          if (chk instanceof HTMLInputElement) {
+            state.catalogReadyOnly = chk.checked;
+            renderProducts();
           }
         });
-        document.getElementById("music-prev-btn")?.addEventListener("click", () => playTrack((Number(state.music.currentIndex) || 0) - 1));
-        document.getElementById("music-next-btn")?.addEventListener("click", () => playTrack((Number(state.music.currentIndex) || 0) + 1));
+        document.getElementById("catalog-sort-select")?.addEventListener("change", (e) => {
+          const sel = e.target;
+          if (sel instanceof HTMLSelectElement) {
+            state.catalogSort = sel.value || "newest";
+            renderProducts();
+          }
+        });
+        document.getElementById("mini-player-open-music")?.addEventListener("click", () => {
+          setTab("musik");
+        });
         document.getElementById("music-seek-bar")?.addEventListener("input", (e) => {
           const a = getAudio();
           if (a.duration && isFinite(a.duration)) {
@@ -4808,19 +5447,205 @@
       }
 
       /* =====================================================================
+         THEME, APPEARANCE, TAB NAVIGATION & BADGE HELPERS
+         ===================================================================== */
+      function applyTheme(mode) {
+        const nextMode = mode === "dark" ? "dark" : "light";
+        state.theme = nextMode;
+        safeSetItem(STORAGE_KEYS.theme, nextMode);
+        document.documentElement.setAttribute("data-theme", nextMode);
+
+        const iconSlot = document.getElementById("header-theme-icon");
+        if (iconSlot) {
+          iconSlot.innerHTML =
+            nextMode === "dark"
+              ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
+              : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+        }
+
+        const pLight = document.getElementById("panel-theme-light-btn");
+        const pDark = document.getElementById("panel-theme-dark-btn");
+        const sLight = document.getElementById("set-theme-light-btn");
+        const sDark = document.getElementById("set-theme-dark-btn");
+        if (pLight) pLight.classList.toggle("active", nextMode === "light");
+        if (pDark) pDark.classList.toggle("active", nextMode === "dark");
+        if (sLight) sLight.style.borderColor = nextMode === "light" ? "var(--accent)" : "";
+        if (sDark) sDark.style.borderColor = nextMode === "dark" ? "var(--accent)" : "";
+
+        applyPartsAndTabColors();
+      }
+
+      function applyEffectMode(mode) {
+        const nextEffect = mode === "normal" ? "normal" : "blur";
+        state.effectMode = nextEffect;
+        safeSetItem("smj_effect_mode_v1", nextEffect);
+        document.documentElement.setAttribute("data-effect", nextEffect);
+      }
+
+      function applyFontScale(scale) {
+        const nextScale = scale === "large" ? "large" : "standard";
+        state.fontScale = nextScale;
+        safeSetItem("smj_font_scale_v1", nextScale);
+        document.documentElement.setAttribute("data-font-scale", nextScale);
+      }
+
+      function applyThemePalette(palette) {
+        const allowed = ["ungu", "biru", "pink", "orange", "hijau", "merah", "cyan", "emas"];
+        const fallback = state.theme === "dark" ? "ungu" : "biru";
+        const nextPal = allowed.includes(palette) ? palette : fallback;
+        state.themePalette = nextPal;
+        safeSetItem("smj_theme_palette_v1", nextPal);
+        document.documentElement.setAttribute("data-palette", nextPal);
+      }
+
+      function applyChromeColor() {
+        const mode = state.chromeColorMode === "custom" ? "custom" : "theme";
+        const color = state.chromeCustomColor || "#2563eb";
+        safeSetItem("smj_chrome_color_mode_v1", mode);
+        safeSetItem("smj_chrome_custom_color_v1", color);
+
+        const hexEl = document.getElementById("chrome-custom-color-hex");
+        const pickerEl = document.getElementById("chrome-custom-color-input");
+        if (hexEl) hexEl.textContent = color;
+        if (pickerEl instanceof HTMLInputElement) pickerEl.value = color;
+
+        if (mode === "custom") {
+          document.documentElement.style.setProperty("--chrome-bg", color);
+        } else {
+          document.documentElement.style.removeProperty("--chrome-bg");
+        }
+        applyPartsAndTabColors();
+      }
+
+      function applyPartsAndTabColors() {
+        safeSetItem("smj_part_colors_v1", JSON.stringify(state.partColors || {}));
+        safeSetItem("smj_tab_colors_v1", JSON.stringify(state.tabColors || {}));
+
+        const partMap = [
+          { key: "home", prop: "--home-custom-bg" },
+          { key: "header", prop: "--header-custom-bg" },
+          { key: "panel", prop: "--panel-custom-bg" },
+          { key: "nav", prop: "--nav-custom-bg" },
+          { key: "admin", prop: "--admin-custom-bg" },
+        ];
+
+        partMap.forEach(({ key, prop }) => {
+          const cfg = state.partColors?.[key];
+          if (cfg && cfg.mode === "custom" && cfg.color) {
+            document.documentElement.style.setProperty(prop, cfg.color);
+          } else {
+            document.documentElement.style.removeProperty(prop);
+          }
+          const btn = document.querySelector(`[data-part-mode="${key}"]`);
+          const inp = document.querySelector(`[data-part-color="${key}"]`);
+          if (btn) btn.textContent = cfg?.mode === "custom" ? "Sendiri" : "Tema";
+          if (inp instanceof HTMLInputElement && cfg?.color) inp.value = cfg.color;
+        });
+
+        const tabCfg = state.tabColors?.[state.tab];
+        if (tabCfg && tabCfg.mode === "custom" && tabCfg.color) {
+          document.documentElement.style.setProperty("--active-page-bg", tabCfg.color);
+        } else {
+          document.documentElement.style.removeProperty("--active-page-bg");
+        }
+
+        const grid = document.getElementById("tab-color-controls-grid");
+        if (grid) {
+          const tabs = [
+            { id: "beranda", label: "Beranda" },
+            { id: "produk", label: "Produk" },
+            { id: "keranjang", label: "Keranjang" },
+            { id: "musik", label: "Musik" },
+            { id: "kontak", label: "Kontak" },
+            { id: "akun", label: "Akun" },
+            { id: "promo", label: "Promo" },
+            { id: "pengaturan", label: "Pengaturan" },
+          ];
+          grid.innerHTML = tabs
+            .map((t) => {
+              const c = state.tabColors?.[t.id] || { mode: "theme", color: "#2563eb" };
+              const isCustom = c.mode === "custom";
+              return `
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft)">
+                  <span style="font-size:12px;font-weight:700">${escapeHtml(t.label)}</span>
+                  <div style="display:flex;align-items:center;gap:5px">
+                    <button type="button" data-tab-color-mode="${escapeHtml(t.id)}" class="btn-secondary" style="padding:4px 8px;font-size:11px">${isCustom ? "Sendiri" : "Tema"}</button>
+                    <input type="color" data-tab-color-picker="${escapeHtml(t.id)}" value="${escapeHtml(c.color || "#2563eb")}" style="width:32px;height:28px;padding:1px;border-radius:7px;border:1px solid var(--border-strong);cursor:pointer" />
+                  </div>
+                </div>
+              `;
+            })
+            .join("");
+        }
+      }
+
+      function renderAdminSocialsList() {
+        const box = document.getElementById("admin-socials-list");
+        if (!box) return;
+        const socials = Array.isArray(state.contact?.socials) ? state.contact.socials : [];
+        if (!socials.length) {
+          box.innerHTML = `<span style="font-size:12px;color:var(--text-muted)">Belum ada link media sosial.</span>`;
+          return;
+        }
+        box.innerHTML = socials
+          .map(
+            (s, i) => `
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:7px 9px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft)">
+                <input type="text" class="field-input" style="flex:0 0 130px;padding:6px 8px" data-soc-label="${i}" value="${escapeHtml(s.label || "")}" placeholder="Nama Sosmed" />
+                <input type="text" class="field-input" style="flex:1 1 180px;padding:6px 8px" data-soc-url="${i}" value="${escapeHtml(s.url || "")}" placeholder="https://..." />
+                <button type="button" class="btn-danger-soft" style="padding:5px 9px;font-size:11.5px" data-del-soc="${i}">Hapus</button>
+              </div>
+            `
+          )
+          .join("");
+      }
+
+      function syncBadges() {
+        const totalQty = (state.cart || []).reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+        const hBadge = document.getElementById("header-cart-badge");
+        const bBadge = document.getElementById("bottom-cart-badge");
+        if (hBadge) hBadge.textContent = String(totalQty);
+        if (bBadge) bBadge.textContent = String(totalQty);
+      }
+
+      function setTab(tabName) {
+        const validTabs = ["beranda", "produk", "keranjang", "terjual", "musik", "kontak", "akun", "promo", "pengaturan"];
+        const nextTab = validTabs.includes(tabName) ? tabName : "beranda";
+        state.tab = nextTab;
+
+        document.querySelectorAll(".view-section").forEach((sec) => {
+          sec.classList.toggle("hidden", sec.id !== "view-" + nextTab);
+        });
+
+        document.querySelectorAll(".bottom-tab-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.getAttribute("data-tab") === nextTab);
+        });
+
+        document.querySelectorAll("[data-panel-tab]").forEach((btn) => {
+          btn.classList.toggle("active", btn.getAttribute("data-panel-tab") === nextTab);
+        });
+
+        applyPartsAndTabColors();
+        updateFloatingMiniPlayer();
+      }
+
+      /* =====================================================================
          APPLICATION BOOTSTRAP
          ===================================================================== */
       function init() {
         applyTheme(state.theme);
         applyEffectMode(state.effectMode);
+        applyFontScale(state.fontScale);
         applyThemePalette(state.themePalette);
         applyChromeColor();
+        applyEqualizerState();
         renderAngelSlots();
         renderProducts();
         renderDrawersCart();
         renderCheckoutView();
         renderSoldView();
         renderMusicView();
+        syncMusicPlaybackModesUi();
         renderContactView();
         renderBuyerView();
         renderPromoView();
