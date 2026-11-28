@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:20:51.205Z",
+  "updatedAt": "2026-11-28T11:23:31.788Z",
   "products": [
+    {
+      "id": "prod-1795865011774",
+      "name": "Mvave mini Preamp 8 mode amp",
+      "category": "barang second",
+      "price": 450000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-mini-preamp-8-mode-amp-1795865006849-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-mini-preamp-8-mode-amp-1795865006849-0.webp"
+      ],
+      "description": "M-VAVE MINI-AMP adalah pedal efek gitar mini yang berfungsi sebagai preamp dan simulator ampli digital dengan 9 karakter ampli klasik dalam satu bodi ringkas. Mengusung desain logam berwarna hitam dengan aksen merah muda gelap (rose red) yang kokoh dan hemat ruang di pedalboard, pedal ini menawarkan fleksibilitas karakter suara mulai dari clean hangat, crunch natural, hingga high-gain agresif dengan pengoperasian analog-style yang praktis.\n\nFitur & Karakter Suara\n\n• 9 Model Preamp Legendaris: Dilengkapi kenop pemilih putar (rotary selector) untuk berpindah di antara 9 simulasi ampli ikonik, yaitu Dark DLS, Tweed CL, BG BlueM, Bad-KT OD, BE Flagman, Jm800, EG Powerball, Mess DualR, dan SL 100 Lead.\n• Kontrol Lengkap: Memiliki 5 kenop pengaturan utama di luar pemilih ampli, yakni Gain (tingkat distorsi/saturasi), Level (volume keluaran), serta 3-Band EQ (Bass, Mid, dan Treble) untuk membentuk karakter frekuensi secara presisi."
+    },
     {
       "id": "prod-1795864851141",
       "name": "Saphue OD clone Tubescreamer",
