@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T05:51:10.501Z",
+  "updatedAt": "2026-11-28T05:53:14.559Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -156,19 +156,6 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/kecewa-demo-version-1795844817851.mp3",
-        "synthNotes": [
-          220,
-          261.63,
-          329.63,
-          392
-        ]
-      },
-      {
-        "id": "tr-1795845070481",
-        "title": "aku saki hati (demo version)",
-        "artist": "Ewinth Revenge",
-        "cover": "",
-        "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/aku-saki-hati-demo-version-1795845060423.mp3",
         "synthNotes": [
           220,
           261.63,
