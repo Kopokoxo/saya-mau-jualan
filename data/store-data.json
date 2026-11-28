@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:23:19.459Z",
+  "updatedAt": "2026-11-28T12:27:38.407Z",
   "products": [
+    {
+      "id": "prod-1795868858228",
+      "name": "PC kere hore",
+      "category": "barang second",
+      "price": 5500000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/pc-kere-hore-1795868852612-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/pc-kere-hore-1795868852612-0.jpg"
+      ],
+      "description": "Rincian & Karakteristik Komponen\n\n• Prosesor: Intel Core i5 Generasi ke-10 (umumnya seri i5-10400F atau i5-10400)\n\t• Memiliki konfigurasi 6 Core dan 12 Thread dengan kecepatan boost hingga 4,3 GHz. Performa single-core maupun multi-core-nya masih sangat relevan untuk gaming modern dan multitasking tanpa menimbulkan bottleneck berarti pada kartu grafis.\n• Kartu Grafis (VGA): NVIDIA GeForce GTX 1080 Ti (11GB GDDR5X)\n\t• Kartu grafis flagship legendaris yang memiliki kapasitas VRAM besar (11GB) dan kekuatan komputasi mentah (rasterization) yang masih setara atau bersaing ketat dengan kartu grafis kelas menengah modern seperti RTX 3060 / RTX 4060 di resolusi 1080p–1440p (tanpa fitur Ray Tracing dan DLSS).\n• RAM: 16GB DDR4 (Disarankan konfigurasi Dual-Channel 2x8GB)\n\t• Kapasitas standar ideal untuk menjalankan Windows 11 secara mulus, membuka banyak aplikasi sekaligus, serta melibas game-game AAA modern tanpa gejala stuttering.\n• Motherboard: Chipset LGA 1200 Menyesuaikan (seri H410M, H510M, atau B460M)\n\t• Papan induk soket LGA 1200 ukuran Micro-ATX (mATX) yang menyesuaikan bujet. Umumnya sudah dilengkapi slot SSD NVMe M.2 dan fitur TPM 2.0 yang wajib dibutuhkan untuk instalasi resmi Windows 11.\n• Casing & Pendingin: Case Aquarium + Fan RGB\n\t• Menggunakan casing panoramic tempered glass di bagian depan dan samping (model akuarium) yang memamerkan seluruh isi komponen dengan rapi, dipadukan dengan kipas RGB (ARGB/Rainbow) untuk sirkulasi udara sekaligus tampilan visual yang menarik di atas meja."
+    },
     {
       "id": "prod-1795868599419",
       "name": "SOLAR GUITAR 7 STRINGS",
