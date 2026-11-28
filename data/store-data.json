@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:56:15.994Z",
+  "updatedAt": "2026-11-28T13:59:44.013Z",
   "products": [
+    {
+      "id": "prod-1795874383972",
+      "name": "midi controler smk25 mvave",
+      "category": "barang preorder",
+      "price": 665000,
+      "stock": 3,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/midi-controler-smk25-mvave-1795874378882-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/midi-controler-smk25-mvave-1795874378882-0.webp"
+      ],
+      "description": "M-VAVE SMK-37 Pro (atau varian terbarunya SMK-37 Elite, yang sering dicari dengan kata kunci SMK3 / SMK37) adalah MIDI keyboard controller nirkabel 37 tuts yang dilengkapi mesin suara (synthesizer) bawaan dan baterai tanam, sehingga dapat dimainkan secara mandiri (standalone) tanpa harus tersambung ke komputer maupun digunakan sebagai pengontrol DAW.\nPerangkat ini dirancang untuk produser musik, beatmaker, dan pemain keyboard yang membutuhkan kontrol produksi lengkap dalam ukuran ringkas yang mudah dibawa bepergian.\n\nKarakteristik & Fitur Utama\n\n• 37 Tuts Velocity-Sensitive & Roda Kontrol: Dilengkapi 37 tuts mini (rentang 3 oktaf) yang peka terhadap tekanan jari (velocity-sensitive), lengkap dengan roda fisik Pitch Bend dan Modulation di sisi kiri.\n• Mesin Suara Bawaan (Emulasi DX7 FM Synth): Memiliki sound engine internal yang meniru karakter synthesizer klasik Yamaha DX7 (seperti electric piano, bell, dan synth pad), dilengkapi lubang output audio 3,5 mm untuk langsung dicolokkan ke headphone atau speaker.\n• Kontrol Produksi Lengkap:\n\t• 16 Pad RGB: Mendukung velocity dan aftertouch untuk mengetuk ketukan drum (finger drumming) atau memicu klip/parameter.\n\t• 8 Kenop Putar (360° Encoders) & 4 Fader Geser: Dapat diprogram untuk mengatur volume track dan parameter efek di DAW (4 fader bisa diperluas menjadi 8 kontrol melalui tombol bank).\n• Fitur Kreatif Internal: Tersedia Arpeggiator, Note Repeat, Step Sequencer (dapat menyimpan hingga 8 pola), serta Scale Mode dan Chord Mode.\n• Konektivitas Nirkabel & Audio Interface: Mendukung koneksi Bluetooth MIDI ke smartphone/tablet maupun laptop, kabel USB-C (yang juga berfungsi sebagai USB Audio Interface untuk merekam suara internal langsung ke DAW), serta soket pedal sustain 1/4\".\n• Baterai Tanam 2000mAh: Mampu bertahan sekitar 10 jam pemakaian dalam sekali pengisian daya dengan layar tampilan 1,54 inci untuk navigasi pengaturan."
+    },
     {
       "id": "prod-1795874175966",
       "name": "pedal power mini",
