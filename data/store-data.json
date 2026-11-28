@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:31:53.256Z",
+  "updatedAt": "2026-11-28T13:46:31.281Z",
   "products": [
+    {
+      "id": "prod-1795873591238",
+      "name": "TANK-G b(isa request custom Ultra Rig Firmware)",
+      "category": "barang preorder",
+      "price": 980000,
+      "stock": 2,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/tank-g-b-isa-request-custom-ultra-rig-firmware-1795873586463-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/tank-g-b-isa-request-custom-ultra-rig-firmware-1795873586463-0.webp"
+      ],
+      "description": "jika custom firmware ultrarig tambah 200k untuk custom firmware nya \n\nM-VAVE Tank-G adalah prosesor multi-efek dan amp modeler gitar elektrik portabel berbentuk strip (pedal strip) berbodi logam yang dilengkapi baterai tanam isi ulang, 4 footswitch, serta dukungan impor IR dan profil ampli pihak ketiga.\nPerangkat ini dirancang untuk musisi yang membutuhkan solusi praktis tanpa kabel listrik tambahan, baik untuk latihan di rumah, direct recording ke ponsel dan komputer, maupun tampil langsung (live) ke mixer panggung.\n\nKarakteristik & Fitur Utama\n\n• Dua Mode Pengoperasian (Preset Mode & Live Mode):\n\t• Preset Mode: Menyediakan 36 slot preset (9 bank berisi masing-masing 4 preset: A, B, C, D) yang dapat diatur, ditukar posisinya, dan disimpan.\n\t• Live Mode: Mengubah fungsi 4 footswitch menjadi sakelar stompbox terpisah untuk menyalakan atau mematikan modul efek secara satuan (Preamp, Modulation, Delay, dan Reverb).\n• Rantai Efek & Impor File Pihak Ketiga: Dilengkapi Noise Gate, 9 slot model Preamp (mendukung pemuatan profil tone capture ampli eksternal), 3-Band EQ, 3 efek Modulasi, 3 Delay, 3 Reverb, 8 slot kabinet IR (mendukung file WAV 44,1 kHz/24-bit), serta tuner presisi tinggi.\n• Baterai Tanam 3000mAh: Dapat bertahan sekitar 10 hingga 12 jam pemakaian penuh dalam sekali pengisian daya menggunakan kabel USB Type-C."
+    },
     {
       "id": "prod-1795872713230",
       "name": "3D Print  Bambulab P1S Combo CoreXY Full with AMS",
