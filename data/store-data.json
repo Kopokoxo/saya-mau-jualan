@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T05:56:27.366Z",
+  "updatedAt": "2026-11-28T05:58:16.114Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -169,6 +169,19 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/namamu-menyiksaku-demo-version-1795845381540.mp3",
+        "synthNotes": [
+          220,
+          261.63,
+          329.63,
+          392
+        ]
+      },
+      {
+        "id": "tr-1795845496099",
+        "title": "aku sakit hati (demo version)",
+        "artist": "Ewinth Revenge",
+        "cover": "",
+        "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/aku-sakit-hati-demo-version-1795845489363.mp3",
         "synthNotes": [
           220,
           261.63,
