@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T09:56:40.245Z",
+  "updatedAt": "2026-11-28T09:58:03.631Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -32,7 +32,7 @@
       "price": 250000,
       "stock": 1000,
       "image": "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/jasa-layanan/1795789389136-custom-rom-all-android.webp",
-      "description": "CAPEK DENGAN TAMPILAN DAN SYSTEM ANDROID LAMA ,CUSTOM ROM SOLUSINYA",
+      "description": "Paket Basic (Install Custom ROM Only)\n\nSyarat: HP sudah dalam kondisi Unlock Bootloader (UBL) & terpasang TWRP/Custom Recovery.\n\nLayanan: Clean flash Custom ROM pilihan + GApps (jika belum termasuk).\n\nPaket Full Setup (Dari Nol / Kondisi Standar Pabrik)\n\nLayanan: Proses Unlock Bootloader (UBL), pasang TWRP/OrangeFox, instalasi Custom ROM, dan setup awal hingga siap pakai.\n\nPaket Pro / Gaming & Banking Ready (Best Seller)\n\nLayanan: Full Setup + Root (Magisk/KernelSU) + Custom Kernel + Fix Play Integrity/Hide Root (agar M-Banking, DANA, GoPay, dll. aman digunakan tanpa terdeteksi root).\n\nJasa Troubleshooting / Rescue\n\nLayanan: Mengatasi HP bootloop, softbrick, lupa pola/akun Mi/FRP, atau mengembalikan HP ke ROM standar pabrik (Stock ROM).\n\n3. Poin Penting & Syarat Ketentuan (Disclaimer) yang Wajib Dicantumkan\nUntuk menghindari kesalahpahaman dengan pelanggan, pastikan Anda selalu menyertakan catatan berikut di bagian bawah deskripsi:\n\nWajib Backup Data: Proses instalasi Custom ROM akan menghapus seluruh data di memori internal (Clean Flash). Pastikan pelanggan sudah mencadangkan foto, video, dan dokumen penting sebelum pengerjaan.\n\nWaktu Tunggu UBL (Khusus Merek Tertentu): Untuk HP Xiaomi/Redmi/POCO yang belum di-UBL, terdapat waktu tunggu resmi dari server Xiaomi (biasanya 7 hari / 168 jam) sebelum proses flashing bisa dilakukan (kecuali menggunakan jasa instant UBL berbayar jika tersedia).\n\nKetersediaan ROM: Tidak semua tipe HP memiliki dukungan Custom ROM (terutama HP dengan chipset MediaTek seri tertentu atau merek seperti Oppo/Vivo terbaru yang mengunci ketat bootloader-nya). Wajib konsultasikan tipe HP dan seri chipset terlebih dahulu sebelum memesan.\n\nSistem Pengerjaan: Melayani COD / Datang Langsung (area sekitar Anda) maupun Remote via PC/Laptop (menggunakan TeamViewer / AnyDesk / UltraViewer) untuk pelanggan luar kota.",
       "images": [
         "https://raw.githubusercontent.com/Kopokoxo/saya-mau-jualan/main/assets/products/jasa-layanan/1795789389136-custom-rom-all-android.webp"
       ]
