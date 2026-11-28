@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:19:18.015Z",
+  "updatedAt": "2026-11-28T12:23:19.459Z",
   "products": [
+    {
+      "id": "prod-1795868599419",
+      "name": "SOLAR GUITAR 7 STRINGS",
+      "category": "barang second",
+      "price": 6250000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solar-guitar-7-strings-1795868595806-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solar-guitar-7-strings-1795868595806-0.webp"
+      ],
+      "description": "Solar Guitars 7 Strings adalah lini gitar elektrik 7 senar yang didirikan oleh gitaris metal Ola Englund, dirancang khusus untuk musik berat modern seperti metal, djent, dan rock progresif. Gitar ini dikenal karena profil leher (neck) yang tipis dan cepat, akses fret tinggi yang lega, serta ketegangan senar rendah yang rapat.\nBerikut adalah beberapa pilihan model dan seri populer yang tersedia di pasaran:\n\n1. Seri Terjangkau (Entry-Level – S by Solar)\n\nLini ini menawarkan desain khas Solar dengan harga ramah di kantong, cocok untuk pemula hingga pemain menengah yang ingin mencoba gitar 7 senar:\n• S by Solar AB4.7CE 7 String Baritone Electric Guitar, Carbon Black:\n\t• Keunggulan: Skala baritone 26,5 inci menjaga senar ke-7 (nada B rendah) tetap kencang dan stabil untuk downtuning.\n\t• Spesifikasi: Bodi Poplar, leher Maple profil C-Shape, 24 fret Jumbo, fixed bridge, serta dua pickup Custom High-Output Ceramic Humbucker"
+    },
     {
       "id": "prod-1795868357968",
       "name": "BOSS Metalzone-MT2",
