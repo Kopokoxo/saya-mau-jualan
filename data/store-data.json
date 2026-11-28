@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:34:58.177Z",
+  "updatedAt": "2026-11-28T12:38:34.299Z",
   "products": [
+    {
+      "id": "prod-1795869514276",
+      "name": "GP5,ANNBLACKBOX,CHOCOLATE PLUS,PEDALBOARD,PSU,PATCH CABLE",
+      "category": "barang second",
+      "price": 2650000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gp5-annblackbox-chocolate-plus-pedalboard-psu-patch-cable-1795869510633-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gp5-annblackbox-chocolate-plus-pedalboard-psu-patch-cable-1795869510633-0.jpg"
+      ],
+      "description": "ANGKUT BORONGAN SET TINGGAL INJEK SOUND MAYAN ,KERE HORE PEDAL EFECT"
+    },
     {
       "id": "prod-1795869298134",
       "name": "Mixer 4 chanel Ashley Small bery",
