@@ -3764,15 +3764,38 @@
         }
         box.innerHTML = prods
           .map(
-            (p, idx) => `
-              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft)">
-                <div style="min-width:0">
-                  <strong style="font-size:12.5px">${escapeHtml(p.name)}</strong>
-                  <div style="font-size:11.5px;color:var(--text-muted)">${escapeHtml(p.category)} • ${formatRupiah(p.price)} • Stok: ${Number(p.stock) || 0}</div>
+            (p, idx) => {
+              const imgs = Array.isArray(p.images) && p.images.length ? p.images : p.image ? [p.image] : [];
+              const thumbsHtml = imgs.length
+                ? imgs
+                    .map(
+                      (src, pIdx) => `
+                        <div style="position:relative;width:48px;height:48px;border-radius:8px;overflow:hidden;border:1px solid var(--border-soft);background:var(--bg-elevated)">
+                          <img src="${escapeHtml(src)}" alt="Foto ${pIdx + 1}" style="width:100%;height:100%;object-fit:cover;display:block" />
+                        </div>
+                      `
+                    )
+                    .join("")
+                : `<span style="font-size:11px;color:var(--text-muted)">Belum ada foto (maks. 5)</span>`;
+
+              return `
+                <div class="info-box-card" style="gap:8px;padding:9px 11px">
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                    <div style="min-width:0">
+                      <strong style="font-size:12.5px">${escapeHtml(p.name)}</strong>
+                      <div style="font-size:11.5px;color:var(--text-muted)">${escapeHtml(p.category)} • ${formatRupiah(p.price)} • Stok: ${Number(p.stock) || 0} • Foto: ${imgs.length}/5</div>
+                    </div>
+                    <button type="button" class="btn-danger-soft" style="padding:5px 9px;font-size:11.5px" data-del-prod="${idx}">Hapus</button>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${thumbsHtml}</div>
+                  <textarea rows="2" class="field-textarea" data-edit-prod-desc="${idx}" placeholder="Edit deskripsi produk">${escapeHtml(p.description || "")}</textarea>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+                    <input type="file" accept="image/*" multiple class="field-input" style="flex:1 1 180px;padding:6px 8px;font-size:11.5px" data-add-prod-photo-file="${idx}" aria-label="Tambah foto produk" />
+                    <button type="button" class="btn-primary" style="padding:7px 11px;font-size:12px" data-save-prod-edit="${idx}">Simpan &amp; Tambah Foto</button>
+                  </div>
                 </div>
-                <button type="button" class="btn-danger-soft" style="padding:5px 9px;font-size:11.5px" data-del-prod="${idx}">Hapus</button>
-              </div>
-            `
+              `;
+            }
           )
           .join("");
       }
@@ -4751,6 +4774,17 @@
             return;
           }
 
+          const playTrackItem = target.closest("[data-play-idx]");
+          if (playTrackItem) {
+            const trackIdx = Number(playTrackItem.getAttribute("data-play-idx"));
+            if (!isNaN(trackIdx)) {
+              try {
+                playTrack(trackIdx);
+              } catch (_) {}
+            }
+            return;
+          }
+
           const catChip = target.closest("[data-cat-chip]");
           if (catChip) {
             state.searchCategory = catChip.getAttribute("data-cat-chip") || "all";
@@ -4883,16 +4917,52 @@
             return;
           }
 
-          const delTrackBtn = target.closest("[data-del-track]");
-          if (delTrackBtn) {
-            const idx = Number(delTrackBtn.getAttribute("data-del-track"));
-            if (!isNaN(idx) && state.music.tracks[idx]) {
-              state.music.tracks.splice(idx, 1);
-              renderMusicView();
-              renderAdminMusicList();
-              autoSyncGithubAfterChange("hapus lagu");
-              showToast("Lagu dihapus & auto-sync.");
-            }
+          const saveProdEditBtn = target.closest("[data-save-prod-edit]");
+          if (saveProdEditBtn) {
+            const idx = Number(saveProdEditBtn.getAttribute("data-save-prod-edit"));
+            const prod = !isNaN(idx) ? state.products[idx] : null;
+            if (!prod) return;
+
+            (async () => {
+              try {
+                const descEl = document.querySelector(`[data-edit-prod-desc="${idx}"]`);
+                if (descEl instanceof HTMLTextAreaElement) {
+                  prod.description = descEl.value.trim();
+                }
+
+                const existingImgs = Array.isArray(prod.images) && prod.images.length
+                  ? prod.images.slice(0, 5)
+                  : prod.image
+                    ? [prod.image].slice(0, 5)
+                    : [];
+
+                const fileInp = document.querySelector(`[data-add-prod-photo-file="${idx}"]`);
+                const files = fileInp instanceof HTMLInputElement && fileInp.files ? Array.from(fileInp.files) : [];
+
+                for (const f of files) {
+                  if (existingImgs.length >= 5) break;
+                  const b64 = await fileToBase64(f);
+                  if (state.github.owner && state.github.repo && state.github.token) {
+                    const path = `assets/products/${slugify(prod.name, "prod")}-${Date.now()}-${existingImgs.length}.${(f.name.split(".").pop() || "jpg").toLowerCase()}`;
+                    await ghPutFile(path, b64, `Upload ${path}`);
+                    existingImgs.push(`https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${path}`);
+                  } else {
+                    existingImgs.push(`data:${f.type || "image/jpeg"};base64,${b64}`);
+                  }
+                }
+
+                prod.images = existingImgs.slice(0, 5);
+                prod.image = prod.images[0] || "";
+                if (fileInp instanceof HTMLInputElement) fileInp.value = "";
+
+                renderProducts();
+                renderAdminProductsList();
+                await autoSyncGithubAfterChange("update deskripsi & foto produk");
+                showToast("Deskripsi & foto produk disimpan.");
+              } catch (err) {
+                showToast(err && err.message ? err.message : "Gagal menyimpan perubahan produk.");
+              }
+            })();
             return;
           }
 
