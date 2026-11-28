@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:28:28.344Z",
+  "updatedAt": "2026-11-28T11:55:49.369Z",
   "products": [
+    {
+      "id": "prod-1795866949346",
+      "name": "VEGUE AUDIO INTERFACE",
+      "category": "barang second",
+      "price": 400000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/vegue-audio-interface-1795866945311-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/vegue-audio-interface-1795866945311-0.jpg"
+      ],
+      "description": "Audio Interface Profesional (Untuk Rekaman & Home Studio)\n\nKategori ini (seperti seri MD22-Monitor) ditujukan bagi musisi, podcaster, atau kreator konten yang membutuhkan kualitas rekaman bersih dan detail.\n• Resolusi Audio Tinggi: Mendukung perekaman hingga 24-bit/192kHz yang menghasilkan suara jernih tanpa distorsi berlebih.\n• Input Instrumen & Mikrofon: Dilengkapi port kombo XLR/TRS yang mendukung mikrofon kondensor (dengan daya 48V Phantom Power), mikrofon dinamis, maupun instrumen seperti gitar elektrik dan keyboard.\n• Direct Monitoring: Memungkinkan pengguna mendengar suara asli secara langsung melalui headphone tanpa jeda waktu (zero-latency monitoring) saat proses rekaman berlangsung."
+    },
     {
       "id": "prod-1795865308300",
       "name": "GT-EQ",
