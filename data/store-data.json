@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:54:04.438Z",
+  "updatedAt": "2026-11-28T13:56:15.994Z",
   "products": [
+    {
+      "id": "prod-1795874175966",
+      "name": "pedal power mini",
+      "category": "barang second",
+      "price": 200000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/pedal-power-mini-1795874171173-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/pedal-power-mini-1795874171173-0.webp"
+      ],
+      "description": "M-VAVE Pedal Power adalah unit catu daya (power supply) mini berbodi logam berbentuk batang ramping yang menyediakan 8 output 9V DC dengan input daya menggunakan kabel USB Type-C, dirancang untuk menyuplai daya beberapa pedal efek gitar sekaligus di atas pedalboard kecil secara praktis dan portabel.\nPerangkat ini dapat ditenagai menggunakan kepala charger ponsel maupun power bank 5V/2A sehingga sangat fleksibel untuk latihan di mana saja tanpa selalu bergantung pada stopkontak listrik.\n\nKarakteristik & Spesifikasi Utama\n\n• 8 Saluran Output 9V DC: Terdiri dari 6 port 9V / 100mA (cocok untuk pedal analog seperti overdrive, distortion, tuner, booster) dan 2 port 9V / 300mA (untuk pedal digital berdaya lebih besar seperti reverb atau delay).\n• Proteksi Arus Lebih Per Saluran: Setiap lubang output dilengkapi sekering pelindung independen dan lampu indikator LED—jika terjadi korsleting atau kelebihan beban pada satu pedal, lampu LED saluran tersebut akan padam tanpa mematikan saluran lainnya.\n• Input USB Type-C 5V / 2A: Menggunakan konektor modern USB-C sebagai sumber daya masuk sehingga mudah dihubungkan ke power bank.\n• Bodi Logam Ultra-Ramping: Memiliki ukuran panjang 13,96 cm × lebar 2,6 cm × tebal 2,0 cm dengan bobot hanya 111 gram, sangat mudah diselipkan di sela-sela atau bagian bawah pedalboard mini."
+    },
     {
       "id": "prod-1795874044383",
       "name": "pedal power mini",
