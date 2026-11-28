@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T15:48:31.481Z",
+  "updatedAt": "2026-11-28T04:36:08.163Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -38,6 +38,7 @@
       ]
     }
   ],
+  "sold": [],
   "music": {
     "currentIndex": 0,
     "tracks": [
@@ -76,7 +77,8 @@
   "promo": {
     "title": "Promo & Info Terbaru",
     "description": "Nikmati pilihan barang baru, barang second terkurasi, barang preorder, dan jasa layanan dengan metode pembayaran fleksibel termasuk COD dan QRIS.",
-    "image": ""
+    "image": "",
+    "images": []
   },
   "shipping": [
     {
@@ -213,5 +215,6 @@
     "mapTitle": "Toko SAYA MAU JUALAN",
     "mapAddress": "Jl. randublatung-cepu,Blora, Jawa Tengah,58382",
     "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=110.79%2C-7.58%2C110.85%2C-7.55&layer=mapnik"
-  }
+  },
+  "buyersLog": []
 }
