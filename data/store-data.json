@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T10:46:50.133Z",
+  "updatedAt": "2026-11-28T10:50:32.616Z",
   "products": [
+    {
+      "id": "prod-1795863032605",
+      "name": "mvave chocolate basic",
+      "category": "barang second",
+      "price": 350000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-chocolate-basic-1795863028363-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-chocolate-basic-1795863028363-0.webp"
+      ],
+      "description": "M-VAVE Chocolate (Basic / Standar)\n\nM-VAVE Chocolate adalah pedal pengontrol kaki (MIDI foot controller) nirkabel berukuran ringkas yang berfungsi untuk memindahkan preset, menyalakan/mematikan blok efek, atau membalik halaman partitur digital (page turner) pada prosesor efek seperti M-VAVE ANN Blackbox, DAW komputer, maupun aplikasi musik di ponsel/tablet. (Catatan: Perangkat ini adalah pengontrol MIDI, bukan efek gitar yang mengeluarkan suara sendiri).\n• Kontrol & Antarmuka: Dilengkapi 4 saklar kaki (footswitch A, B, C, D) berbahan logam dengan ukuran ringkas (±212 × 36 × 17 mm, bobot ±236–280 gram) dan layar LED dua digit (seven-segment) untuk menampilkan perintah atau nomor bank.\n• Mode & Kustomisasi: Dapat diprogram melalui aplikasi CubeSuite (Android, iOS, Windows, Mac) untuk mengirim pesan MIDI (PC, CC, Note On/Off), simulasi tombol keyboard, kontrol multimedia, hingga mode kustom untuk berpindah antar-bank.\n• Konektivitas: Mendukung koneksi nirkabel Bluetooth MIDI, port USB Type-C, serta 1 lubang jack 1/4\" TRS yang berfungsi ganda untuk pedal ekspresi (expression pedal) atau output kabel MIDI TRS. (Berbeda dengan versi Chocolate Plus, versi Basic tidak memiliki fitur USB Host untuk mencolok langsung ke efek tanpa komputer/Bluetooth).\n• Daya: Menggunakan baterai isi ulang internal berkapasitas 300 mAh yang mampu bertahan hingga 12 jam pemakaian dengan waktu pengisian sekitar 2,5 jam melalui port USB Type-C."
+    },
     {
       "id": "prod-1795862810068",
       "name": "Blackbox",
