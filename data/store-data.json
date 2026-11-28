@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T09:58:03.631Z",
+  "updatedAt": "2026-11-28T10:10:16.287Z",
   "products": [
+    {
+      "id": "prod-1795860616261",
+      "name": "Guitar Greco original  edition 1986",
+      "category": "barang second",
+      "price": 18000000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/guitar-greco-original-edition-1986-1795860610754-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/guitar-greco-original-edition-1986-1795860610754-0.jpg"
+      ],
+      "description": "Sebagai catatan tambahan, pada gitar Greco keluaran era vintage Jepang (seperti akhir 1970-an hingga 1980-an), format nomor seri bervariasi tergantung tahun dan pabrik pembuatannya (misalnya format bulan-tahun/produksi seperti 8 XXXX atau format tahun/bulan/nomor urut pada era Super Real / Mint Collection). Jika Anda memiliki tahun atau seri model Greco tertentu (misalnya EG-500, EG-700, atau EG-800), saya bisa buatkan ulang dengan format nomor seri yang lebih spesifik ,nomor seri 8 4215 bisa di cek web resmi greco"
+    },
     {
       "id": "prod-1795794511480",
       "name": "Jasa Setup & Optimasi Sistem All Gadget",
