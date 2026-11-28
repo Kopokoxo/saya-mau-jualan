@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:14:38.841Z",
+  "updatedAt": "2026-11-28T11:17:52.797Z",
   "products": [
+    {
+      "id": "prod-1795864672775",
+      "name": "DOLAMO CHORUS",
+      "category": "barang second",
+      "price": 300000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/dolamo-chorus-1795864667654-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/dolamo-chorus-1795864667654-0.webp"
+      ],
+      "description": "Dolamo D-3 Super Chorus adalah pedal efek gitar tunggal (stompbox) yang dirancang untuk memberikan efek modulasi chorus dengan pengoperasian sederhana dan harga ekonomis. Menggunakan bodi logam (alloy) berwarna biru tua yang ringkas dan kokoh, pedal ini ditujukan bagi gitaris pemula maupun pemain yang mencari tambahan tekstur suara lebar dan berkilau (shimmer) tanpa pengaturan yang rumit.\n\nDesain & Kontrol\n\n• Kontrol 2 Kenop: Hanya memiliki pengaturan Rate (kecepatan ayunan gelombang modulasi) dan Depth (kedalaman atau intensitas efek chorus) sehingga sangat mudah diatur.\n• Rangkaian True Bypass: Menjaga sinyal asli gitar tetap jernih dan tidak terpotong saat efek dalam posisi mati (off).\n• Konstruksi Fisik: Bodi berbahan logam paduan dengan dimensi sekitar 9,7 × 6,6 × 4,7 cm dan bobot ±191 gram, dilengkapi indikator lampu LED dan footswitch standar."
+    },
     {
       "id": "prod-1795864478805",
       "name": "GP-5",
