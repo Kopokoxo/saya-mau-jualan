@@ -2511,6 +2511,22 @@
       }
 
       const savedGh = safeParseJson(safeGetItem(STORAGE_KEYS.ghCfg), { owner: "", repo: "", branch: "main" });
+      const EMBEDDED_GH_CFG = { owner: "", repo: "", branch: "main" };
+
+      function detectGithubFromLocation() {
+        try {
+          const host = String(window.location.hostname || "").toLowerCase();
+          const pathParts = String(window.location.pathname || "").split("/").filter(Boolean);
+          if (host.endsWith(".github.io")) {
+            const owner = host.replace(/\.github\.io$/, "");
+            const repo = pathParts[0] || `${owner}.github.io`;
+            return { owner, repo, branch: "main" };
+          }
+        } catch (_) {}
+        return { owner: "", repo: "", branch: "main" };
+      }
+
+      const detectedGh = detectGithubFromLocation();
       const loadedShip = safeParseJson(safeGetItem(STORAGE_KEYS.shipping), null);
 
       const state = {
@@ -2544,9 +2560,9 @@
         tabColors: safeParseJson(safeGetItem("smj_tab_colors_v1"), {}),
         angelLogoId: safeGetItem("smj_angel_logo_v1") || "halo-classic",
         github: {
-          owner: String(savedGh.owner || "").trim(),
-          repo: String(savedGh.repo || "").trim(),
-          branch: String(savedGh.branch || "main").trim() || "main",
+          owner: String(savedGh.owner || EMBEDDED_GH_CFG.owner || detectedGh.owner || "").trim(),
+          repo: String(savedGh.repo || EMBEDDED_GH_CFG.repo || detectedGh.repo || "").trim(),
+          branch: String(savedGh.branch || EMBEDDED_GH_CFG.branch || detectedGh.branch || "main").trim() || "main",
           token: safeGetSession(SESSION_TOKEN_KEY) || "",
         },
         selectedShippingId: "",
@@ -3940,20 +3956,29 @@
       async function loadRemoteStoreData() {
         const { owner, repo, branch } = state.github;
         const badge = document.getElementById("remote-sync-badge");
-        if (!owner || !repo) {
-          if (badge) badge.textContent = "Mode Lokal";
-          return;
+        const candidates = [];
+        candidates.push(`./data/store-data.json?t=${Date.now()}`);
+        if (owner && repo) {
+          candidates.push(
+            `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${encodeURIComponent(branch || "main")}/data/store-data.json?t=${Date.now()}`
+          );
         }
-        try {
-          const rawUrl = `https://raw.githubusercontent.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/${encodeURIComponent(branch || "main")}/data/store-data.json?t=${Date.now()}`;
-          const res = await fetch(rawUrl, { cache: "no-store" });
-          if (!res.ok) return;
-          const data = await res.json();
-          applyRemoteStorePayload(data);
-          if (badge) badge.textContent = "Live GitHub Sync";
-        } catch (_) {
-          if (badge) badge.textContent = "Mode Lokal";
+
+        for (const url of candidates) {
+          try {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) continue;
+            const data = await res.json();
+            if (data && typeof data === "object") {
+              applyRemoteStorePayload(data);
+              if (badge) badge.textContent = "Live GitHub Sync";
+              return true;
+            }
+          } catch (_) {}
         }
+
+        if (badge) badge.textContent = owner && repo ? "Live Siap (Belum Ada JSON)" : "Mode Lokal";
+        return false;
       }
 
       function bindEvents() {
@@ -4457,8 +4482,42 @@
           }
         });
         document.getElementById("gh-pull-json-btn")?.addEventListener("click", async () => {
+          const ok = await loadRemoteStoreData();
+          setGhStatus(
+            ok
+              ? "Data berhasil diperbarui dari GitHub."
+              : "File data/store-data.json belum ditemukan di GitHub. Klik 'Sync Manual JSON ke GitHub' terlebih dahulu.",
+            !ok
+          );
+        });
+
+        document.getElementById("gh-save-cfg-btn")?.addEventListener("click", async () => {
+          const owner = String(document.getElementById("gh-owner-input")?.value || "").trim();
+          const repo = String(document.getElementById("gh-repo-input")?.value || "").trim();
+          const branch = String(document.getElementById("gh-branch-input")?.value || "main").trim() || "main";
+          const token = String(document.getElementById("gh-token-input")?.value || "").trim();
+          state.github = { owner, repo, branch, token };
+          safeSetItem(STORAGE_KEYS.ghCfg, JSON.stringify({ owner, repo, branch }));
+          if (token) safeSetSession(SESSION_TOKEN_KEY, token);
+          setGhStatus("Konfigurasi GitHub disimpan. Mengambil data terbaru...", false);
           await loadRemoteStoreData();
-          setGhStatus("Data diperbarui dari GitHub.", false);
+          showToast("Konfigurasi GitHub tersimpan.");
+        });
+
+        document.getElementById("gh-publish-json-btn")?.addEventListener("click", async () => {
+          try {
+            const owner = String(document.getElementById("gh-owner-input")?.value || state.github.owner || "").trim();
+            const repo = String(document.getElementById("gh-repo-input")?.value || state.github.repo || "").trim();
+            const branch = String(document.getElementById("gh-branch-input")?.value || state.github.branch || "main").trim() || "main";
+            const token = String(document.getElementById("gh-token-input")?.value || state.github.token || "").trim();
+            state.github = { owner, repo, branch, token };
+            safeSetItem(STORAGE_KEYS.ghCfg, JSON.stringify({ owner, repo, branch }));
+            if (token) safeSetSession(SESSION_TOKEN_KEY, token);
+            await publishStoreJsonToGithub(false);
+            showToast("JSON berhasil di-sync ke GitHub!");
+          } catch (err) {
+            setGhStatus(err && err.message ? err.message : "Gagal sync ke GitHub.", true);
+          }
         });
 
         // Admin add product (up to 5 photos)
