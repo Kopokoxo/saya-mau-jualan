@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:30:49.578Z",
+  "updatedAt": "2026-11-28T12:34:58.177Z",
   "products": [
+    {
+      "id": "prod-1795869298134",
+      "name": "Mixer 4 chanel Ashley Small bery",
+      "category": "barang second",
+      "price": 400000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mixer-4-chanel-ashley-small-bery-1795869293357-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mixer-4-chanel-ashley-small-bery-1795869293357-0.jpg"
+      ],
+      "description": "like new baru 3x di pakai untuk live streaming\nchannel berbahan bodi metal yang dirancang untuk kebutuhan live streaming, podcast, karaoke, hingga rekaman rumahan dengan dukungan konektivitas USB OTG langsung ke ponsel dan komputer.\nPerangkat ini menggabungkan fungsi mixer fisik (dengan EQ dan 99 efek vokal) sekaligus sound card eksternal dalam ukuran ringkas yang mudah dibawa.\n\nKarakteristik & Fitur Utama\n\n• Konfigurasi 4 Channel Fleksibel: Terdiri dari 2 channel input mono (soket kombo XLR/TRS untuk mikrofon atau instrumen) serta 1 channel stereo (channel 3/4) dengan tombol pemilih mode mono/stereo.\n• Kontrol Audio Lengkap per Channel: Dilengkapi pengaturan 3-Band EQ (High, Mid, Low), tombol Low Cut (memotong dengung frekuensi rendah), tombol Hi-Z (khusus gitar/instrumen impedansi tinggi), tombol Mute, serta +48V Phantom Power untuk mikrofon kondensor.\n• 99 Efek Digital DSP (24-bit): Memiliki prosesor efek vokal internal berisi 99 pilihan efek (reverb, echo, delay, dll.) untuk memperkaya suara vokal saat karaoke atau live streaming.\n• Koneksi USB OTG & Sound Card: Dilengkapi port khusus OTG Type-C di bagian belakang yang memungkinkan audio masuk dan keluar langsung ke smartphone maupun PC/laptop secara digital tanpa memerlukan splitter tambahan.\n• Bluetooth & Rekam Flashdisk: Mendukung pemutaran musik latar secara nirkabel lewat Bluetooth maupun flashdisk USB, serta mampu merekam hasil campuran suara langsung ke flashdisk."
+    },
     {
       "id": "prod-1795869049558",
       "name": "mixer mini 2 chanel",
