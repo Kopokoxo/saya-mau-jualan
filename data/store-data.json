@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:25:53.408Z",
+  "updatedAt": "2026-11-28T11:28:28.344Z",
   "products": [
+    {
+      "id": "prod-1795865308300",
+      "name": "GT-EQ",
+      "category": "barang second",
+      "price": 450000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gt-eq-1795865304229-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gt-eq-1795865304229-0.jpg"
+      ],
+      "description": "Tomsline AEG-3 GT-EQ (varian biru) adalah pedal efek gitar mini berjenis analog graphic equalizer 5-band yang dirancang untuk membentuk karakter suara (tone shaping) secara presisi. Menggunakan bodi paduan aluminium berukuran ringkas dengan ciri khas palang pelindung logam di bagian tengah, pedal ini memudahkan gitaris mengatur keseimbangan frekuensi maupun menjadikannya clean boost untuk menonjolkan permainan solo tanpa memakan banyak ruang di pedalboard.\n\nFitur & Kontrol Suara\n\n• 5-Band Graphic Equalizer Analog: Memiliki lima tuas geser (slider) untuk memotong atau menaikkan frekuensi hingga ±18 dB pada titik 100 Hz, 250 Hz, 630 Hz, 1,6 kHz, dan 4 kHz, sehingga efektif mengatasi suara muddy maupun mempertajam karakter clean dan distorsi.\n• Kontrol Level (Volume): Dilengkapi satu kenop pengaturan Level terpisah untuk menyesuaikan volume keluaran keseluruhan, memungkinkan pedal ini difungsikan sekaligus sebagai booster."
+    },
     {
       "id": "prod-1795865153318",
       "name": "Rowin Tuner",
