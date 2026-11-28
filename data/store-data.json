@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:48:29.481Z",
+  "updatedAt": "2026-11-28T12:52:18.653Z",
   "products": [
+    {
+      "id": "prod-1795870338610",
+      "name": "rexus mechanical keyboard",
+      "category": "barang baru",
+      "price": 335000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/rexus-mechanical-keyboard-1795870333091-0.png",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/rexus-mechanical-keyboard-1795870333091-0.png"
+      ],
+      "description": "Rexus menawarkan beragam pilihan mechanical keyboard berkabel (wired) dengan berbagai ukuran layout—mulai dari ringkas 65%, Tenkeyless (TKL 87 tombol), hingga Full-Size 104 tombol—yang dilengkapi fitur hotswap switch dan kabel detachable USB Type-C."
+    },
     {
       "id": "prod-1795870109458",
       "name": "MOOER GE-150 PRO",
