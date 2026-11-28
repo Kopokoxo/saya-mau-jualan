@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T05:04:14.292Z",
+  "updatedAt": "2026-11-28T05:06:21.822Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -117,6 +117,19 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/choke-1795842247252.mp3",
+        "synthNotes": [
+          220,
+          261.63,
+          329.63,
+          392
+        ]
+      },
+      {
+        "id": "tr-1795842381816",
+        "title": "8th",
+        "artist": "Ewinth Revenge",
+        "cover": "",
+        "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/8th-1795842361674.mp3",
         "synthNotes": [
           220,
           261.63,
