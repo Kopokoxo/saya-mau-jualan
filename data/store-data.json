@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:23:31.788Z",
+  "updatedAt": "2026-11-28T11:25:53.408Z",
   "products": [
+    {
+      "id": "prod-1795865153318",
+      "name": "Rowin Tuner",
+      "category": "barang second",
+      "price": 250000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/rowin-tuner-1795865142679-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/rowin-tuner-1795865142679-0.webp"
+      ],
+      "description": "Rowin Chromatic Tuner (seri populer LT-901 dan LT-910) adalah pedal tuner gitar dan bas berukuran mini yang dirancang untuk penyeteman nada (tuning) cepat, akurat, dan senyap di atas panggung maupun studio. Menggunakan bodi logam (full metal shell) yang ringkas, pedal ini sangat hemat tempat di pedalboard dan berfungsi memutus sinyal suara (mute) secara otomatis saat diaktifkan agar proses penyeteman tidak terdengar ke speaker atau ampli.\n\nFitur & Akurasi Penyeteman\n\n• Jangkauan Kromatik Luas: Mendeteksi rentang nada dari A0 (27,5 Hz) hingga C8 (4186 Hz), sehingga kompatibel untuk gitar listrik, gitar akustik, bas (termasuk senar rendah), hingga instrumen gesek atau petik lainnya.\n• Layar LED Terang & Responsif: Dilengkapi layar tampilan indikator nada berukuran besar dengan kontras tinggi yang mudah dibaca di panggung gelap maupun pencahayaan terang, lengkap dengan indikator lampu posisi nada (terlalu rendah, tepat/in-tune, atau terlalu tinggi)."
+    },
     {
       "id": "prod-1795865011774",
       "name": "Mvave mini Preamp 8 mode amp",
