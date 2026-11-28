@@ -2059,6 +2059,20 @@
         </div>
 
         <div class="info-box-card" style="gap:8px">
+          <strong style="font-size:13px">Tema / Palet Warna</strong>
+          <div id="settings-palette-choices" style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" data-select-palette="biru" class="btn-secondary">Biru</button>
+            <button type="button" data-select-palette="ungu" class="btn-secondary">Ungu</button>
+            <button type="button" data-select-palette="pink" class="btn-secondary">Pink</button>
+            <button type="button" data-select-palette="orange" class="btn-secondary">Oranye</button>
+            <button type="button" data-select-palette="hijau" class="btn-secondary">Hijau</button>
+            <button type="button" data-select-palette="merah" class="btn-secondary">Merah</button>
+            <button type="button" data-select-palette="cyan" class="btn-secondary">Cyan</button>
+            <button type="button" data-select-palette="emas" class="btn-secondary">Emas</button>
+          </div>
+        </div>
+
+        <div class="info-box-card" style="gap:8px">
           <strong style="font-size:13px">Efek Tampilan</strong>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button type="button" data-set-effect="blur" class="btn-secondary" id="set-effect-blur-btn">Efek Blur Transparan</button>
@@ -2141,27 +2155,27 @@
         <div class="info-box-card" style="gap:8px">
           <strong style="font-size:13px">Equalizer &amp; Pengaturan Audio HP</strong>
           <p style="margin:0;font-size:12px;color:var(--text-muted)">Atur EQ pemutar musik Ewinth Revenge dan buka pengaturan audio / equalizer bawaan HP Anda.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-            <select id="eq-preset-select" class="search-cat-select" aria-label="Preset Equalizer">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:stretch">
+            <select id="eq-preset-select" class="search-cat-select" aria-label="Preset Equalizer" style="flex:1 1 140px;max-width:none;min-height:40px">
               <option value="flat">Flat</option>
               <option value="bass">Bass Boost</option>
               <option value="vocal">Vocal Jernih</option>
               <option value="rock">Rock / Revenge</option>
             </select>
-            <button type="button" id="open-device-eq-btn" class="btn-secondary">Buka Equalizer / Suara HP</button>
+            <button type="button" id="open-device-eq-btn" class="btn-secondary" style="flex:1 1 160px;min-height:40px;padding:8px 10px;font-size:12px">Buka Equalizer / Suara HP</button>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:2px">
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
-              <span>Bass (60Hz): <strong id="eq-bass-val">0 dB</strong></span>
-              <input id="eq-bass-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Bass 60Hz" />
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px;margin-top:2px">
+            <label style="display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:700;padding:8px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft);min-width:0">
+              <span style="display:flex;flex-direction:column;gap:1px"><span>Bass (60Hz)</span><strong id="eq-bass-val" style="color:var(--accent-bright)">0 dB</strong></span>
+              <input id="eq-bass-slider" type="range" min="-12" max="12" step="1" value="0" style="width:100%;margin:2px 0" aria-label="Equalizer Bass 60Hz" />
             </label>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
-              <span>Mid (1kHz): <strong id="eq-mid-val">0 dB</strong></span>
-              <input id="eq-mid-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Mid 1kHz" />
+            <label style="display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:700;padding:8px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft);min-width:0">
+              <span style="display:flex;flex-direction:column;gap:1px"><span>Mid (1kHz)</span><strong id="eq-mid-val" style="color:var(--accent-bright)">0 dB</strong></span>
+              <input id="eq-mid-slider" type="range" min="-12" max="12" step="1" value="0" style="width:100%;margin:2px 0" aria-label="Equalizer Mid 1kHz" />
             </label>
-            <label style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:700">
-              <span>Treble (6kHz): <strong id="eq-treble-val">0 dB</strong></span>
-              <input id="eq-treble-slider" type="range" min="-12" max="12" step="1" value="0" aria-label="Equalizer Treble 6kHz" />
+            <label style="display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:700;padding:8px;border-radius:10px;background:var(--bg-canvas);border:1px solid var(--border-soft);min-width:0">
+              <span style="display:flex;flex-direction:column;gap:1px"><span>Treble (6kHz)</span><strong id="eq-treble-val" style="color:var(--accent-bright)">0 dB</strong></span>
+              <input id="eq-treble-slider" type="range" min="-12" max="12" step="1" value="0" style="width:100%;margin:2px 0" aria-label="Equalizer Treble 6kHz" />
             </label>
           </div>
           <div id="device-eq-guide" class="pwa-guide-note hidden"></div>
@@ -4837,6 +4851,25 @@
             return;
           }
 
+          const paletteBtn = target.closest("[data-select-palette]");
+          if (paletteBtn) {
+            applyThemePalette(paletteBtn.getAttribute("data-select-palette"));
+            showToast("Tema palet warna diperbarui.");
+            return;
+          }
+
+          const partModeBtn = target.closest("[data-part-mode]");
+          if (partModeBtn) {
+            const partKey = partModeBtn.getAttribute("data-part-mode");
+            if (partKey) {
+              const cur = state.partColors[partKey] || { mode: "theme", color: "#2563eb" };
+              cur.mode = cur.mode === "custom" ? "theme" : "custom";
+              state.partColors[partKey] = cur;
+              applyPartsAndTabColors();
+            }
+            return;
+          }
+
           const delProdBtn = target.closest("[data-del-prod]");
           if (delProdBtn) {
             const idx = Number(delProdBtn.getAttribute("data-del-prod"));
@@ -5504,6 +5537,12 @@
         state.themePalette = nextPal;
         safeSetItem("smj_theme_palette_v1", nextPal);
         document.documentElement.setAttribute("data-palette", nextPal);
+        document.querySelectorAll("[data-select-palette]").forEach((btn) => {
+          const isAct = btn.getAttribute("data-select-palette") === nextPal;
+          btn.style.borderColor = isAct ? "var(--accent)" : "";
+          btn.style.backgroundColor = isAct ? "var(--accent-soft)" : "";
+          btn.style.color = isAct ? "var(--accent-bright)" : "";
+        });
       }
 
       function applyChromeColor() {
@@ -5546,7 +5585,12 @@
           }
           const btn = document.querySelector(`[data-part-mode="${key}"]`);
           const inp = document.querySelector(`[data-part-color="${key}"]`);
-          if (btn) btn.textContent = cfg?.mode === "custom" ? "Sendiri" : "Tema";
+          const isCustom = cfg?.mode === "custom";
+          if (btn) {
+            btn.textContent = isCustom ? "Sendiri" : "Tema";
+            btn.style.borderColor = isCustom ? "var(--accent)" : "";
+            btn.style.color = isCustom ? "var(--accent-bright)" : "";
+          }
           if (inp instanceof HTMLInputElement && cfg?.color) inp.value = cfg.color;
         });
 
