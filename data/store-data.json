@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:13:12.383Z",
+  "updatedAt": "2026-11-28T12:19:18.015Z",
   "products": [
+    {
+      "id": "prod-1795868357968",
+      "name": "BOSS Metalzone-MT2",
+      "category": "barang second",
+      "price": 850000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/boss-metalzone-mt2-1795868354063-0.avif",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/boss-metalzone-mt2-1795868354063-0.avif"
+      ],
+      "description": "Boss MT-2 Metal Zone adalah pedal efek distorsi gitar legendaris buatan BOSS (Roland) yang dirancang khusus untuk menghasilkan karakter distorsi high-gain yang tebal, berat, dan agresif bagi genre musik rock keras hingga metal ekstrem.\nDirilis pertama kali pada tahun 1991, pedal ini menjadi salah satu efek distorsi paling ikonik dan laris sepanjang masa karena fleksibilitas pengaturan nadanya yang sangat luas.\n\nKarakteristik & Fitur Utama\n\n• Sirkuit Dual-Gain: Menggunakan rangkaian penguatan ganda yang menghasilkan distorsi sangat pekat dengan sustain (panjang nada) yang panjang dan rapat, bahkan pada volume rendah.\n• EQ 3-Band Aktif dengan Semi-Parametric Mid: Keunggulan utama MT-2 terletak pada pengaturan nadanya yang sangat detail—terdiri dari High, Low, serta pengaturan Middle yang dapat digeser titik frekuensinya (dari 200 Hz hingga 5 kHz) dengan rentang boost/cut hingga ±15 dB. Fitur ini memudahkan pemain membentuk karakter suara mulai dari scooped mids khas thrash metal hingga suara solo yang menonjol."
+    },
     {
       "id": "prod-1795867992304",
       "name": "Amplifier Amb Drive",
