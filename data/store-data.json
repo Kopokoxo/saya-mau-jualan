@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-28T10:35:38.794Z",
+  "updatedAt": "2026-11-28T10:38:45.183Z",
   "products": [
+    {
+      "id": "prod-1795862325151",
+      "name": "amoon pop rock",
+      "category": "barang second",
+      "price": 250000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862303918-0.jpeg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862303918-0.jpeg",
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862308886-1.jpeg",
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862315856-2.jpeg",
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862318951-3.jpeg",
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amoon-pop-rock-1795862321728-4.jpeg"
+      ],
+      "description": "Ammoon PockRock adalah prosesor multi-efek gitar digital berukuran saku yang dirancang khusus untuk latihan portabel. Perangkat ringkas ini menyatukan simulasi ampli, berbagai efek dasar, tuner, dan mesin drum dalam satu bodi plastik ringan yang bisa dijepitkan ke sabuk atau tali gitar.\n\nDesain & Ukuran Fisik\n\n• Bentuk Ringkas: Bodinya seukuran telapak tangan dengan bobot sangat ringan (sekitar 130–160 gram) sehingga mudah dimasukkan ke dalam tas gitar.\n• Klip Sabuk: Bagian belakang dilengkapi pengait plastik untuk dipasang pada ikat pinggang atau strap gitar saat bermain sambil berdiri.\n• Tampilan & Tombol: Memiliki layar LCD monokrom kecil di tengah, deretan tombol tekan untuk memilih modul dan menaik-turunkan preset, serta kenop putar fisik untuk mengatur tingkat Gain dan Tone.\n\nSuara & Fitur Utama\n\n• Modul Efek: Menyediakan 5 blok efek berurutan yang mencakup simulasi ampli/distorsi (Clean, Overdrive, Distortion, Crunch, Fuzz, Metal), modulasi (Chorus, Flanger, Phaser, Tremolo), Delay/Echo, dan Reverb (Room, Hall).\n• Penyimpanan Preset: Dilengkapi 16 preset pabrik siap pakai dan 16 slot kosong untuk menyimpan racikan suara sendiri.\n• Fitur Latihan: Memiliki tuner bawaan, simulator kabinet (cab sim) agar suara tetap enak saat langsung masuk ke headphone, serta 40 pola iringan drum untuk berlatih tempo.\n\nKonektivitas & Sumber Daya\n\n• Port Audio: Tersedia lubang input gitar standar (6,35 mm), output ke ampli, lubang headphone (3,5 mm) untuk latihan senyap, serta port Aux In (3,5 mm) untuk memutar musik pengiring dari ponsel.\n• Sumber Listrik: Dapat dinyalakan menggunakan dua buah baterai ukuran AAA untuk penggunaan nirkabel di mana saja, atau memakai adaptor listrik DC 9V (center negative).\n\nKelebihan & Keterbatasan\n\n• Kelebihan: Sangat praktis, harga terjangkau, lengkap untuk kebutuhan latihan kamar, dan bisa dipakai tanpa colokan listrik berkat baterai AAA.\n• Keterbatasan: Bodi berbahan plastik dan tombol yang kecil membuatnya kurang cocok diinjak dengan kaki saat tampil di panggung (live), serta karakter suaranya lebih ditujukan untuk latihan daripada rekaman profesional.\nJika Anda tertarik membahas lebih lanjut, beri tahu saya:\n• Tujuan penggunaan (untuk latihan sendiri, kado, atau kebutuhan rekaman ringan)\n• Jenis genre musik yang sering dimainkan\n• Alternatif merek lain di kelas harga serupa jika ingin membandingkan"
+    },
     {
       "id": "prod-1795862138780",
       "name": "cuvave cubaby",
