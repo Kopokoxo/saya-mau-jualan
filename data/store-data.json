@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:27:38.407Z",
+  "updatedAt": "2026-11-28T12:30:49.578Z",
   "products": [
+    {
+      "id": "prod-1795869049558",
+      "name": "mixer mini 2 chanel",
+      "category": "barang second",
+      "price": 125000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mixer-mini-2-chanel-1795869045713-0.avif",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mixer-mini-2-chanel-1795869045713-0.avif"
+      ],
+      "description": "Teyun Q12 (sering dipasarkan sebagai Teyun Mini Mixer 2 Channel atau Sound Card USB Mini Portable) adalah audio interface 2 channel berbiaya sangat terjangkau yang dirancang untuk rekaman rumahan (home recording), podcast, dan live streaming sederhana di PC maupun laptop.\nBerukuran sangat mungil dan ringan, perangkat ini berfungsi sebagai jembatan untuk memasukkan dua sumber suara sekaligus (misalnya mikrofon vokal dan gitar) ke komputer secara plug-and-play tanpa perlu menginstal driver tambahan.\n\nKarakteristik & Fitur Utama\n\n• 2 Input Kombo (XLR / Akai 6,5 mm): Mendukung penggunaan dua mikrofon sekaligus atau kombinasi mikrofon dan instrumen musik, lengkap dengan tombol penguat impedansi tinggi (Hi-Z / +10dB) khusus untuk gitar elektrik maupun akustik elektrik.\n• Dukungan Mikrofon Kondensor: Dilengkapi tombol +48V Phantom Power (aktif untuk kedua channel sekaligus) serta satu colokan tambahan ukuran 3,5 mm untuk mikrofon kondensor jack kecil.\n• Fitur Pemisah Jalur (Stereo Panning): Memiliki tombol pengatur arah suara kiri/kanan (L/R Panning) sehingga suara dari channel 1 dan channel 2 bisa direkam secara terpisah (multitrack kiri-kanan) di aplikasi rekaman.\n• Loopback & Direct Monitoring: Tersedia sakelar untuk merekam suara mikrofon bersamaan dengan suara musik dari komputer (Mic + PC Record) serta tombol direct monitor untuk mendengarkan suara asli melalui headphone tanpa jeda (delay).\n• Desain Ringkas & Tanpa Efek Bawaan: Menggunakan bodi plastik ABS berukuran seukuran telapak tangan (10 × 14 × 4,3 cm) dan ditenagai langsung melalui kabel USB dari komputer atau power bank.\n\nSpesifikasi Teknis\n\n• Resolusi Audio: 16-bit / 48 kHz\n• Respons Frekuensi: 20 Hz – 20 kHz (±1 dB)\n• Rentang Dinamis: 82 dB\n• Konektivitas: 1x Port USB Type-B (ke PC/laptop), 2x Input Kombo XLR/TRS, 1x Input Mic 3,5 mm, 2x Main Output TRS 6,5 mm (L/R), dan 1x Output Headphone 6,5 mm."
+    },
     {
       "id": "prod-1795868858228",
       "name": "PC kere hore",
