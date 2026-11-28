@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-11-28T12:11:08.282Z",
+  "updatedAt": "2026-11-28T12:13:12.383Z",
   "products": [
     {
-      "id": "prod-1795867868261",
-      "name": "Solar Guitar 7 Strings",
+      "id": "prod-1795867992304",
+      "name": "Amplifier Amb Drive",
       "category": "barang second",
-      "price": 6750000,
+      "price": 1000000,
       "stock": 0,
-      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solar-guitar-7-strings-1795867864017-0.jpg",
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amplifier-amb-drive-1795867988219-0.webp",
       "images": [
-        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solar-guitar-7-strings-1795867864017-0.jpg"
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/amplifier-amb-drive-1795867988219-0.webp"
       ],
-      "description": "Gitar Solar 7 Strings Carbon Black (seperti seri S by Solar AB4.7C maupun lini utama Solar A2.7C / A1.7C) adalah gitar elektrik 7 senar berdesain superstrat modern yang dirancang khusus untuk genre musik berat seperti metal, djent, dan rock progresif dengan tampilan serba hitam doff (Carbon Black Matte).\nGitar ini mengutamakan kenyamanan permainan cepat (playability), ketegangan senar rendah yang rapat, serta karakter suara agresif.\n\nKarakteristik & Fitur Utama\n\n• Desain Serba Hitam (Stealth Look): Mengusung bodi dengan potongan tajam (beveled edge) dalam balutan warna Carbon Black Matte yang dipadukan dengan seluruh komponen perangkat keras (hardware) berwarna hitam.\n• Skala Panjang (Baritone Scale 26,5 Inci): Sebagian besar varian 7 senarnya menggunakan panjang skala 26,5 inci untuk menjaga senar ke-7 (nada B rendah atau drop tuning) tetap kencang, stabil, dan tidak kendur saat dimainkan dengan distorsi tinggi."
+      "description": "Ampli Gitar AMB 6 Inch Head Cabinet (sering dipasarkan dengan seri AMB AG-40) adalah amplifier gitar elektrik buatan lokal (Indonesia) dengan desain terpisah antara unit kepala (head) dan kotak pengeras suara (cabinet) berukuran ringkas.\nPerangkat ini dirancang untuk latihan di kamar, jamming santai bersama teman, hingga kebutuhan belajar gitar pemula yang menginginkan tampilan ala ampli panggung namun tetap hemat tempat dan biaya.\n\nKarakteristik & Fitur Utama\n\n• Desain Terpisah (Head & Cabinet): Bagian head (mesin amplifier) dan cabinet (kotak speaker) dibuat terpisah sehingga mudah dipindahkan dan memungkinkan bagian head disambungkan ke kabinet speaker lain yang lebih besar di kemudian hari.\n• Efek Bawaan (Built-in Effects): Sudah dilengkapi efek dasar seperti Distorsi (overdrive/distortion) dan Delay langsung pada panel kontrol, sehingga pemain dapat langsung memainkan lagu rock atau melodi tanpa perlu membeli pedal efek terpisah."
     },
     {
       "id": "prod-1795867112904",
