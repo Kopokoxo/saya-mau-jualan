@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:42:22.146Z",
+  "updatedAt": "2026-11-28T12:48:29.481Z",
   "products": [
+    {
+      "id": "prod-1795870109458",
+      "name": "MOOER GE-150 PRO",
+      "category": "barang second",
+      "price": 2350000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mooer-ge-150-pro-1795870105016-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mooer-ge-150-pro-1795870105016-0.jpg"
+      ],
+      "description": "LIKE NEW ,edisi ga cocok pengen ganti aja yang suport midi controler\n\nMOOER GE150 Pro adalah prosesor multi-efek dan amp modeler gitar elektrik generasi terbaru (penerus seri GE150 standar) yang dirancang ringkas untuk kebutuhan latihan di rumah, rekaman langsung, hingga tampil di panggung (live performance).\nPeningkatan paling menonjol dibanding pendahulunya adalah penambahan jumlah footswitch menjadi 4 tombol multifungsi (sebelumnya hanya 2), desain bahasa visual baru seri GE (\"Walking Star\"), serta kehadiran varian dengan baterai tanam (GE150 Pro Li).\n\nKarakteristik & Fitur Utama\n\n• 4 Footswitch Multifungsi: Memudahkan perpindahan preset (A, B, C, D), mengaktifkan Tap Tempo, hingga mengontrol fungsi Looper saat bermain langsung tanpa harus membungkuk.\n• Amp Modeling & Efek Lengkap: Menyediakan 55 simulasi ampli (preamp) berbasis teknologi MNRS milik MOOER, 26 simulasi kabinet, 151 model efek (dapat menjalankan hingga 9 modul efek secara bersamaan), serta 200 slot preset bawaan.\n• Dukungan IR Pihak Ketiga (Third-Party IR): Menyediakan 10 slot kosong untuk memuat file Impulse Response (IR) kabinet eksternal melalui perangkat lunak editor di komputer atau aplikasi mobile.\n• Pedal Ekspresi Bawaan: Berfungsi ganda sebagai pedal volume maupun pengontrol parameter efek (seperti Wah atau Pitch) dengan sakelar tekan ujung kaki (toe-tap switching).\n• Fitur Latihan Terintegrasi: Dilengkapi layar warna LCD 2,8 inci, tuner presisi tinggi, stereo looper berdurasi 80 detik, serta drum machine dengan 40 pola ritme drum dan 10 mode metronom.\n• USB-C Audio Interface & OTG: Dapat langsung dihubungkan ke PC/Mac sebagai audio interface latensi rendah untuk rekaman, maupun ke smartphone melalui fitur OTG untuk live streaming dan membuat konten video."
+    },
     {
       "id": "prod-1795869742115",
       "name": "Irin Pocket Metal",
