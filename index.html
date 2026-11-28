@@ -4972,6 +4972,15 @@
             sitePanelBackdrop?.classList.add("hidden");
           });
         });
+        document.getElementById("header-theme-btn")?.addEventListener("click", () => {
+          applyTheme(state.theme === "dark" ? "light" : "dark");
+        });
+        document.getElementById("set-theme-light-btn")?.addEventListener("click", () => {
+          applyTheme("light");
+        });
+        document.getElementById("set-theme-dark-btn")?.addEventListener("click", () => {
+          applyTheme("dark");
+        });
         document.getElementById("panel-theme-light-btn")?.addEventListener("click", () => applyTheme("light"));
         document.getElementById("panel-theme-dark-btn")?.addEventListener("click", () => applyTheme("dark"));
         document.getElementById("set-font-standard-btn")?.addEventListener("click", () => {
