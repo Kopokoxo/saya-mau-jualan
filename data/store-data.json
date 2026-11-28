@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T11:17:52.797Z",
+  "updatedAt": "2026-11-28T11:20:51.205Z",
   "products": [
+    {
+      "id": "prod-1795864851141",
+      "name": "Saphue OD clone Tubescreamer",
+      "category": "barang second",
+      "price": 300000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/saphue-od-clone-tubescreamer-1795864847419-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/saphue-od-clone-tubescreamer-1795864847419-0.webp"
+      ],
+      "description": "Saphue Vintage Overdrive (seri SA-01 / SF-01) adalah pedal efek gitar mini berjenis analog overdrive yang terinspirasi dari karakter klasik Tube Screamer. Dengan bodi logam aluminium berwarna hijau muda yang sangat ringkas dan ringan, pedal ini dirancang untuk memberikan dorongan suara hangat (warm) maupun clean boost dengan harga yang ramah di kantong serta hemat ruang di pedalboard.\n\nDesain & Kontrol\n\n• Kontrol 3 Kenop: Dilengkapi pengaturan Drive (mengatur tingkat distorsi/gain), Volume (mengatur level keluaran suara), dan Tone (mengatur kecerahan karakter frekuensi tinggi).\n• Rangkaian True Bypass: Menjaga sinyal asli gitar tetap murni tanpa pemotongan frekuensi saat pedal dalam kondisi mati (off).\n• Konstruksi Fisik: Menggunakan casing paduan aluminium (aluminum alloy) kokoh berukuran sekitar 9,2 × 4,2 × 5,2 cm dengan bobot ±170 gram, dilengkapi lampu indikator LED dan footswitch standar."
+    },
     {
       "id": "prod-1795864672775",
       "name": "DOLAMO CHORUS",
