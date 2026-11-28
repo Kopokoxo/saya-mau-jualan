@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-11-28T11:55:49.369Z",
+  "updatedAt": "2026-11-28T11:58:32.930Z",
   "products": [
+    {
+      "id": "prod-1795867112904",
+      "name": "Speaker Monitor RT-3 Recording tech",
+      "category": "barang second",
+      "price": 1250000,
+      "stock": 0,
+      "image": "",
+      "images": [],
+      "description": "Recording Tech RT3 (sering ditulis RT-3) adalah speaker monitor studio jarak dekat (near-field) berukuran ringkas yang dijual sepasang (kiri aktif dan kanan pasif) dengan dukungan koneksi nirkabel Bluetooth.\nPerangkat ini dirancang untuk kebutuhan produksi musik rumahan (home recording), mixing pemula, editing video, hingga pemakaian multimedia harian di meja kerja yang terbatas.\n\nKarakteristik & Fitur Utama\n\n• Konfigurasi Audio: Menggunakan sistem 2-way yang memadukan woofer berbahan Kevlar berukuran 3,5 inci untuk frekuensi rendah (bass) serta tweeter silk-dome 1 inci untuk frekuensi tinggi (treble) yang halus.\n• Konektivitas Lengkap: Mendukung Bluetooth 5.0 untuk pemutaran audio nirkabel dari ponsel atau laptop, serta dilengkapi input kabel 1/4\" TRS (balanced), RCA (unbalanced), dan AUX 3,5 mm di panel depan.\n• Kontrol & Penyesuaian Akustik: Bagian depan"
+    },
     {
       "id": "prod-1795866949346",
       "name": "VEGUE AUDIO INTERFACE",
