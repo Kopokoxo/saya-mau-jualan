@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:46:31.281Z",
+  "updatedAt": "2026-11-28T13:50:24.177Z",
   "products": [
+    {
+      "id": "prod-1795873824122",
+      "name": "Mvave Universe Reverb",
+      "category": "barang preorder",
+      "price": 678000,
+      "stock": 2,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-universe-reverb-1795873819131-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/mvave-universe-reverb-1795873819131-0.webp"
+      ],
+      "description": "M-VAVE Mini Universe adalah pedal efek digital reverb gitar elektrik berukuran ringkas berbodi logam yang menawarkan 9 mode algoritma reverb—mulai dari gema ruangan alami hingga tekstur ambient luas—dengan harga sangat terjangkau dan dukungan dua opsi sumber daya listrik.\nPerangkat ini populer di kalangan gitaris karena mampu menghasilkan suara ambient dan shimmer kelas studio dalam ukuran kompak yang hemat ruang di pedalboard.\n\nKarakteristik & Fitur Utama\n\n• 9 Mode Reverb Lengkap: Menyediakan pilihan karakter gema yang sangat bervariasi dalam satu kenop pemilih mode, yaitu:\n\t• Klasik & Alami: Room, Hall, Plate, dan Spring.\n\t• Ambient & Eksperimental: Shimmer (gema dengan harmonik oktaf tinggi), Cloud, Bloom, Swell (efek volume swell otomatis), dan Lo-fi.\n• 6 Kenop Kontrol Fleksibel:\n\t• Decay: Mengatur panjang durasi ekor gema (reverb).\n\t• Mix: Mengatur perbandingan volume sinyal asli gitar (dry) dengan sinyal efek gema (wet).\n\t• Mode Selector: Memilih salah satu dari 9 jenis reverb.\n\t• Param 1, Param 2, & Param 3: Tiga kenop parameter dinamis yang fungsinya berubah menyesuaikan mode reverb yang sedang dipilih"
+    },
     {
       "id": "prod-1795873591238",
       "name": "TANK-G b(isa request custom Ultra Rig Firmware)",
