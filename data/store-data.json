@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:52:18.653Z",
+  "updatedAt": "2026-11-28T13:03:21.600Z",
   "products": [
+    {
+      "id": "prod-1795871001571",
+      "name": "SAMSUNG J2 OPTIMUS PRIME",
+      "category": "barang second",
+      "price": 275000,
+      "stock": 17,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/samsung-j2-optimus-prime-1795870998384-0.avif",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/samsung-j2-optimus-prime-1795870998384-0.avif"
+      ],
+      "description": "ARTEFAK BAHAN MODAL BUZER SOSMED ,\nSamsung Galaxy J2 Prime adalah ponsel pintar entry-level yang dirilis pada November 2016 dengan layar 5 inci dan dukungan jaringan 4G LTE. Perangkat ini sudah dihentikan produksinya oleh Samsung, sehingga unit yang beredar saat ini umumnya berupa stok lama atau barang bekas"
+    },
     {
       "id": "prod-1795870338610",
       "name": "rexus mechanical keyboard",
