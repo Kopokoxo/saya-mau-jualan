@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:17:16.274Z",
+  "updatedAt": "2026-11-28T13:22:56.391Z",
   "products": [
+    {
+      "id": "prod-1795872176305",
+      "name": "NANOCORE",
+      "category": "barang preorder",
+      "price": 675000,
+      "stock": 5,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/nanocore-1795872172138-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/nanocore-1795872172138-0.webp"
+      ],
+      "description": "NANOCORE Si kecil imut ,sound mayan suport NAM ,Barang Ghoib mungkin 2 bln lagi sudah hilang di pasaran\n\nLIVTRA NANOCORE adalah prosesor multi-efek dan amp modeler gitar/bass berukuran saku (pocket-size) yang sangat ringan, dirancang untuk kebutuhan latihan, rekaman langsung (direct recording), hingga tampil di panggung dengan dukungan teknologi tone capture (RESONA / NAM) serta impor IR pihak ketiga.\nDengan bobot hanya 126 gram dan layar berwarna terang, perangkat ini menawarkan rantai efek lengkap dalam ukuran yang muat di saku tas gitar.\n\nKarakteristik & Fitur Utama\n\n• Rantai Sinyal 8+1 Modul Aktif: Dapat menjalankan hingga 8 modul efek sekaligus dengan urutan yang bisa diatur ulang, mencakup FX1 (Noise Gate, Compressor), FX2 (Drive, Pitch Shift, Wah), AMP (30 slot: 25 model ampli gitar + 5 model ampli bass), CAB (30 slot kabinet), DEL (Delay), MOD (Chorus, Phaser, Flanger, Tremolo, Vibrato), REV (Room, Hall, Spring, Shimmer, Cloud), serta EQ (3/6/8-band).\n• Dukungan Tone Capture (RESONA / NAM) & Third-Party IR: Setiap slot AMP mendukung pemuatan profil tangkapan ampli (tone capture) berbasis RESONA maupun file NAM (Neural Amp Modeler), sementara slot CAB mendukung file Impulse Response (IR) eksternal melalui perangkat lunak desktop ToneCommand.\n• Baterai Tanam Tahan Lama: Dibekali baterai lithium 1300mAh yang sanggup bertahan sekitar 9 hingga 10 jam pemakaian dalam sekali pengisian daya melalui USB-C.\n• USB-C Audio Interface & Loopback: Berfungsi langsung sebagai audio interface (driverless / tanpa instal driver) untuk merekam ke PC/Mac maupun smartphone, lengkap dengan fitur Loopback dan pemutaran backing track lewat Bluetooth atau USB.\n• Kontrol & Kustomisasi Tampilan: Dilengkapi layar warna TFT 2,4 inci yang mendukung kustomisasi tema tampilan (custom UI theme), dukungan AI Drum, serta kontrol MIDI baik secara nirkabel (Bluetooth MIDI) maupun berkabel."
+    },
     {
       "id": "prod-1795871836231",
       "name": "KZ EDX Pro X with Mic In Ear Monitor Single Dynamic Driver",
