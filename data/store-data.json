@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T10:43:14.147Z",
+  "updatedAt": "2026-11-28T10:46:50.133Z",
   "products": [
+    {
+      "id": "prod-1795862810068",
+      "name": "Blackbox",
+      "category": "barang second",
+      "price": 850000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/blackbox-1795862805815-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/blackbox-1795862805815-0.webp"
+      ],
+      "description": "M-VAVE ANN Blackbox adalah prosesor multi-efek dan amp modeler portabel untuk gitar dan bass dengan layar warna serta teknologi pemodelan Audio Neural Network (ANN) dan dukungan Neural Amp Modeler (NAM).\n• Teknologi & Modul Efek: Mendukung 6+1 modul efek simultan yang dapat diubah urutannya (FX/Gate/Boost/Comp/OD, 20 Preamp Amp + EQ, 7 Modulation, 5 Delay, 6 Reverb, dan 20 slot IR Cabinet).\n• Memori & Antarmuka: Menyediakan 80 slot preset (40 pabrik + 40 pengguna), layar warna, bodi full metal (±410–470 gram), dan 2 footswitch multifungsi.\n• Konektivitas & Daya: Audio interface USB Type-C (44,1 kHz / 24-bit) dengan fitur OTG & Loopback, pemutar audio Bluetooth, pengaturan via aplikasi M-EFCS (Android/iOS/PC/Mac), serta baterai tanam 2000 mAh yang bertahan hingga 10 jam"
+    },
     {
       "id": "prod-1795862594135",
       "name": "Behringer Ultra Metal",
