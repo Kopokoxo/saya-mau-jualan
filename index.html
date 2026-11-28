@@ -1680,7 +1680,7 @@
           </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-          <span id="remote-sync-badge" class="sync-status-pill">Mode Lokal &amp; Siap Sync</span>
+          <span id="remote-sync-badge" class="sync-status-pill">Auto-Sync Aktif</span>
           <button type="button" class="btn-primary" data-jump-tab="produk">Jelajahi Produk</button>
           <button type="button" class="btn-secondary" data-jump-tab="musik">Musik Ewinth Revenge</button>
         </div>
@@ -2349,6 +2349,7 @@
         ghCfg: "smj_gh_cfg_v1",
       };
       const SESSION_TOKEN_KEY = "smj_gh_pat_v1";
+      const LOCAL_TOKEN_KEY = "smj_gh_pat_persist_v1";
 
       const DEFAULT_PRODUCTS = [
         {
@@ -2563,7 +2564,7 @@
           owner: String(savedGh.owner || EMBEDDED_GH_CFG.owner || detectedGh.owner || "").trim(),
           repo: String(savedGh.repo || EMBEDDED_GH_CFG.repo || detectedGh.repo || "").trim(),
           branch: String(savedGh.branch || EMBEDDED_GH_CFG.branch || detectedGh.branch || "main").trim() || "main",
-          token: safeGetSession(SESSION_TOKEN_KEY) || "",
+          token: safeGetItem(LOCAL_TOKEN_KEY) || safeGetSession(SESSION_TOKEN_KEY) || "",
         },
         selectedShippingId: "",
         selectedPaymentId: "qris",
@@ -3947,10 +3948,32 @@
         let bin = "";
         for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
         const b64 = btoa(bin);
-        await ghPutFile("data/store-data.json", b64, "Sync store-data.json");
+        await ghPutFile("data/store-data.json", b64, "Auto-sync store-data.json");
         const badge = document.getElementById("remote-sync-badge");
-        if (badge) badge.textContent = "Tersinkron GitHub";
-        if (!silent) setGhStatus("Berhasil menyinkronkan data ke GitHub.", false);
+        if (badge) badge.textContent = "Auto-Sync Aktif";
+        if (!silent) setGhStatus("Auto-Sync Aktif — data tersinkron ke GitHub.", false);
+      }
+
+      async function autoSyncGithubAfterChange(actionLabel) {
+        saveLocalStore();
+        const { owner, repo, token } = state.github;
+        const badge = document.getElementById("remote-sync-badge");
+        if (!owner || !repo || !token) {
+          if (badge) badge.textContent = "Auto-Sync Siap";
+          return;
+        }
+        try {
+          if (badge) badge.textContent = "Auto-Sync...";
+          setGhStatus(`Auto-sync ${actionLabel || "perubahan"} ke GitHub...`, false);
+          await publishStoreJsonToGithub(true);
+          if (badge) badge.textContent = "Auto-Sync Aktif";
+          setGhStatus(`Auto-Sync Aktif — ${actionLabel || "perubahan"} tersinkron ke GitHub.`, false);
+        } catch (err) {
+          const msg = err && err.message ? err.message : "Gagal auto-sync ke GitHub.";
+          if (badge) badge.textContent = "Auto-Sync (Cek Token)";
+          setGhStatus(`Auto-sync gagal (cek Token API): ${msg}`, true);
+          showToast("Auto-sync gagal — periksa Token API GitHub.");
+        }
       }
 
       async function loadRemoteStoreData() {
@@ -3971,13 +3994,13 @@
             const data = await res.json();
             if (data && typeof data === "object") {
               applyRemoteStorePayload(data);
-              if (badge) badge.textContent = "Live GitHub Sync";
+              if (badge) badge.textContent = "Auto-Sync Aktif";
               return true;
             }
           } catch (_) {}
         }
 
-        if (badge) badge.textContent = owner && repo ? "Live Siap (Belum Ada JSON)" : "Mode Lokal";
+        if (badge) badge.textContent = "Auto-Sync Siap";
         return false;
       }
 
@@ -4111,10 +4134,10 @@
             const idx = Number(delProdBtn.getAttribute("data-del-prod"));
             if (!isNaN(idx) && state.products[idx]) {
               state.products.splice(idx, 1);
-              saveLocalStore();
               renderProducts();
               renderAdminProductsList();
-              showToast("Produk dihapus.");
+              autoSyncGithubAfterChange("hapus produk");
+              showToast("Produk dihapus & auto-sync.");
             }
             return;
           }
@@ -4124,10 +4147,10 @@
             const idx = Number(delTrackBtn.getAttribute("data-del-track"));
             if (!isNaN(idx) && state.music.tracks[idx]) {
               state.music.tracks.splice(idx, 1);
-              saveLocalStore();
               renderMusicView();
               renderAdminMusicList();
-              showToast("Lagu dihapus.");
+              autoSyncGithubAfterChange("hapus lagu");
+              showToast("Lagu dihapus & auto-sync.");
             }
             return;
           }
@@ -4140,9 +4163,9 @@
               imgs.splice(idx, 1);
               state.promo.images = imgs;
               state.promo.image = imgs[0] || "";
-              saveLocalStore();
               renderPromoView();
               renderAdminPromoPhotosPreview();
+              autoSyncGithubAfterChange("hapus foto promo");
               const urlInp = document.getElementById("admin-promo-img-url");
               if (urlInp) urlInp.value = imgs.join(", ");
             }
@@ -4154,9 +4177,9 @@
             const idx = Number(delShipBtn.getAttribute("data-del-ship"));
             if (!isNaN(idx) && state.shipping[idx]) {
               state.shipping.splice(idx, 1);
-              saveLocalStore();
               renderAdminShippingList();
               renderCheckoutView();
+              autoSyncGithubAfterChange("hapus kurir");
             }
             return;
           }
@@ -4166,9 +4189,9 @@
             const idx = Number(delPayBtn.getAttribute("data-del-pay"));
             if (!isNaN(idx) && state.payments[idx]) {
               state.payments.splice(idx, 1);
-              saveLocalStore();
               renderAdminPaymentsEditor();
               renderCheckoutView();
+              autoSyncGithubAfterChange("hapus metode pembayaran");
             }
             return;
           }
@@ -4178,9 +4201,9 @@
             const idx = Number(delSocBtn.getAttribute("data-del-soc"));
             if (!isNaN(idx) && state.contact.socials[idx]) {
               state.contact.socials.splice(idx, 1);
-              saveLocalStore();
               renderAdminSocialsList();
               renderContactView();
+              autoSyncGithubAfterChange("hapus media sosial");
             }
             return;
           }
@@ -4498,10 +4521,11 @@
           const token = String(document.getElementById("gh-token-input")?.value || "").trim();
           state.github = { owner, repo, branch, token };
           safeSetItem(STORAGE_KEYS.ghCfg, JSON.stringify({ owner, repo, branch }));
-          if (token) safeSetSession(SESSION_TOKEN_KEY, token);
-          setGhStatus("Konfigurasi GitHub disimpan. Mengambil data terbaru...", false);
+          safeSetItem(LOCAL_TOKEN_KEY, token);
+          safeSetSession(SESSION_TOKEN_KEY, token);
+          setGhStatus("Konfigurasi & Token GitHub disimpan. Mengambil data terbaru...", false);
           await loadRemoteStoreData();
-          showToast("Konfigurasi GitHub tersimpan.");
+          showToast("Konfigurasi & Token GitHub tersimpan.");
         });
 
         document.getElementById("gh-publish-json-btn")?.addEventListener("click", async () => {
@@ -4512,7 +4536,8 @@
             const token = String(document.getElementById("gh-token-input")?.value || state.github.token || "").trim();
             state.github = { owner, repo, branch, token };
             safeSetItem(STORAGE_KEYS.ghCfg, JSON.stringify({ owner, repo, branch }));
-            if (token) safeSetSession(SESSION_TOKEN_KEY, token);
+            safeSetItem(LOCAL_TOKEN_KEY, token);
+            safeSetSession(SESSION_TOKEN_KEY, token);
             await publishStoreJsonToGithub(false);
             showToast("JSON berhasil di-sync ke GitHub!");
           } catch (err) {
@@ -4532,9 +4557,9 @@
             showToast("Nama produk wajib diisi.");
             return;
           }
-          const images = [];
-          for (const f of files) {
-            try {
+          try {
+            const images = [];
+            for (const f of files) {
               const b64 = await fileToBase64(f);
               if (state.github.owner && state.github.repo && state.github.token) {
                 const path = `assets/products/${slugify(title, "prod")}-${Date.now()}-${images.length}.${(f.name.split(".").pop() || "jpg").toLowerCase()}`;
@@ -4543,23 +4568,25 @@
               } else {
                 images.push(`data:${f.type || "image/jpeg"};base64,${b64}`);
               }
-            } catch (_) {}
+            }
+            const prod = {
+              id: "prod-" + Date.now(),
+              name: title,
+              category,
+              price,
+              stock,
+              image: images[0] || "",
+              images,
+              description,
+            };
+            state.products.unshift(prod);
+            renderProducts();
+            renderAdminProductsList();
+            await autoSyncGithubAfterChange("produk baru");
+            showToast("Produk ditambahkan & otomatis tersinkron ke GitHub.");
+          } catch (err) {
+            showToast(err && err.message ? err.message : "Gagal upload produk ke GitHub.");
           }
-          const prod = {
-            id: "prod-" + Date.now(),
-            name: title,
-            category,
-            price,
-            stock,
-            image: images[0] || "",
-            images,
-            description,
-          };
-          state.products.unshift(prod);
-          saveLocalStore();
-          renderProducts();
-          renderAdminProductsList();
-          showToast("Produk ditambahkan.");
         });
 
         // Admin add music track
@@ -4571,115 +4598,123 @@
             showToast("Judul lagu wajib diisi.");
             return;
           }
-          let audioUrl = "";
-          let coverUrl = "";
-          if (audioFile) {
-            const b64 = await fileToBase64(audioFile);
-            if (state.github.owner && state.github.repo && state.github.token) {
-              const p = `assets/music/${slugify(title, "track")}-${Date.now()}.mp3`;
-              await ghPutFile(p, b64, `Upload ${p}`);
-              audioUrl = `https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${p}`;
-            } else {
-              audioUrl = `data:${audioFile.type || "audio/mpeg"};base64,${b64}`;
+          try {
+            let audioUrl = "";
+            let coverUrl = "";
+            if (audioFile) {
+              const b64 = await fileToBase64(audioFile);
+              if (state.github.owner && state.github.repo && state.github.token) {
+                const p = `assets/music/${slugify(title, "track")}-${Date.now()}.mp3`;
+                await ghPutFile(p, b64, `Upload ${p}`);
+                audioUrl = `https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${p}`;
+              } else {
+                audioUrl = `data:${audioFile.type || "audio/mpeg"};base64,${b64}`;
+              }
             }
-          }
-          if (coverFile) {
-            const cb64 = await fileToBase64(coverFile);
-            if (state.github.owner && state.github.repo && state.github.token) {
-              const cp = `assets/music/cover-${slugify(title, "track")}-${Date.now()}.jpg`;
-              await ghPutFile(cp, cb64, `Upload ${cp}`);
-              coverUrl = `https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${cp}`;
-            } else {
-              coverUrl = `data:${coverFile.type || "image/jpeg"};base64,${cb64}`;
+            if (coverFile) {
+              const cb64 = await fileToBase64(coverFile);
+              if (state.github.owner && state.github.repo && state.github.token) {
+                const cp = `assets/music/cover-${slugify(title, "track")}-${Date.now()}.jpg`;
+                await ghPutFile(cp, cb64, `Upload ${cp}`);
+                coverUrl = `https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${cp}`;
+              } else {
+                coverUrl = `data:${coverFile.type || "image/jpeg"};base64,${cb64}`;
+              }
             }
+            state.music.tracks.push({
+              id: "tr-" + Date.now(),
+              title,
+              artist: "Ewinth Revenge",
+              cover: coverUrl,
+              audioUrl,
+              synthNotes: [220, 261.63, 329.63, 392],
+            });
+            renderMusicView();
+            renderAdminMusicList();
+            await autoSyncGithubAfterChange("lagu baru");
+            showToast("Lagu ditambahkan & otomatis tersinkron ke GitHub.");
+          } catch (err) {
+            showToast(err && err.message ? err.message : "Gagal upload lagu ke GitHub.");
           }
-          state.music.tracks.push({
-            id: "tr-" + Date.now(),
-            title,
-            artist: "Ewinth Revenge",
-            cover: coverUrl,
-            audioUrl,
-            synthNotes: [220, 261.63, 329.63, 392],
-          });
-          saveLocalStore();
-          renderMusicView();
-          renderAdminMusicList();
-          showToast("Lagu ditambahkan.");
         });
 
         // Admin promo (up to 5 photos)
         document.getElementById("admin-save-promo-btn")?.addEventListener("click", async () => {
-          const title = String(document.getElementById("admin-promo-title")?.value || "").trim() || DEFAULT_PROMO.title;
-          const description = String(document.getElementById("admin-promo-desc")?.value || "").trim();
-          const urlRaw = String(document.getElementById("admin-promo-img-url")?.value || "").trim();
-          const urlList = urlRaw ? urlRaw.split(",").map((s) => s.trim()).filter(Boolean) : [];
-          const files = Array.from(document.getElementById("admin-promo-file")?.files || []);
+          try {
+            const title = String(document.getElementById("admin-promo-title")?.value || "").trim() || DEFAULT_PROMO.title;
+            const description = String(document.getElementById("admin-promo-desc")?.value || "").trim();
+            const urlRaw = String(document.getElementById("admin-promo-img-url")?.value || "").trim();
+            const urlList = urlRaw ? urlRaw.split(",").map((s) => s.trim()).filter(Boolean) : [];
+            const files = Array.from(document.getElementById("admin-promo-file")?.files || []);
 
-          let imgs = urlList.length ? urlList : getPromoImages(state.promo);
-          for (const f of files) {
-            if (imgs.length >= 5) break;
-            const b64 = await fileToBase64(f);
-            if (state.github.owner && state.github.repo && state.github.token) {
-              const p = `assets/promo/promo-${Date.now()}-${imgs.length}.${(f.name.split(".").pop() || "jpg").toLowerCase()}`;
-              await ghPutFile(p, b64, `Upload ${p}`);
-              imgs.push(`https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${p}`);
-            } else {
-              imgs.push(`data:${f.type || "image/jpeg"};base64,${b64}`);
+            let imgs = urlList.length ? urlList : getPromoImages(state.promo);
+            for (const f of files) {
+              if (imgs.length >= 5) break;
+              const b64 = await fileToBase64(f);
+              if (state.github.owner && state.github.repo && state.github.token) {
+                const p = `assets/promo/promo-${Date.now()}-${imgs.length}.${(f.name.split(".").pop() || "jpg").toLowerCase()}`;
+                await ghPutFile(p, b64, `Upload ${p}`);
+                imgs.push(`https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${p}`);
+              } else {
+                imgs.push(`data:${f.type || "image/jpeg"};base64,${b64}`);
+              }
             }
+            imgs = imgs.slice(0, 5);
+            state.promo = { title, description, image: imgs[0] || "", images: imgs };
+            renderPromoView();
+            renderAdminPromoPhotosPreview();
+            await autoSyncGithubAfterChange("promo");
+            showToast("Promo disimpan & otomatis tersinkron.");
+          } catch (err) {
+            showToast(err && err.message ? err.message : "Gagal simpan promo ke GitHub.");
           }
-          imgs = imgs.slice(0, 5);
-          state.promo = { title, description, image: imgs[0] || "", images: imgs };
-          saveLocalStore();
-          renderPromoView();
-          renderAdminPromoPhotosPreview();
-          showToast("Promo disimpan.");
         });
 
         // Admin shipping
-        document.getElementById("admin-add-ship-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-add-ship-btn")?.addEventListener("click", async () => {
           const name = String(document.getElementById("admin-new-ship-name")?.value || "").trim();
           const cost = Number(document.getElementById("admin-new-ship-cost")?.value) || 0;
           if (!name) return;
           state.shipping.push({ id: slugify(name, "ship") + "-" + Date.now().toString().slice(-4), name, cost, eta: "2-4 Hari", enabled: true });
-          saveLocalStore();
           renderAdminShippingList();
           renderCheckoutView();
+          await autoSyncGithubAfterChange("tambah kurir");
         });
-        document.getElementById("admin-save-shipping-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-save-shipping-btn")?.addEventListener("click", async () => {
           state.shipping.forEach((s, idx) => {
             const chk = document.querySelector(`[data-ship-enabled="${idx}"]`);
             const costInp = document.querySelector(`[data-ship-cost="${idx}"]`);
             if (chk instanceof HTMLInputElement) s.enabled = chk.checked;
             if (costInp instanceof HTMLInputElement) s.cost = Number(costInp.value) || 0;
           });
-          saveLocalStore();
           renderCheckoutView();
-          showToast("Pengaturan pengiriman disimpan.");
+          await autoSyncGithubAfterChange("pengiriman");
+          showToast("Pengaturan pengiriman disimpan & otomatis tersinkron.");
         });
 
         // Admin payments, contact & socials
         document.getElementById("admin-payment-select")?.addEventListener("change", () => renderAdminPaymentsEditor());
-        document.getElementById("admin-apply-payment-opt-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-apply-payment-opt-btn")?.addEventListener("click", async () => {
           const idx = Number(document.getElementById("admin-payment-select")?.value) || 0;
           const det = String(document.getElementById("admin-payment-detail-input")?.value || "").trim();
           const en = Boolean(document.getElementById("admin-payment-enabled-chk")?.checked);
           if (state.payments[idx]) {
             state.payments[idx].detail = det;
             state.payments[idx].enabled = en;
-            saveLocalStore();
             renderAdminPaymentsEditor();
             renderCheckoutView();
-            showToast("Metode pembayaran diperbarui.");
+            await autoSyncGithubAfterChange("metode pembayaran");
+            showToast("Metode pembayaran diperbarui & otomatis tersinkron.");
           }
         });
-        document.getElementById("admin-add-payment-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-add-payment-btn")?.addEventListener("click", async () => {
           const label = String(document.getElementById("admin-new-pay-label")?.value || "").trim();
           const detail = String(document.getElementById("admin-new-pay-detail")?.value || "").trim();
           if (!label) return;
           state.payments.push({ id: slugify(label, "pay") + "-" + Date.now().toString().slice(-4), label, detail, enabled: true });
-          saveLocalStore();
           renderAdminPaymentsEditor();
           renderCheckoutView();
+          await autoSyncGithubAfterChange("tambah pembayaran");
         });
         document.getElementById("admin-save-contact-btn")?.addEventListener("click", async () => {
           state.contact.wa = String(document.getElementById("admin-wa-input")?.value || "").trim() || DEFAULT_CONTACT.wa;
@@ -4690,33 +4725,39 @@
           const qrisFile = document.getElementById("admin-qris-file")?.files?.[0];
           if (qrisFile) {
             const b64 = await fileToBase64(qrisFile);
-            qrisUrl = `data:${qrisFile.type || "image/png"};base64,${b64}`;
+            if (state.github.owner && state.github.repo && state.github.token) {
+              const qp = `assets/qris/qris-${Date.now()}.${(qrisFile.name.split(".").pop() || "png").toLowerCase()}`;
+              await ghPutFile(qp, b64, `Upload ${qp}`);
+              qrisUrl = `https://raw.githubusercontent.com/${encodeURIComponent(state.github.owner)}/${encodeURIComponent(state.github.repo)}/${encodeURIComponent(state.github.branch || "main")}/${qp}`;
+            } else {
+              qrisUrl = `data:${qrisFile.type || "image/png"};base64,${b64}`;
+            }
           }
           if (qrisUrl) state.contact.qrisImage = qrisUrl;
-          saveLocalStore();
           renderContactView();
           updateCheckoutTotals();
-          showToast("Kontak & QRIS disimpan.");
+          await autoSyncGithubAfterChange("kontak & QRIS");
+          showToast("Kontak & QRIS disimpan & otomatis tersinkron.");
         });
-        document.getElementById("admin-add-social-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-add-social-btn")?.addEventListener("click", async () => {
           const label = String(document.getElementById("admin-new-social-label")?.value || "").trim();
           const url = String(document.getElementById("admin-new-social-url")?.value || "").trim();
           if (!label || !url) return;
           state.contact.socials.push({ label, url });
-          saveLocalStore();
           renderAdminSocialsList();
           renderContactView();
+          await autoSyncGithubAfterChange("tambah sosmed");
         });
-        document.getElementById("admin-save-socials-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-save-socials-btn")?.addEventListener("click", async () => {
           (state.contact.socials || []).forEach((s, i) => {
             const lInp = document.querySelector(`[data-soc-label="${i}"]`);
             const uInp = document.querySelector(`[data-soc-url="${i}"]`);
             if (lInp instanceof HTMLInputElement) s.label = lInp.value.trim() || s.label;
             if (uInp instanceof HTMLInputElement) s.url = uInp.value.trim() || s.url;
           });
-          saveLocalStore();
           renderContactView();
-          showToast("Link media sosial disimpan.");
+          await autoSyncGithubAfterChange("link sosmed");
+          showToast("Link media sosial disimpan & otomatis tersinkron.");
         });
 
         // Admin buyers & sold history export/clear + backup
@@ -4726,19 +4767,19 @@
           if (box) box.value = payload;
           showToast("Data pembeli & riwayat terjual siap disalin.");
         });
-        document.getElementById("admin-clear-buyers-history-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-clear-buyers-history-btn")?.addEventListener("click", async () => {
           state.sold = [];
-          saveLocalStore();
           renderSoldView();
           renderAdminBuyersAndSold();
-          showToast("Riwayat terjual dihapus.");
+          await autoSyncGithubAfterChange("hapus riwayat terjual");
+          showToast("Riwayat terjual dihapus & otomatis tersinkron.");
         });
         document.getElementById("admin-export-json-btn")?.addEventListener("click", () => {
           const box = document.getElementById("admin-json-box");
           if (box) box.value = JSON.stringify(buildStorePayload(), null, 2);
           showToast("JSON diekspor ke kotak teks.");
         });
-        document.getElementById("admin-import-json-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-import-json-btn")?.addEventListener("click", async () => {
           const box = document.getElementById("admin-json-box");
           const parsed = safeParseJson(box ? box.value : "", null);
           if (!parsed) {
@@ -4746,9 +4787,10 @@
             return;
           }
           applyRemoteStorePayload(parsed);
-          showToast("JSON berhasil diimpor.");
+          await autoSyncGithubAfterChange("import JSON");
+          showToast("JSON berhasil diimpor & otomatis tersinkron.");
         });
-        document.getElementById("admin-reset-data-btn")?.addEventListener("click", () => {
+        document.getElementById("admin-reset-data-btn")?.addEventListener("click", async () => {
           state.products = DEFAULT_PRODUCTS.map((x) => ({ ...x }));
           state.sold = [];
           state.buyersLog = [];
@@ -4760,7 +4802,8 @@
           saveLocalStore();
           syncAdminInputs();
           applyRemoteStorePayload(buildStorePayload());
-          showToast("Data direset ke default.");
+          await autoSyncGithubAfterChange("reset data");
+          showToast("Data direset & otomatis tersinkron.");
         });
       }
 
@@ -4784,6 +4827,9 @@
         syncBadges();
         bindEvents();
         loadRemoteStoreData();
+        setInterval(() => {
+          loadRemoteStoreData();
+        }, 30000);
       }
 
       if (document.readyState === "loading") {
