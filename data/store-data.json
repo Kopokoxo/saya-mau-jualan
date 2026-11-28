@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:12:57.016Z",
+  "updatedAt": "2026-11-28T13:17:16.274Z",
   "products": [
+    {
+      "id": "prod-1795871836231",
+      "name": "KZ EDX Pro X with Mic In Ear Monitor Single Dynamic Driver",
+      "category": "barang baru",
+      "price": 165000,
+      "stock": 2,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/kz-edx-pro-x-with-mic-in-ear-monitor-single-dynamic-driver-1795871831517-0.avif",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/kz-edx-pro-x-with-mic-in-ear-monitor-single-dynamic-driver-1795871831517-0.avif"
+      ],
+      "description": "IEM KZ (In-Ear Monitor merek Knowledge Zenith) adalah lini earphone monitor dalam telinga yang sangat populer di kalangan musisi, gamer, dan pencinta audio karena menawarkan kualitas suara detail, isolasi suara pasif yang rapat, serta kabel yang bisa dilepas-pasang (detachable 2-pin) dengan harga terjangkau.\nBerikut adalah beberapa seri IEM KZ yang paling banyak direkomendasikan berdasarkan karakter suara dan rentang harganya"
+    },
     {
       "id": "prod-1795871576874",
       "name": "Accoustic Artisan Standard",
