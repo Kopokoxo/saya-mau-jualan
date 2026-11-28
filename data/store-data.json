@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T12:00:03.641Z",
+  "updatedAt": "2026-11-28T12:08:27.486Z",
   "products": [
+    {
+      "id": "prod-1795867707461",
+      "name": "SolarGuitar 7 Strings",
+      "category": "barang second",
+      "price": 6500000,
+      "stock": 0,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solarguitar-7-strings-1795867701627-0.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/solarguitar-7-strings-1795867701627-0.jpg"
+      ],
+      "description": "Gitar Solar 7 Strings Carbon Black (seperti seri S by Solar AB4.7C maupun lini utama Solar A2.7C / A1.7C) adalah gitar elektrik 7 senar berdesain superstrat modern yang dirancang khusus untuk genre musik berat seperti metal, djent, dan rock progresif dengan tampilan serba hitam doff (Carbon Black Matte).\nGitar ini mengutamakan kenyamanan permainan cepat (playability), ketegangan senar rendah yang rapat, serta karakter suara agresif.\n\nKarakteristik & Fitur Utama\n\n• Desain Serba Hitam (Stealth Look): Mengusung bodi dengan potongan tajam (beveled edge) dalam balutan warna Carbon Black Matte yang dipadukan dengan seluruh komponen perangkat keras (hardware) berwarna hitam.\n• Skala Panjang (Baritone Scale 26,5 Inci): Sebagian besar varian 7 senarnya menggunakan panjang skala 26,5 inci untuk menjaga senar ke-7 (nada B rendah atau drop tuning) tetap kencang, stabil, dan tidak kendur saat dimainkan dengan distorsi tinggi."
+    },
     {
       "id": "prod-1795867112904",
       "name": "Speaker Monitor RT-3 Recording tech",
