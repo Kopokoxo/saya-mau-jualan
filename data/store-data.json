@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T10:50:32.616Z",
+  "updatedAt": "2026-11-28T11:14:38.841Z",
   "products": [
+    {
+      "id": "prod-1795864478805",
+      "name": "GP-5",
+      "category": "barang second",
+      "price": 1100000,
+      "stock": 1,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gp-5-1795864475602-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/gp-5-1795864475602-0.webp"
+      ],
+      "description": "Valeton GP-5 adalah pedal prosesor multi-efek digital ultra-ringkas, amp modeller, dan IR loader dalam format stompbox mini. Dirancang sebagai solusi all-in-one yang muat di saku atau celah kecil pedalboard, perangkat ini menggabungkan simulasi ampli, kabinet, serta puluhan efek dalam bodi logam kokoh berukuran 93,5 × 42 × 52 mm dengan bobot hanya 237 gram.\n\nDesain & Antarmuka Fisik\n\n• Konstruksi: Bodi logam ramping yang dirancang tahan banting untuk mobilitas tinggi.\n• Kontrol Langsung: Dilengkapi satu layar LCD kecil, kenop navigasi/parameter utama (PARA), kenop volume, serta satu footswitch dengan cincin LED yang bisa dikustomisasi fungsinya (ganti patch, on/off efek, tuner, atau tap tempo).\n• Konektivitas: Memiliki input mono TS 1/4\", output stereo TRS 1/4\" (yang juga berfungsi langsung sebagai colokan headphone), serta port USB Type-C.\n\nKemampuan Suara & Fitur Inti\n\n• Pemodelan Ampli & NAM: Mendukung teknologi SnapTone (konversi dari Neural Amp Modeler/NAM) dengan 50 profil bawaan dan kapasitas hingga 80 slot, serta mampu memuat hingga 20 file Impulse Response (IR) pihak ketiga.\n• Rantai Efek Lengkap: Menyediakan lebih dari 100 efek bawaan—mulai dari noise gate, kompresor, overdrive/distorsi, modulasi, delay, hingga reverb—dengan hingga 9 blok efek yang dapat aktif bersamaan dan urutan sinyal yang bisa diatur.\n• Koneksi Nirkabel & Rekaman: Dilengkapi Bluetooth 5.0 ganda untuk mengedit parameter secara mendalam lewat aplikasi Valeton Suite (iOS/Android) sekaligus memutar backing track dari ponsel, serta USB Type-C yang berfungsi sebagai audio interface untuk rekaman ke komputer/ponsel dan sumber daya alternatif (selain adaptor DC 9V)."
+    },
     {
       "id": "prod-1795863032605",
       "name": "mvave chocolate basic",
