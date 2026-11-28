@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T05:58:16.114Z",
+  "updatedAt": "2026-11-28T06:00:41.484Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -182,6 +182,19 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/aku-sakit-hati-demo-version-1795845489363.mp3",
+        "synthNotes": [
+          220,
+          261.63,
+          329.63,
+          392
+        ]
+      },
+      {
+        "id": "tr-1795845641437",
+        "title": "hariku sepi (demo version)",
+        "artist": "Ewinth Revenge",
+        "cover": "",
+        "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/hariku-sepi-demo-version-1795845630420.mp3",
         "synthNotes": [
           220,
           261.63,
