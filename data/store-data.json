@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:10:19.876Z",
+  "updatedAt": "2026-11-28T13:12:57.016Z",
   "products": [
+    {
+      "id": "prod-1795871576874",
+      "name": "Accoustic Artisan Standard",
+      "category": "barang preorder",
+      "price": 565000,
+      "stock": 3,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/accoustic-artisan-standard-1795871571861-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/accoustic-artisan-standard-1795871571861-0.webp"
+      ],
+      "description": "PO Langsung dari pabriknya di sukoharjo ,gitar murah enak di mainin"
+    },
     {
       "id": "prod-1795871419820",
       "name": "Accoustic Artisan 3/4 + Preamp",
