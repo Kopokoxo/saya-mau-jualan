@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:26:16.035Z",
+  "updatedAt": "2026-11-28T13:31:53.256Z",
   "products": [
+    {
+      "id": "prod-1795872713230",
+      "name": "3D Print  Bambulab P1S Combo CoreXY Full with AMS",
+      "category": "barang preorder",
+      "price": 14300000,
+      "stock": 2,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/3d-print-bambulab-p1s-combo-corexy-full-with-ams-1795872709600-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/3d-print-bambulab-p1s-combo-corexy-full-with-ams-1795872709600-0.webp"
+      ],
+      "description": "Varian :\n- Dengan AMS, Bisa print 4 warna atau bahan dalam 1 print\n- Tanpa AMS, hanya bisa print 1 warna atau bahan dalam 1 print\n\n\n\n\nKelebihan :\n- Mesin sudah siap pakai setup kurang dari 15 menit\n- High Speed CoreXY sampai kecepatan akselerasi 20000 mm/s3\n- Mesin bisa print 4 warna atau bahan dalam 1 print dengan AMS\n- Dilengkapi vibration compensation, pressure advance\n- Bisa print via wifi dan bluetooth\n- Dilengkapi kamera buat monitoring hasil print\n- Menggunakan magnetic PEI Steel bed jadi print lebih nempel dan gampang lepasin hasil print\n- All metal hotend head sampai temperature 300 derajat\n- Dilengkapi Stainless steel Nozzle bisa print bahan abrasif\n- DIlengkapi carbon fiber mengurangi bau saat printing"
+    },
     {
       "id": "prod-1795872375983",
       "name": "Bluetooth RX TX",
