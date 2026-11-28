@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T05:40:17.362Z",
+  "updatedAt": "2026-11-28T05:44:33.718Z",
   "products": [
     {
       "id": "prod-1795794511480",
@@ -130,6 +130,19 @@
         "artist": "Ewinth Revenge",
         "cover": "",
         "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/8th-1795844410699.mp3",
+        "synthNotes": [
+          220,
+          261.63,
+          329.63,
+          392
+        ]
+      },
+      {
+        "id": "tr-1795844673687",
+        "title": "left for dead (demo version)",
+        "artist": "Ewinth Revenge",
+        "cover": "",
+        "audioUrl": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/music/left-for-dead-demo-version-1795844664198.mp3",
         "synthNotes": [
           220,
           261.63,
