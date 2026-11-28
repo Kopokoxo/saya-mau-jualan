@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-28T13:03:21.600Z",
+  "updatedAt": "2026-11-28T13:10:19.876Z",
   "products": [
+    {
+      "id": "prod-1795871419820",
+      "name": "Accoustic Artisan 3/4 + Preamp",
+      "category": "barang preorder",
+      "price": 675000,
+      "stock": 3,
+      "image": "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/accoustic-artisan-3-4-preamp-1795871414706-0.webp",
+      "images": [
+        "https://raw.githubusercontent.com/kopokoxo/saya-mau-jualan/main/assets/products/accoustic-artisan-3-4-preamp-1795871414706-0.webp"
+      ],
+      "description": "PO Langsung dari pabriknya di sukoharjo ,gitar murah enak di mainin"
+    },
     {
       "id": "prod-1795871001571",
       "name": "SAMSUNG J2 OPTIMUS PRIME",
